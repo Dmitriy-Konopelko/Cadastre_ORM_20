@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastre_ORM_20", "Cadastre_ORM_20\Cadastre_ORM_20.csproj", "{DB268057-D698-4914-8369-4846DD17F9E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8F753DCE-861F-427A-8F43-DC535FDAA4BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastreORMConsole", "Tests\CadastreORMConsole\CadastreORMConsole.csproj", "{40219B49-66CC-4C96-BA51-A4F1C8897E2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{DB268057-D698-4914-8369-4846DD17F9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB268057-D698-4914-8369-4846DD17F9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB268057-D698-4914-8369-4846DD17F9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40219B49-66CC-4C96-BA51-A4F1C8897E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40219B49-66CC-4C96-BA51-A4F1C8897E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40219B49-66CC-4C96-BA51-A4F1C8897E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40219B49-66CC-4C96-BA51-A4F1C8897E2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40219B49-66CC-4C96-BA51-A4F1C8897E2B} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A14D6FFC-A856-4A60-B934-E40957E411D8}
