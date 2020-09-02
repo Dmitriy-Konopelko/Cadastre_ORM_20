@@ -1,0 +1,4 @@
+﻿MvvmLight пакет позволяющий настраивать патерн MVVM в автоматическом режиме
+WPF Prism https://www.nuget.org/packages/Prism.Wpf
+https://github.com/PrismLibrary/Prism
+Более мощный пакет
