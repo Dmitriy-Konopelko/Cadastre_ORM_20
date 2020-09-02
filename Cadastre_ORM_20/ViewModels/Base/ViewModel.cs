@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Cadastre_ORM_20.ViewModel.Base
+namespace Cadastre_ORM_20.ViewModels.Base
 {
     internal abstract class ViewModel : INotifyPropertyChanged, IDisposable
     {
@@ -21,6 +21,7 @@ namespace Cadastre_ORM_20.ViewModel.Base
             return true;
         }
 
+        // Реализация интерфейса IDisposable
         public void Dispose()
         {
             Dispose(true);
