@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="Cadastre_ORM_20.App"
+    x:Class="Cadastre_ORM_20_WPF_Tests.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Cadastre_ORM_20"
+    xmlns:local="clr-namespace:Cadastre_ORM_20_WPF_Tests"
     StartupUri="MainWindow.xaml">
     <Application.Resources />
 </Application>
