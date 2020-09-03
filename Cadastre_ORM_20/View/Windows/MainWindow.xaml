@@ -13,18 +13,28 @@
     MinWidth="400"
     MinHeight="200"
     mc:Ignorable="d">
+    <Window.InputBindings>
+        <KeyBinding
+            Key="Q"
+            Command="{Binding CloseApplicationCommand}"
+            Modifiers="Ctrl" />
+    </Window.InputBindings>
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"></cmd:CloseApplicationCommand>
+    </Window.Resources>
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
+                <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand}"></MenuItem>
                 <!--<MenuItem Command="{Binding CloseApplicationCommand}" Header="Выход" />-->
-                <MenuItem Header="Выход">
+                <!--<MenuItem Header="Выход">
                     <MenuItem.Command>
                         <cmd:CloseApplicationCommand />
                     </MenuItem.Command>
-                </MenuItem>
+                </MenuItem>-->
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе" />
@@ -67,7 +77,11 @@
                         Grid.Column="1"
                         Fill="DarkBlue"
                         Stroke="Beige"
-                        StrokeThickness="10" />
+                        StrokeThickness="10">
+                        <Ellipse.InputBindings>
+                            <MouseBinding Command="{Binding CloseApplicationCommand}" MouseAction="LeftDoubleClick" />
+                        </Ellipse.InputBindings>
+                    </Ellipse>
                     <GridSplitter
                         Grid.RowSpan="2"
                         Grid.Column="0"
