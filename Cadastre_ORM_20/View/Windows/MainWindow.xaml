@@ -18,7 +18,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход" />
+                <MenuItem Header="Выход" Command=""/>
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе" />
@@ -26,7 +26,7 @@
         </Menu>
         <StatusBar Height="20" DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock VerticalAlignment="Center" Text="{Binding Title}" />
+                <TextBlock VerticalAlignment="Center" Text="{Binding Status}" />
             </StatusBarItem>
             <StatusBarItem>
                 <ProgressBar
