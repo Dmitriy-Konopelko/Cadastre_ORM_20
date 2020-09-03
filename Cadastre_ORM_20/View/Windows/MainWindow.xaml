@@ -23,5 +23,11 @@
             VerticalAlignment="Top"
             Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
             TextWrapping="Wrap" />
+        <Slider
+            Width="300"
+            Margin="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Value="{Binding Title}" />
     </Grid>
 </Window>
