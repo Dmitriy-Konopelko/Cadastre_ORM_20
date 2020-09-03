@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cmd="clr-namespace:Cadastre_ORM_20.Infrastructure.Commands"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:l="clr-namespace:Cadastre_ORM_20"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Cadastre_ORM_20.ViewModels"
@@ -20,7 +21,7 @@
             Modifiers="Ctrl" />
     </Window.InputBindings>
     <Window.Resources>
-        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"></cmd:CloseApplicationCommand>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand" />
     </Window.Resources>
     <Window.DataContext>
         <vm:MainWindowViewModel />
@@ -28,7 +29,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand}"></MenuItem>
+                <MenuItem Command="{StaticResource CloseApplicationCommand}" Header="Выход" />
                 <!--<MenuItem Command="{Binding CloseApplicationCommand}" Header="Выход" />-->
                 <!--<MenuItem Header="Выход">
                     <MenuItem.Command>
@@ -89,7 +90,18 @@
                         HorizontalAlignment="Right" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Вкладка 2" />
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome
+                            Height="12"
+                            Margin="1"
+                            Foreground="Aqua"
+                            Icon="AddressCard" />
+                        <TextBlock Text="Вкладка 2" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
