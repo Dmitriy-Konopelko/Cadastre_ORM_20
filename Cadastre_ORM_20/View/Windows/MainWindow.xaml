@@ -16,12 +16,12 @@
     <Grid>
         <TextBox
             x:Name="textBox"
-            Width="120"
-            Height="23"
+            Width="200"
+            Height="20"
             Margin="35,30,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="TextBox"
+            Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
             TextWrapping="Wrap" />
     </Grid>
 </Window>
