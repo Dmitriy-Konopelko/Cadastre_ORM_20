@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using Cadastre_ORM_20.Infrastructure.Commands;
 using Cadastre_ORM_20.ViewModels.Base;
 
 namespace Cadastre_ORM_20.ViewModels
@@ -43,7 +46,29 @@ namespace Cadastre_ORM_20.ViewModels
         }
         #endregion
 
+        #region Команды
 
+        #region CloseApplicationCommand
+        public ICommand CloseApplicationCommand { get; }
 
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanCloseApplicationCommandExecute(object p) => true; 
+        #endregion
+
+        #endregion
+
+        public MainWindowViewModel()
+        {
+            #region Команды
+
+            CloseApplicationCommand = new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            
+            #endregion
+
+        }
     }
 }
