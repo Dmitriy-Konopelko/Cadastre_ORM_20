@@ -9,25 +9,67 @@
     Title="{Binding Path=Title}"
     Width="800"
     Height="450"
+    MinWidth="400"
+    MinHeight="200"
     mc:Ignorable="d">
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
-        <TextBox
-            x:Name="textBox"
-            Width="200"
-            Height="20"
-            Margin="35,30,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
-            TextWrapping="Wrap" />
-        <Slider
-            Width="300"
-            Margin="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Value="{Binding Title}" />
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход" />
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе" />
+            </MenuItem>
+        </Menu>
+        <StatusBar Height="20" DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Title}" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar
+                    Width="200"
+                    Height="13"
+                    VerticalAlignment="Center"
+                    Value="30" />
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl>
+            <TabItem Header="Вкладка 1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="10"
+                        Fill="Blue"
+                        RadiusX="50"
+                        RadiusY="50"
+                        Stroke="Red"
+                        StrokeThickness="10" />
+                    <Ellipse
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Fill="DarkBlue"
+                        Stroke="Beige"
+                        StrokeThickness="10" />
+                    <GridSplitter
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Width="5"
+                        HorizontalAlignment="Right" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Вкладка 2" />
+        </TabControl>
+    </DockPanel>
 </Window>

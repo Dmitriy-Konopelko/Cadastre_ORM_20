@@ -24,5 +24,10 @@ namespace Cadastre_ORM_20
         {
             InitializeComponent();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

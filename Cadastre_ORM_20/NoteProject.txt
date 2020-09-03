@@ -2,3 +2,20 @@
 WPF Prism https://www.nuget.org/packages/Prism.Wpf
 https://github.com/PrismLibrary/Prism
 Более мощный пакет
+
+Копия из Xaml 03-09-20
+<TextBox
+            x:Name="textBox"
+            Width="200"
+            Height="20"
+            Margin="35,30,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
+            TextWrapping="Wrap" />
+        <Slider
+            Width="300"
+            Margin="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Value="{Binding Title}" />
