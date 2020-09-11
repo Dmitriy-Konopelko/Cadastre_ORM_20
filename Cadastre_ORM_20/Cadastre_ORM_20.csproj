@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Model\" />
+    <Folder Include="Models\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>

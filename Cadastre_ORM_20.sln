@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastre_ORM_20_WPF_Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastreORMConsole_Tests", "Tests\CadastreORMConsole_Tests\CadastreORMConsole_Tests.csproj", "{8B2A1DE4-8B47-49B0-9594-5CF1C3943697}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_Cadastre_ORM", "Setup_Cadastre_ORM\Setup_Cadastre_ORM.vdproj", "{3E55350A-3BC0-4E66-BCC4-D2201066CB01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,8 @@ Global
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E55350A-3BC0-4E66-BCC4-D2201066CB01}.Debug|Any CPU.ActiveCfg = Debug
+		{3E55350A-3BC0-4E66-BCC4-D2201066CB01}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1914572C-B936-4C14-BBC7-B718363618BF} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
+		{3E55350A-3BC0-4E66-BCC4-D2201066CB01} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A14D6FFC-A856-4A60-B934-E40957E411D8}
