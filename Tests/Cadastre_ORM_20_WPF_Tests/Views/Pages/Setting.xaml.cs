@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cadastre_ORM_20_WPF_Tests
+namespace Cadastre_ORM_20_WPF_Tests.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Page_1_1.xaml
+    /// Логика взаимодействия для Setting.xaml
     /// </summary>
-    public partial class Page_1_1 : Page
+    public partial class Setting : Page
     {
-        public Page_1_1()
+        public Setting()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

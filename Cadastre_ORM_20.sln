@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastreORMConsole_Tests", 
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_Cadastre_ORM", "Setup_Cadastre_ORM\Setup_Cadastre_ORM.vdproj", "{3E55350A-3BC0-4E66-BCC4-D2201066CB01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM_ClassLibrary", "..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Решения\ClassesModel\ORM_ClassLibrary\ORM_ClassLibrary.csproj", "{2ABC9A54-D582-40EE-902D-F0B63D1092A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E55350A-3BC0-4E66-BCC4-D2201066CB01}.Debug|Any CPU.ActiveCfg = Debug
 		{3E55350A-3BC0-4E66-BCC4-D2201066CB01}.Release|Any CPU.ActiveCfg = Release
+		{2ABC9A54-D582-40EE-902D-F0B63D1092A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABC9A54-D582-40EE-902D-F0B63D1092A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABC9A54-D582-40EE-902D-F0B63D1092A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABC9A54-D582-40EE-902D-F0B63D1092A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

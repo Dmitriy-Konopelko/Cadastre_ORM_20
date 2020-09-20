@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cadastre_ORM_20_WPF_Tests
 {
     /// <summary>
-    /// Логика взаимодействия для TestWindow.xaml
+    /// Логика взаимодействия для Page1.xaml
     /// </summary>
-    public partial class TestWindow : Window
+    public partial class Page1 : Page
     {
-        public TestWindow()
+        public Page1()
         {
             InitializeComponent();
-        }        
+        }
     }
 }

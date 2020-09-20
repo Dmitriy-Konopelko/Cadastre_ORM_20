@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cadastre_ORM_20_WPF_Tests
+namespace Cadastre_ORM_20_WPF_Tests.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для TestWindow.xaml
+    /// Логика взаимодействия для CameralWork.xaml
     /// </summary>
-    public partial class TestWindow : Window
+    public partial class CameralWork : Page
     {
-        public TestWindow()
+        public CameralWork()
         {
-            InitializeComponent();
-        }        
+            //InitializeComponent();
+        }
     }
 }

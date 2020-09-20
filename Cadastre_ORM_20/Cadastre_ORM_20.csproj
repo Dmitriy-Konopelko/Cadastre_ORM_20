@@ -107,6 +107,8 @@
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="Service\" />
+    <Folder Include="View\Page\" />
+    <Folder Include="View\Style\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="NoteProject.txt" />
