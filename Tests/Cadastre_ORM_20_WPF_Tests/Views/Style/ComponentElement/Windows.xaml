@@ -9,7 +9,5 @@
         <Setter Property="MaxWidth" Value="1280" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
-        <!--<Setter Property="FontSize" Value="{StaticResource MenuFontSize}" />-->
     </Style>
-
 </ResourceDictionary>
