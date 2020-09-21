@@ -21,10 +21,7 @@
         <StatusBar Height="30" DockPanel.Dock="Bottom" />
 
         <TabControl TabStripPlacement="Left">
-            <TabItem
-                FontSize="{StaticResource BigFontSize}"
-                Header="Авторизация"
-                Style="{StaticResource TabItemVertical}">
+            <TabItem Header="Авторизация" Style="{DynamicResource TabItemVertical}">
                 <Frame Name="Autorization" Source="/Views/Pages/Autorization.xaml" />
             </TabItem>
             <TabItem

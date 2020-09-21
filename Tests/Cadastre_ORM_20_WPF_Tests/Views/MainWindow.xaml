@@ -13,7 +13,7 @@
     mc:Ignorable="d">
     <Grid>
         <TabControl TabStripPlacement="Left">
-            <TabItem Header="Авторизация" Style="{StaticResource TabItemVertical}">
+            <TabItem Header="Авторизация" Style="{DynamicResource TabItemVertical}">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" MinHeight="40" />
@@ -167,7 +167,7 @@
                         Content="Выход из программы" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Настройки" Style="{StaticResource TabItemVertical}">
+            <TabItem Header="Настройки" Style="{DynamicResource TabItemVertical}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200" />
@@ -185,8 +185,8 @@
                         Header="Журналы" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Полевые работы" Style="{StaticResource TabItemVertical}" />
-            <TabItem Header="Камеральные работы" Style="{StaticResource TabItemVertical}" />
+            <TabItem Header="Полевые работы" Style="{DynamicResource TabItemVertical}" />
+            <TabItem Header="Камеральные работы" Style="{DynamicResource TabItemVertical}" />
         </TabControl>
     </Grid>
 </Window>

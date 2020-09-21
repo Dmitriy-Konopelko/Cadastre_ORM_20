@@ -3,10 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <FontFamily x:Key="BaseFontFamily">Times New Roman</FontFamily>
-
     <system:Double x:Key="SmallFontSize">10</system:Double>
     <system:Double x:Key="NormalFontSize">12</system:Double>
     <system:Double x:Key="MenuFontSize">14</system:Double>
-    <system:Double x:Key="BigFontSize">20</system:Double>
+    <system:Double x:Key="BigFontSize">22</system:Double>
     <system:Double x:Key="TitleFontSize">34</system:Double>
 </ResourceDictionary>

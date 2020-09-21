@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Cadastre_ORM_20_WPF_Tests.Views.Style.ComponentElement">
     <Style x:Key="BaseMenu" TargetType="MenuItem">
-        <!--<Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />-->
-        <!--<Setter Property="FontSize" Value="{StaticResource MenuFontSize}" />-->
+        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource MenuFontSize}" />
     </Style>
 </ResourceDictionary>

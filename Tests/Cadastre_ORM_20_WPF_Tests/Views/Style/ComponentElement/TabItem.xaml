@@ -5,8 +5,8 @@
     xmlns:local="clr-namespace:Cadastre_ORM_20_WPF_Tests.Views.Style.ComponentElement">
     <!--  Базовый стиль  -->
     <Style x:Key="BaseTabItem" TargetType="TabItem">
-        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource MenuFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource BaseFontFamily}" />
+        <Setter Property="FontSize" Value="{DynamicResource MenuFontSize}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="0" />
@@ -34,6 +34,7 @@
         x:Key="TabItemVertical"
         BasedOn="{StaticResource BaseTabItem}"
         TargetType="TabItem">
+        <Setter Property="FontSize" Value="{DynamicResource BigFontSize}" />
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
