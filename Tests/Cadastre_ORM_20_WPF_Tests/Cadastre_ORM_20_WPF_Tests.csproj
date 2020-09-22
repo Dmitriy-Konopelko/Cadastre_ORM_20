@@ -74,6 +74,9 @@
     <Compile Include="Views\Pages\Setting_Site.xaml.cs">
       <DependentUpon>Setting_Site.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Setting_Species.xaml.cs">
+      <DependentUpon>Setting_Species.xaml</DependentUpon>
+    </Compile>
     <Page Include="TestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\Setting_Site.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_Species.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

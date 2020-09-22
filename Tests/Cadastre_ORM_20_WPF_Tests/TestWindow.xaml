@@ -19,7 +19,6 @@
             </MenuItem>
         </Menu>
         <StatusBar Height="30" DockPanel.Dock="Bottom" />
-
         <TabControl TabStripPlacement="Left">
             <TabItem Header="Авторизация" Style="{DynamicResource TabItemVertical}">
                 <Frame Name="Autorization" Source="/Views/Pages/Autorization.xaml" />
