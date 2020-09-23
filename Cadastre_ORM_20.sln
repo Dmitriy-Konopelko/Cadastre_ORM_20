@@ -14,6 +14,10 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_Cadastre_ORM", "Setup_Cadastre_ORM\Setup_Cadastre_ORM.vdproj", "{3E55350A-3BC0-4E66-BCC4-D2201066CB01}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{83C7B198-7140-4055-8C51-271A191A7DD1}"
+	ProjectSection(SolutionItems) = preProject
+		Help.html = Help.html
+		Style.css = Style.css
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{EEDF83DE-23AE-4344-AC8D-CBCC7B5C6B07}"
 	ProjectSection(SolutionItems) = preProject
