@@ -12,6 +12,9 @@
 
     <Grid>
         <TabControl TabStripPlacement="Top">
+            <TabItem Header="Общие" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="General" Source="/views/Pages/Setting_General.xaml" />
+            </TabItem>
             <TabItem Header="Участки" Style="{StaticResource TabItemHorizontal}">
                 <Frame Name="Site" Source="/views/Pages/Setting_Site.xaml" />
             </TabItem>
