@@ -71,8 +71,14 @@
     <Compile Include="Views\Pages\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Setting_Characteristic.xaml.cs">
+      <DependentUpon>Setting_Characteristic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Setting_General.xaml.cs">
       <DependentUpon>Setting_General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Kind.xaml.cs">
+      <DependentUpon>Setting_Kind.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\Setting_Site.xaml.cs">
       <DependentUpon>Setting_Site.xaml</DependentUpon>
@@ -116,7 +122,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Setting_Characteristic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\Setting_General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_Kind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

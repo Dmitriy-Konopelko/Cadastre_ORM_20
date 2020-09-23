@@ -22,7 +22,9 @@
                 <Frame Name="Species" Source="/views/Pages/Setting_Species.xaml" />
             </TabItem>
             <TabItem Header="Породы" Style="{StaticResource TabItemHorizontal}" />
-            <TabItem Header="Характеристика" Style="{StaticResource TabItemHorizontal}" />
+            <TabItem Header="Характеристика" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="Characteristic" Source="/views/Pages/Setting_Characteristic.xaml" />
+            </TabItem>
             <TabItem Header="Предложения" Style="{StaticResource TabItemHorizontal}" />
             <TabItem Header="Причины" Style="{StaticResource TabItemHorizontal}" />
             <TabItem Header="Скорость роста" Style="{StaticResource TabItemHorizontal}" />

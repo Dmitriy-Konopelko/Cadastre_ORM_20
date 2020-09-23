@@ -19,19 +19,22 @@
         <GroupBox
             Grid.Column="0"
             Margin="5"
-            Header="Участки">
+            Header="Участки"
+            Style="{StaticResource BaseGroupBox}">
             <ListBox />
         </GroupBox>
         <GroupBox
             Grid.Column="1"
             Margin="5"
-            Header="Журналы">
+            Header="Журналы"
+            Style="{StaticResource BaseGroupBox}">
             <ListBox />
         </GroupBox>
         <GroupBox
             Grid.Column="2"
             Margin="5"
-            Header="Команды">
+            Header="Команды"
+            Style="{StaticResource BaseGroupBox}">
             <StackPanel>
                 <Button Content="Добавить участок" Style="{StaticResource BaseButton}" />
                 <Button Content="Редактировать участок" Style="{StaticResource BaseButton}" />
