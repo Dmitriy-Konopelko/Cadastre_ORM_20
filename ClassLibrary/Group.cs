@@ -10,7 +10,7 @@ namespace ClassLibrary
         public string Name { get; set; }
 
         // Проводники свойств для связи с внешними таблицами данных
-        public virtual Site Site { get; set; }
+        public virtual Site Sites { get; set; }
         public virtual ICollection<Plant> PlantsList { get; set; }
     }
 }
