@@ -19,19 +19,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{83C7B198-7
 		Style.css = Style.css
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{EEDF83DE-23AE-4344-AC8D-CBCC7B5C6B07}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Kadastr_ORM.uml = ..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Kadastr_ORM.uml
-		..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Дипломный проект - Конопелько Д.Н..docx = ..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Дипломный проект - Конопелько Д.Н..docx
-		..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Приложения\Приложение Б Диаграмма 1 Схема работы программы.vsdx = ..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Приложения\Приложение Б Диаграмма 1 Схема работы программы.vsdx
-		..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Приложения\Приложение Б Диаграмма 2 Схема ресурсов системы.vsdx = ..\..\OneDrive\Proekt-Dorog\!_Учеба\Дипломный проект\Приложения\Приложение Б Диаграмма 2 Схема ресурсов системы.vsdx
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{EE829458-ADF2-4603-8134-12F72D2E8FB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAutoCAD", "AppAutoCAD\AppAutoCAD.csproj", "{4334CA20-E987-4D07-A08E-960021A8971E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWord", "AppWord\AppWord.csproj", "{2E09A389-6BDE-4ADB-A45E-DCFEEF80E559}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "!_TextPart", "!_TextPart", "{35A7388D-F61A-499F-8A8C-9CAA89BF9ABF}"
+	ProjectSection(SolutionItems) = preProject
+		!_TextPart\Дипломный проект - Конопелько Д.Н..doc = !_TextPart\Дипломный проект - Конопелько Д.Н..doc
+		!_TextPart\Описание Баланс.pdf = !_TextPart\Описание Баланс.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{F6E6AD4E-9E7A-4079-9179-878BB801F2F5}"
+	ProjectSection(SolutionItems) = preProject
+		Model\Kadastr_ORM.uml = Model\Kadastr_ORM.uml
+		Model\Kadastr_ORM_New.uml = Model\Kadastr_ORM_New.uml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemes", "Schemes", "{A4E3FA63-9DC4-4DA9-B140-3FA3EDB63EBF}"
+	ProjectSection(SolutionItems) = preProject
+		!_TextPart\Schemes\Дипломное проектирование.vssx = !_TextPart\Schemes\Дипломное проектирование.vssx
+		!_TextPart\Schemes\Приложение Б Диаграмма 1 Схема работы программы.vsdx = !_TextPart\Schemes\Приложение Б Диаграмма 1 Схема работы программы.vsdx
+		!_TextPart\Schemes\Приложение Б Диаграмма 2 Схема ресурсов системы.vsdx = !_TextPart\Schemes\Приложение Б Диаграмма 2 Схема ресурсов системы.vsdx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +84,7 @@ Global
 		{1914572C-B936-4C14-BBC7-B718363618BF} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 		{3E55350A-3BC0-4E66-BCC4-D2201066CB01} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
+		{A4E3FA63-9DC4-4DA9-B140-3FA3EDB63EBF} = {35A7388D-F61A-499F-8A8C-9CAA89BF9ABF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A14D6FFC-A856-4A60-B934-E40957E411D8}
