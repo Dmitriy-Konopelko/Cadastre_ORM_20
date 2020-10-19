@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppAutoCAD", "AppAutoCAD\AppAutoCAD.csproj", "{4334CA20-E987-4D07-A08E-960021A8971E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWord", "..\AppWord\AppWord.csproj", "{2E09A389-6BDE-4ADB-A45E-DCFEEF80E559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWord", "AppWord\AppWord.csproj", "{2E09A389-6BDE-4ADB-A45E-DCFEEF80E559}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

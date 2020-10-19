@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/ -->
+<html lang="ru-RU"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем | Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все</title>
+
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://nullpro.info/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://nullpro.info/wp-content/themes/weaver-ii/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<script type="text/javascript" async="" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/ga.js.Без названия"></script><script type="text/javascript">var weaverIsMobile=false;var weaverIsSimMobile=false;var weaverIsStacked=false;var weaverThemeWidth=940;var weaverMenuThreshold=640;var weaverHideMenuBar=false;var weaverMobileDisabled=false;var weaverFlowToBottom=false;var weaverHideTooltip=false;var weaverUseSuperfish=false;</script>
+<link rel="alternate" type="application/rss+xml" title="Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все » Лента" href="http://nullpro.info/feed/">
+<link rel="alternate" type="application/rss+xml" title="Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все » Лента комментариев" href="http://nullpro.info/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все » Лента комментариев к «Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем»" href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/nullpro.info\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.28"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/wp-emoji-release.min.js.Без названия" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="weaverii-main-style-sheet-css" href="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="weaverii-mobile-style-sheet-css" href="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/style-mobile.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="cfq-css" href="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/style.css" type="text/css" media="all">
+<!-- This site uses the Google Analytics by Yoast plugin v5.4.4 - Universal disabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-25655790-2']);
+	_gaq.push(['_gat._forceSSL']);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+<!-- / Google Analytics by Yoast -->
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/jquery.js.Без названия"></script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/jquery-migrate.min.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var AJAXCommentPreview = {"loading":"Loading\u2026","error":"Preview error","emptyString":"Click the \"Preview\" button to preview your comment here.","url":"http:\/\/nullpro.info\/wp-admin\/admin-ajax.php?action=ajax_comment_preview"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/ajax-comment-preview.js.Без названия"></script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/quicktags.php"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://nullpro.info/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://nullpro.info/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Работаем с MS Word из C#, часть 1. Открываем шаблон, ищем текст внутри документа" href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-1-otkryvaem-shablon-ishhem-tekst-vnutri-dokumenta/">
+<link rel="next" title="Работаем с MS Word из C#, часть 3. Работа с таблицами" href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-3-rabota-s-tablicami/">
+<link rel="canonical" href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/">
+<link rel="shortlink" href="http://nullpro.info/?p=795">
+<!-- TRUEedit 1.0 by Zachary Segal: http://www.illproductions.com -->
+<!-- Weaver II Extras Version 2.3 -->
+
+<!-- This site is using Weaver II 2.1.12 (43) subtheme: Twenty Ten -->
+<style type="text/css">
+/* Weaver II styles - Version 43 */
+a {color:#0066CC;}
+a:visited {color:#743399;}
+a:hover {color:#FF4B33;}
+.entry-title a {color:#000000;}
+.entry-title a:visited {color:#000000;}
+.entry-meta a, .entry-utility a {color:#888888;}
+.entry-meta a:visited, .entry-utility a:visited {color:#888888;}
+.entry-meta a:hover, .entry-utility a:hover {color:#FF4B33;}
+.widget-area a {color:#0066CC;}
+.widget-area a:visited {color:#743399;}
+.widget-area a:hover {color:#FF4B33;}
+#wrapper {border: 1px solid #222;}
+#wrapper, #branding, #colophon, .commentlist li.comment, #respond, #sidebar_primary,#sidebar_right,#sidebar_left,.sidebar_top,.sidebar_bottom,.sidebar_extra,#first,#second,#third,#fourth,.mobile_widget_area {-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;}
+#sidebar_wrap_right.right-1-col,#sidebar_wrap_right.right-2-col,#sidebar_wrap_right.right-2-col-bottom,
+#sidebar_wrap_left.left-1-col,#sidebar_wrap_left.left-2-col,#sidebar_wrap_left.left-2-col-bottom,#sidebar_wrap_left,#sidebar_wrap_right
+{-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;}
+.commentlist li.comment .comment-meta {-moz-border-radius-topleft: 7px; -moz-border-radius-topright: 7px;
+ -webkit-border-top-left-radius: 7px; -webkit-border-top-right-radius: 7px; border-top-left-radius: 7px; border-top-right-radius: 7px;}
+#access {-moz-border-radius-bottomleft: 7px; -moz-border-radius-bottomright: 7px;
+ -webkit-border-bottom-left-radius: 7px; -webkit-border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px;}
+#access2 {-moz-border-radius-topleft: 7px; -moz-border-radius-topright: 7px;
+ -webkit-border-top-left-radius: 7px; -webkit-border-top-right-radius: 7px; border-top-left-radius: 7px; border-top-right-radius: 7px;}
+body {background-image: url(/wp-content/themes/weaver-ii/images/gr.png); background-attachment: scroll; background-repeat: repeat-x;}
+#wrapper {-webkit-box-shadow: 0 0 3px 3px rgba(0,0,0,0.25); -moz-box-shadow: 0 0 3px 3px rgba(0,0,0,0.25); box-shadow: 0 0 3px 3px rgba(127,127,127,0.25);}
+#wrapper{max-width:940px;}
+#sidebar_primary,.mobile_widget_area {background-color:transparent;}
+#sidebar_right {background-color:transparent;}
+#sidebar_left {background-color:transparent;}
+.sidebar_top,.sidebar_extra {background-color:transparent;}
+.sidebar_top,.sidebar_extra {border: 1px solid #222;}
+.sidebar_bottom {background-color:transparent;}
+.sidebar_bottom {border: 1px solid #222;}
+#first,#second,#third,#fourth {background-color:transparent;}
+.widget {background-color:transparent;}
+#container_wrap.right-1-col{width:75.000%;} #sidebar_wrap_right.right-1-col{width:25.000%;}
+#container_wrap.right-2-col,#container_wrap.right-2-col-bottom{width:67.000%;} #sidebar_wrap_right.right-2-col,#sidebar_wrap_right.right-2-col-bottom{width:33.000%;}
+#container_wrap.left-1-col{width:75.000%;} #sidebar_wrap_left.left-1-col{width:25.000%;}
+#container_wrap.left-2-col,#container_wrap.left-2-col-bottom{width:67.000%;} #sidebar_wrap_left.left-2-col,#sidebar_wrap_left.left-2-col-bottom{width:33.000%;}
+#container_wrap{width:66.000%;} #sidebar_wrap_left{width:17.000%;} #sidebar_wrap_right{width:17.000%;}
+#sidebar_wrap_2_left_left, #sidebar_wrap_2_right_left {width:54.000%;margin-right:1%;}
+#sidebar_wrap_2_left_right, #sidebar_wrap_2_right_right {width:45.000%;}
+@media only screen and (max-width:640px) { /* header widget area mobile rules */
+} /* end mobile rules */
+#main {padding: 20px 0 0 0;}
+.menu_bar a, .mobile_menu_bar a {font-weight:bold;}
+.menu_bar, .menu_bar a,.menu_bar a:visited,.mobile_menu_bar a {color:#000000;}
+.menu_bar li:hover > a, .menu_bar a:focus {background-color:#B8B8B8;}
+.menu_bar li:hover > a, .menu_bar a:focus {color:#000000;}
+.menu_bar ul ul a {background-color:#454545;}
+.menu_bar ul ul a,.menu_bar ul ul a:visited {color:#AAAAAA;}
+.menu_bar ul ul :hover > a {background-color:#333333;}
+.menu_bar ul ul :hover > a {color:#FFFFFF;}
+.menu_bar, .mobile_menu_bar, .menu-add {background-color:#D1D1D1;}
+.mobile-menu-link {border-color:#000000;}
+.widget-area .menu-vertical,.menu-vertical {clear:both;background-color:transparent;margin:0;width:100%;overflow:hidden;border-bottom:3px solid #000000;border-top:1px solid #000000;}
+.widget-area .menu-vertical ul, .menu-vertical ul {margin: 0; padding: 0; list-style-type: none;  list-style-image:none;font-family: inherit;}
+.widget-area .menu-vertical li a, .widget-area .menu-vertical a:visited, .menu-vertical li a, .menu-vertical a:visited {
+color: #000000;  background-color: #D1D1D1; display: block !important; padding: 5px 10px; text-decoration: none; border-top:2px solid #000000;}
+.widget-area .menu-vertical a:hover,.widget-area .menu-vertical a:focus, .menu-vertical a:hover,.menu-vertical a:focus {
+color: #000000; background-color: #B8B8B8;text-decoration: none;}
+.widget-area .menu-vertical ul ul li, .menu-vertical ul ul li { margin: 0; }
+.widget-area .menu-vertical ul ul a,.menu-vertical ul ul a {color: #000000; background-color: #D1D1D1;
+ display: block; padding: 4px 5px 4px 25px; text-decoration: none;border:0;
+ border-top:1px solid #000000;}
+.widget-area .menu-vertical ul ul a:hover,#wrap-header .menu-vertical ul ul a:hover,#wrap-header .menu-vertical ul a:hover {color: #000000; background-color: #B8B8B8; text-decoration: none;}
+.widget-area .menu-vertical ul ul ul a,.menu-vertical ul ul ul a {padding: 4px 5px 4px 35px;}
+.widget-area .menu-vertical ul ul ul a,.menu-vertical ul ul ul ul a {padding: 4px 5px 4px 45px;}
+.widget-area .menu-vertical ul ul ul ul a,.menu-vertical ul ul ul ul ul a {padding: 4px 5px 4px 55px;}
+.menu_bar .current_page_item > a, .menu_bar .current-menu-item > a, .menu_bar .current-cat > a, .menu_bar .current_page_ancestor > a,.menu_bar .current-category-ancestor > a, .menu_bar .current-menu-ancestor > a, .menu_bar .current-menu-parent > a, .menu_bar .current-category-parent > a,.menu-vertical .current_page_item > a, .menu-vertical .current-menu-item > a, .menu-vertical .current-cat > a, .menu-vertical .current_page_ancestor > a, .menu-vertical .current-category-ancestor > a, .menu-vertical .current-menu-ancestor > a, .menu-vertical .current-menu-parent > a, .menu-vertical .current-category-parent > a,.widget-area .menu-vertical .current_page_item > a, .widget-area .menu-vertical .current-menu-item > a, .widget-area .menu-vertical .current-cat > a, .widget-area .menu-vertical .current_page_ancestor > a {color:#000000 !important;}
+#content, .entry-content h1, .entry-content h2 {color:#444444;}
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content dt, #content th,
+h1, h2, h3, h4, h5, h6,#author-info h2 {color:#000000;}
+#content h1.entry-title {color:#000000;}
+.commentlist li.comment, #respond {background-color:transparent;}
+#content table {border: 1px solid #e7e7e7;margin: 0 -1px 24px 0;text-align: left;width: 100%;}
+#content tr th, #content thead th {color: #888;font-size: 12px;font-weight: bold;line-height: 18px;padding: 9px 24px;}
+#content tr td {border-style:none; border-top: 1px solid #e7e7e7; padding: 6px 24px;}
+#content tr.odd td {background: #f2f7fc;}
+.wp-caption p.wp-caption-text, #content .gallery .gallery-caption,.entry-attachment .entry-caption {color:#333333;}
+#content img.size-full, #content img.size-large, #content img.size-medium, #content img.size-thumbnail, #content .attachment-thumbnail, #content .gallery img,#content .gallery-thumb img,.entry-attachment img, #content .wp-caption img, #content img.wp-post-image,#content img[class*="wp-image-"],#author-avatar img,img.avatar {background-color:transparent;}
+.home .sticky, #container.page-with-posts .sticky, #container.index-posts .sticky {background-color:#CFCFCF;}
+.entry-meta, .entry-content label, .entry-utility {color:#888888;}
+body {font-size:12px;}
+body {font-family:Tahoma, Arial,sans-serif;}
+h3#comments-title,h3#reply-title,.menu_bar,.mobile_menu_bar,
+#author-info,#infobar,#nav-above, #nav-below,#cancel-comment-reply-link,.form-allowed-tags,
+#site-info,#site-title,#wp-calendar,#comments-title,.comment-meta,.comment-body tr th,.comment-body thead th,
+.entry-content label,.entry-content tr th,.entry-content thead th,.entry-format,.entry-meta,.entry-title,
+.entry-utility,#respond label,.navigation,.page-title,.pingback p,.reply,.widget-title,
+.wp-caption-text,input[type=submit] {font-family:Tahoma, Arial,sans-serif;}
+body {background-color:#DEDEDE;}
+body {color:#444444;}
+#wrapper {background-color:#FAFAFA;}
+#main {background-color:transparent;}
+#container {background-color:transparent;}
+#content {background-color:transparent;}
+#content .post,.post {background-color:transparent;}
+#branding {background-color:transparent;}
+#branding #branding img {border-top: 4px solid #000;border-bottom: 1px solid #000;clear: both;display: block;}
+#colophon {background-color:transparent;}
+hr {background-color:#000000;}
+.entry-meta {background-color:transparent;}
+.entry-utility {background-color:transparent;}
+input, textarea, ins, pre {background-color:#F0F0F0;}
+.widget {color:#666666;}
+.widget-title, .widget_search label, #wp-calendar caption {color: #222222;}
+#site-title a {color:#000000;}
+#site-description {color:#666666;}
+/* Weaver II Mobile Device Options */
+.weaver-any-mobile  #main a, .weaver-any-mobile  #mobile-widget-area a, .weaver-any-mobile  .sidebar_top a, .weaver-any-mobile  .sidebar_bottom a, .weaver-any-mobile  .sidebar_extra a {text-decoration: underline !important;}
+@media only screen and (max-width:768px) and (orientation:portrait) {body {padding: 0px !important;}}
+@media only screen and (max-width:640px) {
+#main a, #mobile-widget-area a, .sidebar_top a, .sidebar_bottom a, .sidebar_extra a{text-decoration: underline !important;}
+}
+@media only screen and (max-width: 580px) {
+}
+blockquote { 
+    font-style: normal;
+    border-left: 6px solid grey;
+    padding: 0px;
+    padding-left: 10px;
+    margin-left:  20px;
+    margin-right: 20px;
+
+   }
+/* end Weaver II CSS */
+</style> <!-- end of main options style section -->
+
+
+<!--[if lte IE 8]>
+<style type="text/css" media="screen">
+#content img.size-thumbnail,#content img.size-medium,#content img.size-large,#content img.size-full,#content img.attachment-thumbnail,
+#content img.wp-post-image,img.avatar,.format-chat img.format-chat-icon,
+#wrapper,#branding,#colophon,#content, #content .post,
+#sidebar_primary,#sidebar_right,#sidebar_left,.sidebar_top,.sidebar_bottom,.sidebar_extra,
+#first,#second,#third,#fourth,
+#commentform input:focus,#commentform textarea:focus,#respond input#submit {
+		behavior: url(http://nullpro.info/wp-content/themes/weaver-ii/js/PIE/PIE.php) !important; position:relative;
+}
+</style>
+<![endif]-->
+
+<!-- End of Weaver II options -->
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link rel="stylesheet" type="text/css" href="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/shThemeEclipse.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<!-- begin SI CAPTCHA Anti-Spam - comment form style --><style type="text/css">div#captchaImgDiv { display:block; }.captchaSizeDivSmall { width:175px; height:45px; padding-top:10px; }.captchaSizeDivLarge { width:250px; height:60px; padding-top:10px; }img#si_image_com,#si_image_reg,#si_image_log,#si_image_side_login { border-style:none; margin:0; padding-right:5px; float:left; }.captchaImgRefresh { border-style:none; margin:0; vertical-align:bottom; }div#captchaInputDiv { display:block; padding-top:15px; padding-bottom:5px; }label#captcha_code_label { margin:0; }input#captcha_code { width:65px; }</style><!-- end SI CAPTCHA Anti-Spam - comment form style --></head>
+
+<body class="single single-post postid-795 single-format-standard single-author singular not-logged-in weaver-desktop weaver-mobile-smart-nostack">
+<a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#page-bottom" id="page-top">↓</a> <!-- add custom CSS to use this page-bottom link -->
+<div id="wrapper" class="hfeed">
+<div id="wrap-header">
+	<header id="branding" role="banner"><div id="branding-content">
+		<div id="site-logo"></div>
+		<div id="site-logo-link" onclick="location.href=&#39;http://nullpro.info/&#39;;"></div>
+
+		<div class="title-description title-description-xhtml">
+			<h1 id="site-title"><span><a href="http://nullpro.info/" title="Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все" rel="home">Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все</a></span></h1>
+			<h2 id="site-description"> Я ведь это уже делал, но хрен теперь найдешь тот кусок кода, гуглим снова… Где бы найти простое и понятное руководство для начинающего, а не тонкости для мега-гуру?</h2>
+		</div>
+	</div></header><!-- #branding-content, #branding -->
+<div id="wrap-bottom-menu">
+<div id="mobile-bottom-nav" class="mobile_menu_bar" style="padding: 5px 10px; clear: both; display: none;">
+	<div style="margin-bottom:20px;">
+<span class="mobile-home-link">
+	<a href="http://nullpro.info/" title="Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все" rel="home">Главная</a></span>
+	<span class="mobile-menu-link"><a href="javascript:void(null);" onclick="weaverii_ToggleMenu(document.getElementById(&#39;nav-bottom-menu&#39;), this, &#39;Меню ↓&#39;, &#39;Меню ↑&#39;)">Меню ↓</a></span></div>
+</div>
+		<div class="skip-link"><a class="assistive-text" href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#content" title="">Перейти к основному содержимому</a></div>
+			<div class="skip-link"><a class="assistive-text" href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#sidebar_primary" title="">Перейти к дополнительному содержимому</a></div>
+				<div id="nav-bottom-menu" style="display: block;"><nav id="access" class="menu_bar" role="navigation">
+<div class="menu"><ul id="menu-nullpro-menu" class="menu"><li id="menu-item-522" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-522"><a href="http://nullpro.info/">Главная</a></li>
+<li id="menu-item-523" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-523"><a href="http://nullpro.info/category/c/">C#</a></li>
+<li id="menu-item-524" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-524"><a href="http://nullpro.info/category/c/winforms/">WinForms</a></li>
+<li id="menu-item-526" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-526"><a href="http://nullpro.info/category/ms-sql-server/">Transact SQL / MS SQL</a></li>
+<li id="menu-item-957" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-957"><a href="http://nullpro.info/category/php/">Php</a></li>
+<li id="menu-item-808" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-808"><a href="http://nullpro.info/category/teoriya/">Теория</a></li>
+<li id="menu-item-525" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-525"><a href="http://nullpro.info/category/vyskazyvaniya/">Разное</a></li>
+</ul></div>		</nav></div><!-- #access --></div> <!-- #wrap-bottom-menu -->
+</div> <!-- #wrap-header -->
+	<div id="infobar">
+<span id="breadcrumbs"><span class="crumbs"><a href="http://nullpro.info/">Главная</a>→<a href="http://nullpro.info/category/c/">C#</a>→<a href="http://nullpro.info/category/c/ms-office/">MS Office</a>→<span class="bcur-page">Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем</span></span></span>	<span class="infobar_right">
+<span id="infobar_paginate"></span>
+	</span></div><div class="weaver-clear"></div><!-- #infobar -->
+	<div id="main"><div id="sidebar_wrap_left" class="left-1-col equal_height">
+	<div id="sidebar_primary" class="widget-area weaver-clear" role="complementary">
+<aside id="search-2" class="widget widget_search"><form role="search" style="background:transparent;" method="get" class="searchform" action="http://nullpro.info/">
+	<label class="screen-reader-text" for="s">Найти:</label>
+	<input type="search" value="" name="s" id="s" placeholder="Search Site">
+	<input class="searchformimg" type="image" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/search_button.gif" alt="Search">
+	</form></aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Рубрики</h3>		<ul>
+	<li class="cat-item cat-item-3"><a href="http://nullpro.info/category/c/">C#</a>
+<ul class="children">
+	<li class="cat-item cat-item-36"><a href="http://nullpro.info/category/c/asp/">ASP</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="http://nullpro.info/category/c/ms-office/">MS Office</a>
+	<ul class="children">
+	<li class="cat-item cat-item-33"><a href="http://nullpro.info/category/c/ms-office/excel/">Excel</a>
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://nullpro.info/category/c/winforms/">WinForms</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="http://nullpro.info/category/c/samouchitel-c/">Самоучитель C#</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://nullpro.info/category/php/">Php</a>
+<ul class="children">
+	<li class="cat-item cat-item-21"><a href="http://nullpro.info/category/php/wordpress/">Wordpress</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://nullpro.info/category/ms-sql-server/">Transact SQL / MS SQL</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://nullpro.info/category/perevody/">переводы</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://nullpro.info/category/vyskazyvaniya/">Разное</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="http://nullpro.info/category/teoriya/">Теория</a>
+</li>
+		</ul>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">Свежие записи</h3>		<ul>
+					<li>
+				<a href="http://nullpro.info/2015/vyrezaem-chislovuyu-chast-iz-stroki-v-transact-sql/">Вырезаем числовую часть из начала строки в transact-sql</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/pul-soedinenij-s-bazoj-dannyx-v-ado-net/">Пул соединений с базой данных в ADO.NET / OleDb - как избежать проблем с утечкой соединений в ASP.NET (перевод)</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/asp-net-mvc-jqury-i-ajax-otsylaem-dannye-na-server/">ASP .Net MVC, JQuery и AJAX - отсылаем данные на сервер</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/razdelitel-tysyach-i-drobnoj-chasti-dlya-decimal/">Разделитель тысяч и дробной части для decimal</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/sozdaem-rasshirennyj-control-v-winforms-nasleduyas-ot-sushhestvuyushhego/">Создаем расширенный Control в WinForms наследуясь от существующего</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/vstavka-strok-i-izmenenie-grnic-yacheek-v-excel-interop-iz-c/">Вставка строк и изменение границ ячеек в Excel Interop из C#</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/kak-prochitat-dannye-iz-udalennogo-datarow-v-datatable/">Как прочитать данные из удаленного DataRow  в DataTable</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/kodirovkoj-sql-studio-v-outlook/">Проблемы с кодировкой при копировании русского текста из MS SQL Studio в Outlook/Word/Office</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/kak-proverit-sushhestvuet-li-tablica-v-ms-sql-server-pered-udaleniemsozdaniem/">Как проверить, существует ли таблица в MS SQL Server перед удалением/созданием</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2014/ochen-prosto/">Очень просто...</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2013/poluchaem-vybrannye-stroki-datagridview-v-kotorom-vybrany-tolko-yachejki/">Получаем выбранные строки DataGridView, в котором выбраны только ячейки</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2013/oshibka-v-kode-privela-k-ubytkam-v-476-millionov-dollarov-i-bankrotstvu-kompanii/">Ошибка в коде привела к убыткам в 476 миллионов долларов и банкротству компании</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2013/otslezhivaem-izmeneniya-vybrannogo-znacheniya-v-kolonke-combobox-datagridview-datagridviewcomboboxcolumn/">Отслеживаем изменения выбранного значения в колонке ComboBox DataGridView (DataGridViewComboBoxColumn)</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2013/excel-2010-windows-7-dva-monitora-i-oshibka-pri-napravlenii-komandy-prilozheniyu/">Excel 2010, Windows 7, два монитора и "ошибка при направлении команды приложению"</a>
+						</li>
+					<li>
+				<a href="http://nullpro.info/2013/udalyaem-default-ogranichenie-constraint-v-transact-sql/">Удаляем default-ограничение (constraint) в Transact Sql</a>
+						</li>
+				</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title">Свежие комментарии</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="https://www.linkpress.ru/" rel="external nofollow" class="url">Никита</a></span> к записи <a href="http://nullpro.info/2014/razdelitel-tysyach-i-drobnoj-chasti-dlya-decimal/#comment-115044">Разделитель тысяч и дробной части для decimal</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://bahisgunceladresi.com/" rel="external nofollow" class="url">JeffreyJax</a></span> к записи <a href="http://nullpro.info/2014/pul-soedinenij-s-bazoj-dannyx-v-ado-net/#comment-113851">Пул соединений с базой данных в ADO.NET / OleDb - как избежать проблем с утечкой соединений в ASP.NET (перевод)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://jokermedia.org/" rel="external nofollow" class="url">казино джокер</a></span> к записи <a href="http://nullpro.info/2013/samouchitel-po-c-dlya-nachinayushhix-01-osnovy-yazyka-peremennye-logika-cikly/#comment-111244">Самоучитель по C# для начинающих. 01. Основы языка, переменные, логика, циклы.</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://profitlinks.xn--ru--8cdaaawt3ababtafcrrelt5bcduleao4a1lzf/" rel="external nofollow" class="url">VladimirFor</a></span> к записи <a href="http://nullpro.info/2014/asp-net-mvc-jqury-i-ajax-otsylaem-dannye-na-server/#comment-110326">ASP .Net MVC, JQuery и AJAX - отсылаем данные на сервер</a></li><li class="recentcomments"><span class="comment-author-link">Cuyccgy</span> к записи <a href="http://nullpro.info/2014/pul-soedinenij-s-bazoj-dannyx-v-ado-net/#comment-109555">Пул соединений с базой данных в ADO.NET / OleDb - как избежать проблем с утечкой соединений в ASP.NET (перевод)</a></li></ul></aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Архивы</h3>		<ul>
+	<li><a href="http://nullpro.info/2015/11/">Ноябрь 2015</a></li>
+	<li><a href="http://nullpro.info/2014/10/">Октябрь 2014</a></li>
+	<li><a href="http://nullpro.info/2014/08/">Август 2014</a></li>
+	<li><a href="http://nullpro.info/2014/04/">Апрель 2014</a></li>
+	<li><a href="http://nullpro.info/2014/03/">Март 2014</a></li>
+	<li><a href="http://nullpro.info/2014/01/">Январь 2014</a></li>
+	<li><a href="http://nullpro.info/2013/11/">Ноябрь 2013</a></li>
+	<li><a href="http://nullpro.info/2013/10/">Октябрь 2013</a></li>
+	<li><a href="http://nullpro.info/2013/09/">Сентябрь 2013</a></li>
+	<li><a href="http://nullpro.info/2013/08/">Август 2013</a></li>
+	<li><a href="http://nullpro.info/2013/07/">Июль 2013</a></li>
+	<li><a href="http://nullpro.info/2013/05/">Май 2013</a></li>
+	<li><a href="http://nullpro.info/2013/04/">Апрель 2013</a></li>
+	<li><a href="http://nullpro.info/2013/03/">Март 2013</a></li>
+	<li><a href="http://nullpro.info/2013/02/">Февраль 2013</a></li>
+	<li><a href="http://nullpro.info/2012/12/">Декабрь 2012</a></li>
+	<li><a href="http://nullpro.info/2012/11/">Ноябрь 2012</a></li>
+	<li><a href="http://nullpro.info/2012/10/">Октябрь 2012</a></li>
+	<li><a href="http://nullpro.info/2012/09/">Сентябрь 2012</a></li>
+	<li><a href="http://nullpro.info/2012/08/">Август 2012</a></li>
+	<li><a href="http://nullpro.info/2012/07/">Июль 2012</a></li>
+	<li><a href="http://nullpro.info/2012/06/">Июнь 2012</a></li>
+	<li><a href="http://nullpro.info/2012/04/">Апрель 2012</a></li>
+	<li><a href="http://nullpro.info/2012/03/">Март 2012</a></li>
+	<li><a href="http://nullpro.info/2012/02/">Февраль 2012</a></li>
+	<li><a href="http://nullpro.info/2012/01/">Январь 2012</a></li>
+	<li><a href="http://nullpro.info/2011/12/">Декабрь 2011</a></li>
+	<li><a href="http://nullpro.info/2011/09/">Сентябрь 2011</a></li>
+	<li><a href="http://nullpro.info/2011/07/">Июль 2011</a></li>
+	<li><a href="http://nullpro.info/2011/06/">Июнь 2011</a></li>
+	<li><a href="http://nullpro.info/2011/05/">Май 2011</a></li>
+	<li><a href="http://nullpro.info/2011/04/">Апрель 2011</a></li>
+	<li><a href="http://nullpro.info/2011/03/">Март 2011</a></li>
+	<li><a href="http://nullpro.info/2011/02/">Февраль 2011</a></li>
+	<li><a href="http://nullpro.info/2011/01/">Январь 2011</a></li>
+		</ul>
+</aside><aside id="meta-2" class="widget widget_meta"><h3 class="widget-title">Мета</h3>			<ul>
+						<li><a href="http://nullpro.info/wp-login.php">Войти</a></li>
+			<li><a href="http://nullpro.info/feed/"><abbr title="Really Simple Syndication">RSS</abbr> записей</a></li>
+			<li><a href="http://nullpro.info/comments/feed/"><abbr title="Really Simple Syndication">RSS</abbr> комментариев</a></li>
+<li><a href="https://ru.wordpress.org/" title="Сайт работает на WordPress — современной персональной платформе для публикаций.">WordPress.org</a></li>			</ul>
+</aside>	</div><!-- #sidebar_primary .widget-area -->
+	</div>
+	<!-- #sidebar_wrap_left -->
+		<div id="container_wrap" class="container-single equal_height left-1-col">
+		<div id="container">
+			<div id="content" role="main">
+
+				<nav id="nav-above" class="navigation">
+				<h3 class="assistive-text">Навигация по записям</h3>
+					<div class="nav-previous"><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-1-otkryvaem-shablon-ishhem-tekst-vnutri-dokumenta/" rel="prev"><span class="meta-nav">←</span> Работаем с MS Word из C#, часть 1. Открываем шаблон, ищем текст внутри документа</a></div>
+				<div class="nav-next"><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-3-rabota-s-tablicami/" rel="next">Работаем с MS Word из C#, часть 3. Работа с таблицами <span class="meta-nav">→</span></a></div>
+				</nav><!-- #nav-above -->
+
+
+<article id="post-795" class="content-single  post-795 post type-post status-publish format-standard hentry category-ms-office">
+	<header class="entry-header">
+		<div class="entry-hdr"><h1 class="entry-title">Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем</h1></div>
+
+		<div class="entry-meta">
+						<div class="meta-info-wrap">
+			<span class="sep">Опубликовано </span><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/" title="6:28" rel="bookmark"><time class="entry-date" datetime="2012-08-01T06:28:22+00:00">01.08.2012</time></a><span class="by-author"> <span class="sep"> автором </span> <span class="author vcard"><a class="url fn n" href="http://nullpro.info/author/stepom/" title="Посмотреть все записи автора Ведомир" rel="author">Ведомир</a></span></span>
+			</div><!-- .entry-meta-icons -->		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content cf">
+		<p>Продолжение былинной саги про <a href="http://msdn.microsoft.com/en-us/library/ms254954%28v=office.11%29" target="_blank">Office.Interop.Word</a>. Самый простой способ вставить кусок текста в нужную часть Word-шаблона - использовать закладки. В отличие от текстовых меток закладки не надо искать, они невидимы и всегда имеют уникальное имя. Имея открытый в предыдущей части документ Word мы можем с легкостью получить диапазон-Range для закладки (bookmark).</p>
+<div id="highlighter_48089" class="syntaxhighlighter nogutter  "><div class="bar  "><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_48089_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_48089" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">Word.Range bookmarkRange = _document.Bookmarks.get_Item(</code><code class="keyword">ref</code> <code class="plain">bookmarkNameObj).Range;</code></td></tr></tbody></table></div></div></div>
+<p>Кроме банальной вставки текста хотелось бы его немного поформатировать - жирный/курсив, размер текста, выравнивание абзаца. Все это доступно через <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.range_members%28v=office.11%29" target="_blank">интерфейс Range.</a><br>
+<span id="more-795"></span></p>
+<p>Полужирное начертание через <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.range.bold%28v=office.11%29" target="_blank">Range.Bold</a> и  курсив через  <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.range.italic%28v=office.11%29" target="_blank">Range.Italic</a>. Надо заметить что вместо напрашивающегося bool эти свойства имеют тип int</p>
+<div id="highlighter_639920" class="syntaxhighlighter nogutter  "><div class="bar"><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_639920_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_639920" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">_range.Bold = 1; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">_range.Italic = 1; </code></td></tr></tbody></table></div></div></div>
+<p>Выравнивание текста задается через перечисление <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.wdparagraphalignment%28v=office.11%29.aspx" target="_blank">WdParagraphAlignment</a> и свойство <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word._paragraphformat.alignment.aspx" target="_blank">ParagraphFormat.Alignment</a></p>
+<div id="highlighter_877450" class="syntaxhighlighter nogutter  "><div class="bar"><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_877450_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_877450" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">_range.ParagraphFormat.Alignment == Word.WdParagraphAlignment.wdAlignParagraphLeft</code></td></tr></tbody></table></div></div></div>
+<p>Надо заметить, что при вставке текста в диапазон текущее выравнивание заменяется выравниванием по центру, так что его лучше сохранять и восстанавливать.</p>
+<p>Размер шрифта через свойство <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word._font.size%28v=office.11%29" target="_blank">Size</a> интерфейса <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word._font_members%28v=office.11%29" target="_blank">Font</a>. Оно имеет редкий тип float, хотя в реальности размер шрифта задается целым числом.</p>
+<div id="highlighter_671233" class="syntaxhighlighter nogutter  "><div class="bar"><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_671233_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_671233" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">_range.Font.Size = 11;</code></td></tr></tbody></table></div></div></div>
+<p>И напоследок рассмотрим вставку более объемного текста - нескольких абзацев подряд.  Алгоритм достаточно прост, вставляем абзац, заполняем и форматируем, вставляем следующий. Используем метод <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.range.collapse%28v=office.11%29" target="_blank"> Range.Collapse</a> и перечисление <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.wdcollapsedirection%28v=office.11%29" target="_blank">CollapseDirection</a></p>
+<div id="highlighter_819593" class="syntaxhighlighter nogutter  "><div class="bar"><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_819593_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_819593" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">Object collapseDirection = Word.WdCollapseDirection.wdCollapseEnd;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="content"><code class="plain">_currentRange.Collapse(</code><code class="keyword">ref</code> <code class="plain">collapseDirection);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">_currentRange.InsertParagraphAfter();</code></td></tr></tbody></table></div></div></div>
+<p>Надо учитывать, что при заполнении вставленного таким образом абзаца текстом он сольется с предыдущим абзацом. Чтобы избежать этого надо при вставке текста добавлять к нему символ конца абзаца методом <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.range.insertparagraphafter%28v=office.11%29" target="_blank">InsertParagraphAfter</a>. Это не надо делать в случае вставки текста на текстовую метку, закладку или ячейку таблицы.</p>
+<div id="highlighter_757476" class="syntaxhighlighter nogutter  "><div class="bar "><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_757476_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_757476" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">_range.InsertParagraphAfter();</code></td></tr></tbody></table></div></div></div>
+<p>Еще одно свойство диапазона используется в основном при работе с таблицами - речь идет о границах (например ячейки в таблице) задаваемых через перечисление <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.wdlinestyle%28v=office.11%29" target="_blank">WdLineStyle</a> и интерфейс <a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.borders_members%28v=office.11%29" target="_blank">Borders</a> (для таблицы в целом такой метод не работает). В принципе границы можно задавать для любого куска документа.</p>
+<div id="highlighter_974268" class="syntaxhighlighter nogutter  "><div class="bar"><div class="toolbar"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#viewSource" title="view source" class="item viewSource" style="width: 16px; height: 16px;">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_974268_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_974268" menu="false" src="http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#printSource" title="print" class="item printSource" style="width: 16px; height: 16px;">print</a><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#about" title="?" class="item about" style="width: 16px; height: 16px;">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="content"><code class="plain">_range.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleNone; </code></td></tr></tbody></table></div></div></div>
+<ol>
+<li><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-0-klass-i-testovyj-proekt-primer-winforms/">Работаем с MS Word из C#, часть 0, класс и тестовый проект-пример WinForms</a></li>
+<li><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-1-otkryvaem-shablon-ishhem-tekst-vnutri-dokumenta/">Работаем с MS Word из C#, часть 1. Открываем шаблон, ищем текст внутри документа</a></li>
+<li><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/">Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем</a></li>
+<li><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-3-rabota-s-tablicami/">Работаем с MS Word из C#, часть 3. Работа с таблицами</a></li>
+<li><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-4-obedinyaem-neskolko-fajlov-v-odin/">Работаем с MS Word из C#, часть 4. Обьединяем несколько файлов в один, считаем количество страниц</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms254954%28v=office.11%29" target="_blank">Microsoft.Office.Interop.Word Namespace  </a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/microsoft.office.interop.word.range_members%28v=office.11%29">Range Interface</a></li>
+</ol>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-utility">
+<div class="meta-info-wrap">
+			<span class="cat-links">
+<span class="entry-utility-prep entry-utility-prep-cat-links">Рубрика:</span> <a href="http://nullpro.info/category/c/ms-office/" rel="category tag">MS Office</a>			</span>
+		<span class="permalink-icon"><a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/" title="Permalink to Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем" rel="bookmark">Постоянная ссылка</a></span>
+	</div><!-- .entry-meta-icons -->
+
+	</footer><!-- .entry-utility -->
+</article><!-- #post-795 -->
+
+				<nav id="nav-below" class="navigation">
+				<h3 class="assistive-text">Навигация по записям</h3>
+					<div class="nav-previous"><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-1-otkryvaem-shablon-ishhem-tekst-vnutri-dokumenta/" rel="prev"><span class="meta-nav">←</span> Работаем с MS Word из C#, часть 1. Открываем шаблон, ищем текст внутри документа</a></div>
+				<div class="nav-next"><a href="http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-3-rabota-s-tablicami/" rel="next">Работаем с MS Word из C#, часть 3. Работа с таблицами <span class="meta-nav">→</span></a></div>
+				</nav><!-- #nav-above -->
+
+
+	<div id="comments">
+
+		<hr class="comments-hr">
+		<header id="comments-title">
+		<h3>Комментарии</h3>
+				<h4>
+<em>Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем</em> — 1 комментарий		</h4>
+		</header>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-37678">
+		<article id="comment-37678" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+<span class="fn">Павел</span> <span class="says">говорит</span> <a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#comment-37678"><time datetime="2016-02-22T13:09:46+00:00">22.02.2016 в 13:09</time></a>:
+				</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Привет. Статьи очень мне помогли. Но вопрос есть к Вам. Как мне добавить Текущую дату, если на Закладке я добавил Контрол для вставки Даты через Sleector Date в Word?</p>
+</div>
+			<div class="reply">
+				<a class="comment-reply-link" href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/?replytocom=37678#respond" onclick="return addComment.moveForm( &quot;comment-37678&quot;, &quot;37678&quot;, &quot;respond&quot;, &quot;795&quot; )" aria-label="Комментарий к записи Павел">Ответить <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+							<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Добавить комментарий <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#respond" style="display:none;">Отменить ответ</a></small></h3>
+									<form action="http://nullpro.info/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="comment-notes"><span id="email-notes">Ваш e-mail не будет опубликован.</span> Обязательные поля помечены <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Имя <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">E-mail <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Сайт</label> <input id="url" name="url" type="text" value="" size="30"></p>
+
+<div class="captchaSizeDivLarge"><img id="si_image_com" class="si-captcha" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/securimage_show.php" width="175" height="60" alt="CAPTCHA изображение" title="CAPTCHA изображение">
+    <input id="si_code_com" name="si_code_com" type="hidden" value="A3tfDeFkiTIgR6hX">
+    <div id="si_refresh_com">
+<a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#" rel="nofollow" title="Обновить изображение" onclick="si_captcha_refresh(&#39;si_image_com&#39;,&#39;com&#39;,&#39;/wp-content/plugins/si-captcha-for-wordpress/captcha&#39;,&#39;http://nullpro.info/wp-content/plugins/si-captcha-for-wordpress/captcha/securimage_show.php?si_form_id=com&amp;prefix=&#39;); return false;">
+      <img class="captchaImgRefresh" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/refresh.png" width="22" height="20" alt="Обновить изображение" onclick="this.blur();"></a>
+  </div>
+  </div>
+<br>
+<p><input id="captcha_code" name="captcha_code" type="text" size="6">
+<label id="captcha_code_label" for="captcha_code">CAPTCHA Code</label><span class="required">*</span>
+</p>												<p class="comment-form-comment"><label for="comment">Комментарий</label> <script type="text/javascript">var edInserted; if (!edInserted) {edToolbar(); edInserted = true;}</script></p><div id="ed_toolbar"><input type="button" id="ed_strong" accesskey="b" class="ed_button" onclick="edInsertTag(edCanvas, 0);" value="b"><input type="button" id="ed_em" accesskey="i" class="ed_button" onclick="edInsertTag(edCanvas, 1);" value="i"><input type="button" id="ed_del" accesskey="d" class="ed_button" onclick="edInsertTag(edCanvas, 2);" value="del"><input type="button" id="ed_link" accesskey="a" class="ed_button" onclick="edInsertLink(edCanvas, 3);" value="link"><input type="button" id="ed_block" accesskey="q" class="ed_button" onclick="edInsertTag(edCanvas, 4);" value="b-quote"><input type="button" id="ed_code" accesskey="c" class="ed_button" onclick="edInsertTag(edCanvas, 5);" value="code"><input type="button" id="ed_close" class="ed_button" onclick="edCloseAllTags();" value="Close Tags"></div>
+<textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea>
+<script type="text/javascript">var edCanvas = document.getElementById('comment');</script><p></p>						<p class="form-allowed-tags" id="form-allowed-tags">Можно использовать следующие <abbr title="HyperText Markup Language">HTML</abbr>-теги и атрибуты:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code></p>
+						<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Отправить комментарий"> <input type="hidden" name="comment_post_ID" value="795" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+
+<input name="acp-preview" type="button" id="acp-preview" tabindex="6" value="Просмотреть"></p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="127f3cd4a6"></p><div id="ajax-comment-preview">Click the "Preview" button to preview your comment here.</div><p style="display: none;"></p>					<input type="hidden" id="ak_js" name="ak_js" value="1601473165274"></form>
+							</div><!-- #respond -->
+			</div><!-- #comments -->
+
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+		</div><!-- #container_wrap -->
+
+    <div class="weaver-clear"></div></div><!-- #main -->
+	<footer id="colophon" role="contentinfo">
+	  <div>
+
+		<div id="site-ig-wrap">
+		<span id="site-info">
+		© 2020 - <a href="http://nullpro.info/" title="Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все" rel="home">Записная книжка программиста-новичка, C#, SQL, PHP и все-все-все</a>
+		</span> <!-- #site-info -->
+		<span id="site-generator">
+		<a href="http://wordpress.org/" title="wordpress.org" rel="generator" target="_blank">Сайт работает на WordPress</a>&nbsp;
+Weaver II by <a href="http://weavertheme.com/" target="_blank" title="http://weavertheme.com">WP Weaver</a>
+		</span> <!-- #site-generator -->
+		</div><!-- #site-ig-wrap -->
+		<div class="weaver-clear"></div>
+	  </div>
+	</footer><!-- #colophon -->
+</div><!-- #wrapper -->
+<a href="http://nullpro.info/2012/ms-word-iz-vstavlyaem-tekst-i-formatiruem/#page-top" id="page-bottom">↑</a>
+<div id="weaver-final" class="weaver-final-normal"><script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/si_captcha.js.Без названия"></script>
+<script type="text/javascript">
+//<![CDATA[
+var si_captcha_styles = "\
+<!-- begin SI CAPTCHA Anti-Spam - comment form style -->\
+<style type='text/css'>\
+div#captchaImgDiv { display:block; }\
+.captchaSizeDivSmall { width:175px; height:45px; padding-top:10px; }\
+.captchaSizeDivLarge { width:250px; height:60px; padding-top:10px; }\
+img#si_image_com,#si_image_reg,#si_image_log,#si_image_side_login { border-style:none; margin:0; padding-right:5px; float:left; }\
+.captchaImgRefresh { border-style:none; margin:0; vertical-align:bottom; }\
+div#captchaInputDiv { display:block; padding-top:15px; padding-bottom:5px; }\
+label#captcha_code_label { margin:0; }\
+input#captcha_code { width:65px; }\
+</style>\
+<!-- end SI CAPTCHA Anti-Spam - comment form style -->\
+";
+jQuery(document).ready(function($) {
+$('head').append(si_captcha_styles);
+});
+//]]>
+</script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/form.js.Без названия"></script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/shCore.js.Без названия"></script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/shBrushCSharp.js.Без названия"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shCore.css?ver=2.1.364";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shThemeEclipse.css?ver=2.1.364";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://nullpro.info/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/comment-reply.min.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var weaver_menu_params = {"selector":"li:has(ul) > a","selector_leaf":"li li li:not(:has(ul)) > a"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Работаем с MS Word из C#, часть 2. Вставляем текст на закладку и форматируем_files/weaverjslib.min.js.Без названия"></script>
+</div> <!-- #weaver-final -->
+
+
+</body></html>
