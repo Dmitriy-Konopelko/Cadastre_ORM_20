@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="!_Help\!_AppWordHelp.txt" />
     <Content Include="!_Help\Работа с Word в С#.html" />
     <Content Include="!_Help\Работаем с MS Word из C\Работаем с MS Word из C#, часть 0, класс и тестовый проект-пример WinForms.html" />
     <Content Include="!_Help\Работаем с MS Word из C\Работаем с MS Word из C#, часть 1. Открываем шаблон, ищем текст внутри документа.html" />

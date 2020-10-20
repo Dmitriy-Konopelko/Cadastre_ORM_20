@@ -5,44 +5,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Word = Microsoft.Office.Interop.Word; // добавили пространство имен для использования объектной модели Word
+using Microsoft.Win32; //Для проверки установки Word на компьютере
 
 namespace AppWord
 {
+    /// <summary>
+    /// Приложение (библиотека) для работы с Microsoft Word
+    /// часть исходников взята с http://wladm.narod.ru/C_Sharp/comword.html
+    /// часть http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-1-otkryvaem-shablon-ishhem-tekst-vnutri-dokumenta/
+    /// часть написана самостоятельно
+    /// </summary>
+    
     class Program
     {
-        // Переменные
-        // данная информация взята с http://wladm.narod.ru/C_Sharp/comword.html
-        static Word.Application wordapp; //содержит ссылку на объект программы в исходнике было написано private, заменил на static т.к. ругался компилятор
-        static Word.Documents worddocuments; //содержит ссылку на объект список документов
-        static Word.Document worddocument; //содержит ссылку на объект документ
-        static Word.Paragraphs wordparagraphs; //содержит ссылку на объект списка параграфов
-        static Word.Paragraph wordparagraph; //содержит ссылку на объект параграфов
-        // нижележащая информация взята с http://nullpro.info/2012/rabotaem-s-ms-word-iz-c-chast-1-otkryvaem-shablon-ishhem-tekst-vnutri-dokumenta/
+        /// <summary>
+        /// Блок глобальных переменных для работы приложения с Word
+        /// </summary>
+        
+        static Word.Application wordapp;
+        /// содержит ссылку на объект программы в исходнике было написано private, заменил на static т.к. ругался компилятор
+        static Word.Documents worddocuments;
+        ///содержит ссылку на объект список документов
+        static Word.Document worddocument;
+        ///содержит ссылку на объект документ
+        static Word.Paragraphs wordparagraphs;
+        ///содержит ссылку на объект списка параграфов
+        static Word.Paragraph wordparagraph;
+        ///содержит ссылку на объект параграфов
+        
+        /// Глобальные объекты для работы со свойствми и методами пространства имен Word
         Object missingObj = System.Reflection.Missing.Value;
+        /// содержит ссылку на специальный объект задающий значения по умолчанию
         Object trueObj = true;
+        /// cодержит объект переменную указывающую на истинность значения
         Object falseObj = false;
-
-       
+        /// cодержит объект переменную указывающую на ложность значения
 
 
         static void Main(string[] args)
         {
-            //private Word.Application wordapp;
             Console.WriteLine("Выберите опцию для работы:");
-            Console.WriteLine("1 - запуск экземпляра Word");
-            Console.WriteLine("2 - запуск экземпляра Word с открытием шаблона");
+            Console.WriteLine("1 - проверка установки Word на компьютере");
+            Console.WriteLine("2 - запуск экземпляра Word");
+            Console.WriteLine("3 - запуск экземпляра Word с открытием шаблона");
             Console.WriteLine("0 - Выход");
             string vvod = Console.ReadLine();
             int v = Convert.ToInt32(vvod);
             switch (v)
             {
-                case 1: StartAppWord(); break;
-                case 2: StartAppWordTemplate(); break;
+                case 1: IsInstallWord(); break;
+                case 2: StartAppWord(); break;
+                case 3: StartAppWordTemplate(); break;
                 case 0: break;
                 default: break;
             }
         }
 
+
+        /// <summary>
+        /// Метод проверки наличия Word на компьютере в случае отсутствия его на компьютере
+        /// возвращает false, иначе true
+        /// вметод не передается никаких аргументов
+        /// </summary>
+        private static bool IsInstallWord()
+        {
+            using (var regWord = Registry.ClassesRoot.OpenSubKey("Word.Application"))
+            {
+                if (regWord == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Тестовый метод запускает Word и открывает в нем указанный шаблон
+        /// на данный момент шаблон прописан в самом методе в перспективе
+        /// он будет передаваться в метод
+        /// </summary>
         private static void StartAppWordTemplate()
         {
             #region MyRegion Запуск Word с созданием документа из шаблона по умолчанию
@@ -73,9 +118,13 @@ namespace AppWord
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Метод запуска Word с использованием стандартного шаблона Normal.dot
+        /// метод не получает никаких аргументов но возвращает указатель на объект
+        /// приложения Word для дальнейшей работы
+        /// </summary>
         private static void StartAppWord()
         {
-
             #region MyRegion Запуск Word с открытием файла или созданием по заданному шаблону
             Console.WriteLine("Запускаем Word!");
             try
@@ -99,7 +148,6 @@ namespace AppWord
                 // например при вызове методов, имеющих значения параметров по умолчанию.
                 object oMissing = System.Reflection.Missing.Value;
                 AppWordAddParagraph(10, ref oMissing);
-
                 // получаем указатель на список параграфов
                 wordparagraphs = worddocument.Paragraphs;
                 // определяем количество паргарфов в текущем документе и записываем его в переменную Text
