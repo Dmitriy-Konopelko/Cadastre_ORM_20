@@ -109,10 +109,16 @@ namespace AppWord
                 // записываем в параграф значение текста
                 wordparagraph.Range.Text = Text;
                 // меняем параметры текста и параграфа
+                // устанавливаем значение цвета параграфа
                 wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlue;
+                // устанавливаем значение размера шрифта
                 wordparagraph.Range.Font.Size = 20;
+                // устанавливаем значение шрифта
                 wordparagraph.Range.Font.Name = "Arial";
+                // устанавливаем значение написания шрифта
+                // наклон шрифта
                 wordparagraph.Range.Font.Italic = 1;
+                // толщина шрифта
                 wordparagraph.Range.Font.Bold = 1;
                 // можно подчеркнуть
                 wordparagraph.Range.Font.Underline = Word.WdUnderline.wdUnderlineSingle;
