@@ -1,0 +1,1978 @@
+
+<!-- saved from url=(0042)http://wladm.narod.ru/C_Sharp/comword.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" crossorigin="anonymous" href="./Работа с Word в С#_files/main.css"><script type="text/javascript" async="" src="./Работа с Word в С#_files/watch.js.загрузка"></script><script type="text/javascript" src="./Работа с Word в С#_files/uutils.fcg"></script>
+<script type="text/javascript">
+try{
+	Object.defineProperty(window, "u_global_data", {
+	   value: {
+   			basic_params:{dcode:"o",ads_lite:0,isadblock:1,user_country:"by",user_ip:"134.17.5.188",server:"s200",site_type:"narod",site_lng:"RU",rndid:"cm5Onu",ban240pos:"0",ischild:"0",ispolitic:"0",iswarez:"0",isnative:"1",isdoubtful:"0",isabandoned:"1",iscriteo970:"0",isreligion:"0",iswarn:"0",iabcat:"19-18",isgoogle:"1",isyandex:"0",ismobile:"0"},
+   			geo:{city:"Minsk",region:"Minskaya voblasts'"},
+   			urls:{
+   				adprru:[],
+   				adprci:[]
+   			}
+   		},
+	   writable: false,
+	   configurable: false
+	});
+	/*var u_global_data={
+			basic_params:{dcode:"o",ads_lite:0,isadblock:1,user_country:"by",user_ip:"134.17.5.188",server:"s200",site_type:"narod",site_lng:"RU",rndid:"cm5Onu",ban240pos:"0",ischild:"0",ispolitic:"0",iswarez:"0",isnative:"1",isdoubtful:"0",isabandoned:"1",iscriteo970:"0",isreligion:"0",iswarn:"0",iabcat:"19-18",isgoogle:"1",isyandex:"0",ismobile:"0"},
+			geo:{city:"Minsk",region:"Minskaya voblasts'"},
+			urls:{
+				adprru:[],
+				adprci:[]
+			}
+		};*/
+	
+}catch(e){};
+</script>
+<script type="text/javascript" src="./Работа с Word в С#_files/ads.js.загрузка" onload="u_global_data.basic_params.isadblock=0"></script>
+<script type="text/javascript" src="./Работа с Word в С#_files/ByR5E6aCvs"></script>
+
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;narodadst1?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script>
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;narod_desktop_ad?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script><script type="text/javascript" src="./Работа с Word в С#_files/jquery-3.3.1.min.js.загрузка"></script><script type="text/javascript" src="./Работа с Word в С#_files/uutils(1).fcg"></script>
+</head><body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0">﻿
+
+
+<title>Работа с Word в С#</title>
+
+<link href="./Работа с Word в С#_files/style.css" type="text/css" rel="stylesheet">
+
+
+<a name="top"></a>
+<p><a href="http://wladm.narod.ru/C_Sharp/componentbegin.html">К началу раздела</a>
+</p><p align="center"><img src="./Работа с Word в С#_files/logo.gif" alt="logo.gif"> 
+<table border="0" width="99%"><tbody><tr><td>
+<h2><a name="0"></a>Глава 3.&nbsp;Работа с Com сервером Word</h2>
+<p>Аннотация: В главе представлены собственные практические наработки 
+автора по выводу информации из приложений, написанных в 
+Visual Studio 2003/2005/2008 на C# в Word. 
+Все коды отлажены и неоднократно использовались. Вопросы, которые 
+остались не затронуты, были до сих пор не востребованы в практической 
+работе автора. 
+</p><ul wfd-id="138">
+<li wfd-id="162"><p>Введение&nbsp; <a href="http://wladm.narod.ru/C_Sharp/comword.html#0">&nbsp;&nbsp;Решение и выбор способа связывания</a>
+</p></li><li wfd-id="161"><p>Параграф 1.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#1">Запуск и закрытие Word из приложения</a>
+</p></li><li wfd-id="160"><p>Параграф 2.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#2">Создание документов</a>
+</p></li><li wfd-id="159"><p>Параграф 3.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#3">Сохранение документов</a>
+</p></li><li wfd-id="158"><p>Параграф 4.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#4">Открытие существующего документа</a>
+</p></li><li wfd-id="157"><p>Параграф 5.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#5">Вывод текстовой информации - объект и свойство Range</a>
+</p></li><li wfd-id="150"><p>Параграф 6.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#6">Вывод текстовой информации - объект Selection</a>
+</p><ul wfd-id="151">
+<li wfd-id="156"><p>6.1.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#61">Методы HomeKey и EndKey</a>
+</p></li><li wfd-id="155"><p>6.2.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#62">Методы MoveLeft и MoveRight</a>
+</p></li><li wfd-id="154"><p>6.3.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#63">Методы MoveUp и MoveDown</a>
+</p></li><li wfd-id="153"><p>6.4.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#64">Методы Move</a>
+</p></li><li wfd-id="152"><p>6.5.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#65">Вывод текста</a>
+</p></li></ul>
+</li><li wfd-id="145"><p>Параграф 7.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#7">Работа с таблицами</a>
+</p><ul wfd-id="146">
+<li wfd-id="149"><p>7.1.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#71">Создание таблиц</a>
+</p></li><li wfd-id="148"><p>7.2.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#72">Вывод информации в ячейки таблиц</a>
+</p></li><li wfd-id="147"><p>7.3.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#73">Объединение ячеек таблиц</a>
+</p></li></ul>
+</li><li wfd-id="144"><p>Параграф&nbsp; 8.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#8">Защита документа</a>
+</p></li><li wfd-id="143"><p>Параграф&nbsp; 9.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#9">Диалоговые окна</a>
+</p></li><li wfd-id="142"><p>Параграф&nbsp; 10.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#10">Основы анализа документов Microsoft Word</a>
+
+</p></li><li wfd-id="141"><p>Параграф&nbsp; 11.&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#20">Некоторые другие возможности по работе с Word</a>
+</p></li><li wfd-id="140"><p>Заключение&nbsp;<a href="http://wladm.narod.ru/C_Sharp/comword.html#z">&nbsp;О богатстве возможностей</a>
+</p></li><li wfd-id="139"><p><a href="http://wladm.narod.ru/C_Sharp/comword.html#l">Литература</a>
+</p></li></ul>
+<a name="0"></a><h2>Введение.&nbsp;Решение и выбор способа связывания</h2>
+<p>Прежде чем приступить к рассмотрению поставленных вопросов, создадим новый простой проект 
+(Рис.1.) с именем AppWordExcel (или любым другим, или  используем ). Поместим на панели приложения три контрола 
+Button. Свойства Tag контролов установим, соответственно, в значения 1, 2 и 3. Выберем способ 
+"раннего связывания" для сервера автоматизации Word  (см. Параграф 1. этого раздела).  
+При написании кода будем использовать .Net сборки взаимодействия 
+с приложениями Microsoft Office. Напомним, что при использовании импортирования библиотеки типов 
+Com объекта и добавлении ссылки на него в Solutation Explorer (References, вкладка Com), нам сразу 
+становится доступно пространство имен объекта (в данном случае Word). При использовании .Net 
+сборок взаимодействия с приложениями Microsoft Office нам, после добавления ссылки на 
+Microsoft.Office.Interop.Word (References, вкладка .Net), потребуется  введение алиаса 
+пространства имен Word:
+</p><pre>using Word = Microsoft.Office.Interop.Word;
+</pre>
+<p>Введение алиаса позволяет не только сократить количество кода при обращении к объектам, но и 
+дает возможность использовать весь код, который мы напишем ниже, для любого способа связывания.
+</p><p align="center"><img src="./Работа с Word в С#_files/wordexcel0201.gif" alt="wordexce0202.gif"> 
+</p><p align="center">Рис.1. Проект решения AppWordExcel
+</p><p>Создадим обработчик нажатия для кнопки 1 и замкнем на него 
+обработчики нажатия всех кнопок. Запишем следующий, общий для всех примеров, приводимых ниже, код:
+</p><pre>private void button1_Click(object sender, EventArgs e)
+{
+ int i = Convert.ToInt32(((Button)(sender)).Tag);
+ switch(i)
+ {
+  case 1:
+  break;
+  case 2:
+  break;
+  default:
+    Close();
+  break;
+ }
+}
+</pre>
+<p>В case 1 будем размещать код, в котором выполняется какое-либо действие
+по старту Excel и выводу информации, в case 2 - дополнительные действия и действия при закрытии
+приложения, в default - поместим код выхода из приложения.
+</p><p><i><font color="darkred">Обратите внимание на разный способ получения объектов коллекций 
+в Visual Studio 2003 и 2005/2008. Других отличий в примерах приводимого 
+ниже кода нет</font></i>!
+</p><pre>//В Visual Studio 2003
+wordparagraph=(Word.Paragraph)wordparagraphs.Item(1);
+worddocument.Item(1).Cell(1, 2).Range;
+.....
+//В Visual Studio 2005/2008
+wordparagraph=(Word.Paragraph)wordparagraphs[1];
+worddocument.Tables[1].Cell(1, 2).Range;
+.....
+</pre>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="1"></a></p><h2>Параграф 1. Запуск и закрытие Word из приложения</h2>
+<p>Объекты, которыми оперирует сервер Word, столь же многочисленны 
+как и объекты для Excel. Основное внимание в параграфе будет уделено
+тем объектам, которые непосредственно требуются для обмена информацией  
+приложения и сервера. 
+</p><p>Рис.2. демонстрирует иерархию объектов Word. Все объекты 
+доступны и из приложения на C#. Отличие заключается в том,
+что для приложения-контроллера доступны непосредственно  
+Word.Application (экземпляр Word без открытых документов) и 
+Word.Document, (экземпляр Word с открытым или загруженным документом). 
+Остальные объекты Word являются так называемыми внутренними объектами. 
+Это означает, что они не могут быть созданы сами по себе; так, объект 
+Paragraph не может быть создан без документа (впрочем, параграф или 
+абзац равно не доступен и макросу в Word при отсутствии открытого 
+документа).  
+</p><p align="center"><img src="./Работа с Word в С#_files/wordexcel0301.gif" alt="wordexce0301.gif"> 
+</p><p align="center">Рис.2.  Основные объекты Word.
+</p><p>С точки зрения  приложения все объекты Word имеют иерархическую 
+структуру. Объект <b><i>Application</i></b> - это СOM сервер и 
+оболочка для других объектов. Он может содержать один или более 
+объектов <b><i>Document</i></b>. Объекты Document могут содержать 
+такие объекты как <b><i>Paragraph</i></b>, <b><i>Table</i></b>, 
+<b><i>Range</i></b>, <b><i>Bookmark</i></b>, <b><i>Chapter</i></b>,
+<b><i>Word</i></b>, <b><i>Sentence</i></b>, <b><i>Sections</i></b>, 
+<b><i>Headers</i></b>, <b><i>Footers</i></b>... 
+Более правильнее, объект Application может содержать коллекцию 
+Documents - <b>ссылок</b> на объекты типа Document, а 
+каждый объект типа Document - коллекцию Paragraphs или 
+ссылок на объекты типа Paragraph и т.д. 
+</p><p>Основные объекты в иерархии объектов Word, необходимые при разработке приложения 
+показаны на Рис.3. И, в тоже время, 
+рисунок лишь поверхностно  отображает иерархию. Так, если объект
+Word.Document содержит объекты Table, Paragraph, Character, Range,
+Bookmark, InlineShape, Comment, CommandBar.... (доступные через коллекции соответствующих
+Tables, Paragraphs, Characters, Range, Bookmarks, InlineShapes, Comments, CommandBars ...), 
+то большинство свойств и методов объектов 
+Word доступны приложению и через специфический объект <b><i>Selection</i></b>, 
+представляющий некоторую выделенную область документа и, в зависимости
+от того, какая область документа выделена, меняются его методы и свойства. 
+Объект Selection всегда существует и доступен (даже если  ничего не 
+выделено в документе, то он представляет курсор ввода  - insertion point).
+В тоже время, большинство объектов доступно и объекту Range, в том числе
+и сам документ. Поэтому, когда необходимо "достучаться" 
+до объекта не прямыми путями, то более подойдет для ориентации Рис.2.,  
+иначе достаточно и иерархии Рис.3.
+</p><p align="center"><img src="./Работа с Word в С#_files/wordexcel0302.gif" alt="wordexce0302.gif"> 
+</p><p align="center">Рис.3. Иерархия основных объектов Word, необходимых при разработке приложения
+</p><p>Работа с документами, параграфами, символами, закладками и т.д. 
+осуществляется путем использования свойств и методов этих объектов.
+Объекты при создании решений принято определять глобально для 
+того, чтобы обеспечить доступ к ним из любой функции проекта. 
+Определим глобально основной объект Word.Application.
+</p><pre>namespace AppWordExcel
+{
+ public partial class Form1 : Form 
+ {
+  private Word.Application wordapp;
+  .....
+</pre>
+<p>Следующий код теперь позволяет выполнять запуск Word и его закрытие
+при нажатии соответственно кнопок 1 и 2.
+</p><pre>case 1:
+ try
+ {
+  //Создаем объект Word - равносильно запуску Word
+  wordapp = new Word.Application();
+  //Делаем его видимым
+  wordapp.Visible = true;
+ }
+ catch (Exception ex)
+ {
+  Text = ex.Message;
+ }
+ break;
+ case 2:
+  Object saveChanges = Word.WdSaveOptions.wdPromptToSaveChanges;
+  Object originalFormat = Word.WdOriginalFormat.wdWordDocument;
+  Object routeDocument = Type.Missing;
+  wordapp.Quit(ref saveChanges,
+               ref originalFormat, ref routeDocument);
+  wordapp = null;
+  break;
+ default:
+  Close();
+ break;
+}
+</pre>
+<p>Прежде чем рассматривать приведенный выше код, заметим, что как 
+и при использовании метода Activate в Excel 
+(<a href="http://wladm.narod.ru/C_Sharp/comexcel.html#10" target="blanc">см.Глава 2., Параграф 10. этого раздела</a>), 
+в данном коде возникает предупреждение компилятора при использовании 
+метода (только в VisualStudio 2005/2008) Quit.
+Оно выглядит следующим образом:
+</p><pre>Warning	1	
+Ambiguity between method 'Microsoft.Office.Interop.Word._Application.Quit(ref object, 
+ ref object, ref object)' 
+and non-method 'Microsoft.Office.Interop.Word.ApplicationEvents4_Event.Quit'. 
+Using method group.
+</pre>
+<p>Эта двусмысленность в использовании одноименных свойства и метода 
+объявленных в интерфейсе _Application(namespace Microsoft.Office.Interop.Word)
+и интерфейсе ApplicationEvents4_Event (namespace Microsoft.Office.Interop.Word). 
+Оба эти интерфейса наследует класс объекта:
+</p><pre>namespace Microsoft.Office.Interop.Word
+{
+ [Guid("00020970-0000-0000-C000-000000000046")]
+ [CoClass(typeof(ApplicationClass))]
+ public interface Application : _Application, ApplicationEvents4_Event
+ {
+ }
+}
+</pre>
+<p>И, хотя использование метода Quit не приводит к двусмысленности 
+в выполнении кода, для тех, кто привык писать "чистый код", этот "глюк" 
+лучше устранить. Устранение подобных неудобств можно выполнить 
+через обработчики событий (как  это делается мы 
+<a href="http://wladm.narod.ru/C_Sharp/comexcel.html#10" target="blanc">видели в Главе 2. Параграф 9. этого 
+раздела</a>) или, как рекомендует компилятор, через использование 
+приведения к группе (Using method group). Следующий код не 
+будет давать предупреждения компиляции:
+</p><pre>((Word._Application)wordapp).Quit(ref saveChanges,
+                             ref originalFormat, ref routeDocument);                        
+wordapp = null;
+</pre>
+<p>Поскольку этот способ проще, описанного в Главе 2, то будем далее
+использовать именно его.
+</p><p>Рассмотрим приведенный код создания сервера Word.
+</p><p>Создание объекта  Word.Application аналогично тому, как мы это делали в 
+Excel, закрытие же сервера требует использования ряда параметров с ключевым словом ref, 
+которые, как и для многих других методов в Word, 
+должны быть записаны в переменную до передачи в метод. В каждом 
+случае требуется создавать переменную типа Object, присваивать ей 
+значение и использовать эту переменную с ключевым словом ref.   
+</p><p>Рассмотрим параметры метода Quit:
+</p><ul wfd-id="132">
+<li wfd-id="133"><p>SaveChanges - определяет как сохраняет Word измененные 
+документы перед осуществлением выхода. Может быть одна из 
+Word.WdSaveOptions констант:
+</p><ul wfd-id="134">   
+<li wfd-id="137"><p>wdDoNotSaveChanges - не сохранять,
+</p></li><li wfd-id="136"><p>wdPromptToSaveChanges - выдать запрос перед сохранением,
+</p></li><li wfd-id="135"><p>wdSaveChanges - сохранить без предупреждения.
+</p></li></ul>
+</li></ul>
+<p>В нашем примере мы еще не создали документ и, поэтому, 
+любая константа пока не оказывает влияние на выход. 
+Однако,  если в уже в запущенном Word создать документ 
+(обычным для Word способом) и что-то в него записать, то 
+при закрытии Word будет выдан запрос - сохранять или нет документ. 
+</p><li wfd-id="127"><p>OriginalFormat - необязательный параметр, определяет формат 
+сохранения для документа. Возможна одна из следующих констант:
+Word.WdOriginalFormat констант:
+</p><ul wfd-id="128">   
+<li wfd-id="131"><p>wdOriginalDocumentFormat - в оригинальном формате документа (не изменяя его),
+</p></li><li wfd-id="130"><p>wdPromptUser - по выбору пользователя (актуально при 
+открытии документа, а не при его создании, при создании и сохранении
+окно сохранения документа всегда присутствует при отсутствии заданного имени документа).
+</p></li><li wfd-id="129"><p>wdWordDocument - формат .doc.
+</p></li></ul>
+</li><li wfd-id="1"><p>RouteDocument - необязательный параметр. При true  документ 
+направляется следующему получателю, если документ является attached 
+документом.
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="2"></a></p><h2>Параграф 2. Создание документов</h2>
+<p>Как отмечалось, основным в иерархии объектов Word.Application 
+является объект <b><i>Document</i></b>. Информация об объектах 
+Document хранится в виде ссылок на открытые документы в свойстве 
+Documents. Книга в приложение может быть добавлена только через 
+добавление ссылки в совокупность Workbooks, а ссылка на открытый 
+документ может быть получена  различным образом (по имени, 
+номеру, как ссылка на активный документ).
+</p><p>Рассмотрим создание двух рабочих документов. Для доступа к документам
+определим глобально  объекты Word.Documents и Word.Document.
+</p><pre>private Word.Documents  worddocuments;
+private Word.Document   worddocument; 
+</pre>
+<p>Изменим код в case 1:
+</p><pre>case 1:
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ Object template = Type.Missing;
+ Object newTemplate = false;
+ Object documentType = Word.WdNewDocumentType.wdNewBlankDocument;
+ Object visible = true; 
+ //Создаем документ 1
+ wordapp.Documents.Add( 
+ref template, ref newTemplate, ref documentType, ref visible);
+ //Меняем шаблон
+ template = @"C:\a1.doc";
+ //Создаем документ 2 worddocument в данном случае создаваемый объект 
+ worddocument=
+ wordapp.Documents.Add(  
+  ref template, ref newTemplate, ref documentType, ref visible);
+break;
+</pre>
+<p>О параметрах, передаваемых в методы Word.Application мы уже 
+говорили, остановимся на методе Add.
+</p><pre>Add(ref object Template,ref object  NewTemplate, ref object DocumentType, 
+    ref object Visible);
+</pre>
+<p>Параметры метода:
+</p><ul wfd-id="117">
+<li wfd-id="126"><p>Template  - имя шаблона, по которому создается новый документ. 
+Если значение не указано, то используется шаблон Normal.dot. 
+</p></li><li wfd-id="125"><p>NewTemplate  - при true новый документ открывается как шаблон. Значение по умолчанию - False. 
+</p></li><li wfd-id="119"><p>DocumentType  - тип документа, может принимать одно из 
+следующих значений констант типа word.WdNewDocumentType: 
+</p><ul wfd-id="120">
+<li wfd-id="124"><p>wdNewBlankDocument - документ Word (по умолчанию);
+</p></li><li wfd-id="123"><p>wdNewEmailMessage - электронное сообщение;
+</p></li><li wfd-id="122"><p>wdNewWebPage  - Web-страница. 
+</p></li><li wfd-id="121"><p>wdNewXMLDocument - XML документ.
+</p></li></ul>
+</li><li wfd-id="118"><p>Visible - видимость документа. При true (по умолчанию) 
+документ отображается. 
+</p></li></ul> 
+<p>В качестве параметра Template методу Add можно определить имя 
+существующего документа или полное имя шаблона. Во втором случае 
+мы привязываемся к пути, по которому инсталлированы приложения 
+MicrosoftOffice, и в этом нет необходимости - тот же эффект 
+достигается если используется параметр по умолчанию (напомним, 
+Type - класс декларации типов, Type.Missing - отсутствие значения 
+или значение по умолчанию. Кроме того, некоторые методы принимают 
+необязательные параметры, которые не поддерживаются в C#, и в этом 
+случае также используется Type.Missing, который является ссылочным 
+типом - reference type). Использование в качестве Template имя 
+существующего файла полезно когда потребуется добавлять какие либо 
+данные в уже существующий документ или бланк.
+</p><p>В приведенном примере мы использовали для получения доступа 
+к документу возвращаемое значение метода Add. Доступ можно 
+получить и через его номер в массиве Documents:
+</p><pre>case 1:
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ Object template = Type.Missing;
+ Object newTemplate = false;
+ Object documentType = Word.WdNewDocumentType.wdNewBlankDocument;
+ Object visible = true; 
+ wordapp.Documents.Add( 
+ref template, ref newTemplate, ref documentType, ref visible);
+ template = @"C:\a1.doc";
+ worddocument=
+ wordapp.Documents.Add(  
+ref template, ref newTemplate, ref documentType, ref visible);
+ Object number = 2; 
+ if(wordapp.Documents.Count &gt;= 2)
+ {
+  //Для Visual Studio 2003
+  //worddocument=(Word.Document)wordapp.Documents.Item(ref number);
+  //Для Visual Studio 2005/2008
+  worddocument = (Word.Document)wordapp.Documents.get_Item(ref number);
+  worddocument.Activate();
+ }
+</pre>
+<p>В данном примере, при работе в Visual Studio 2003 активным 
+становился (как не странно) первый, а не второй из созданных 
+документов (нумерация от 1 в обратном порядке создания). Видно 
+поэтому разработчики ввели метод get_Item(ref number).
+Но, все же, более удобнее использовать доступ к документу по имени, как показано в 
+следующем примере:
+</p><pre>case 1:
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ Object template = Type.Missing;
+ Object newTemplate = false;
+ Object documentType = Word.WdNewDocumentType.wdNewBlankDocument;
+ Object visible = true; 
+ wordapp.Documents.Add( 
+  ref template, ref newTemplate, ref documentType, ref visible);
+ template = @"C:\a1.doc";
+ wordapp.Documents.Add(  
+ ref template, ref newTemplate, ref documentType, ref visible);
+ worddocuments=wordapp.Documents;
+ Object name="Документ2";
+ //Для Visual Studio 2003
+ //worddocument=(Word.Document)worddocuments.Item(ref name);
+ //Для Visual Studio 2005/2008
+ worddocument = (Word.Document)worddocuments.get_Item(ref name);
+ worddocument.Activate();
+break;
+</pre> 
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="3"></a></p><h2>Параграф 3. Сохранение документов</h2>
+<p>Документы Word можно сохранить программно и обычным для Word
+способом. В любом случае перед выходом из Word необходимо
+вызвать метод Quit. Если свойство Word.Application DisplayAlerts 
+имеет значение true, Word предложит сохранить данные в том
+случае, когда после старта в документ были внесены какие либо изменения.
+</p><p>Для сохранения документа можно использовать методы Save(),  SaveAs()
+и SaveAs2000.
+Метод Save() не имеет параметров и при его вызове будет отображено
+диалоговое окно Word "Сохранение документа". Напротив, метод
+SaveAs имеет множество параметров, большинство из которых можно
+не указывать, а использовать как параметры по умолчанию.
+</p><p>Рассмотрим параметры методов SaveAs() и SaveAs2000() (они
+имеют одинаковые параметры, однако при использовании на компьютере
+Office 2000 или OfficeXP рекомендуется использовать метод
+SaveAs2000, пример использования см. ниже):
+</p><pre>SaveAs(
+  ref fileName,        //Имя файла
+  ref fileFormat,      //Формат сохраняемого файла, одна из
+                       //Word.WdSaveFormat констант
+                       //wdFormatDocument, wdFormatWebArchive, 
+                       //wdFormatUnicodeText, w
+                       //dFormatTextLineBreaks, wdFormatRTF,
+                       //wdFormatText, wdFormatTemplate,  
+                       //wdFormatHTML, wdFormatFilteredHTML, 
+                       //wdFormatEncodedText, wdFormatDOSText
+                       //wdFormatDOSTextLineBreaks,                                 
+  ref lockComments,    //При true  блокируется содержимое поля 
+                       //Заметки, находящегося на вкладке
+                       //Документ в диалоговом окне Свойства 
+                       //меню Файл.
+  ref password,        //Пароль доступа к документу при открытии
+  ref addToRecentFiles,//При true имя сохраняемого файла 
+                       //добавляется в список недавно открытых 
+                       //файлов в меню Файл.  
+  ref writePassword,   //Пароль для внесения изменений в документ
+  ref readOnlyRecommended,  //При true - при открытии документа
+                            //будет отображаться диалоговое окно
+                            //с рекомендацией открывать документ
+                            //только для чтения
+  ref embedTrueTypeFonts,   //При true - TrueType шрифты сохраняются
+                            //вместе с документом
+  ref saveNativePictureFormat, //При true сохраняет только родную
+                               //графику (Windows)  
+  ref saveFormsData,           //При true сохраняет только данные, 
+                               //введенные пользователем 
+                               //во вводные формы. 
+  ref saveAsAOCELetter,  //Если в документе используется 
+                         //attached mailer (программа доставки 
+                         //электронной почты адресату),
+                         //то  true для того чтобы документ был 
+                         //сохранен. 
+  ref encoding,          //Кодовая страница, или набор символов, 
+                         //для документов, сохраненных как 
+                         //кодируемые текстовые файлы. 
+                         //Значение по умолчанию - системная 
+                         //кодовая страница. Задается как
+                         //Microsoft.Office.Core.MsoEncoding
+                         //.msoEncodingUSASCII;
+  ref insertLineBreaks,  //Если документ сохраняется как 
+                         //текстовый файл, то при true 
+                         //разрешается вставка разрывов строк. 
+  ref allowSubstitutions,// Если документ  сохраняется как 
+                         //текстовый файл, то при true,  Word 
+                         //заменяет некоторые символы 
+                         //текстом. Например, символ авторского 
+                         //права как (c).                         
+  ref lineEnding,        //Если документ сохраняется как 
+                         //текстовый файл, то одна из  
+                         //Word.WdLineEndingType констант (wdCRLF,
+                         //wdLSPS,wdCROnly, wdLFCR,wdLFOnly, 
+                         //определяющих какие символы (перевод 
+                         //строки, возврат каретки) используются 
+                         //для отделения строк друг от друга.
+  ref addBiDiMarks       //При true,  Word  добавляет к файлу 
+                         //символы управления  вывода, чтобы 
+                         //сохранить двунаправленное размещение 
+                         //текста в оригинале документа.
+);
+</pre>
+<p>Добавим к предыдущему примеру функцию сохранения и сохраним
+открытый документ  a1.doc с именем a2.doc (на данном этапе можно поэксперементировать 
+и с сохранением документа как текстового файла для формата wdFormatText 
+и уяснить на примерах действие последних из рассмотренных параметров, 
+которые в принципе повторяют установки окна преобразования файла см. Рис.4). 
+</p><p align="center"><img src="./Работа с Word в С#_files/wordexcel0303.gif" alt="wordexce0303.gif"> 
+</p><p align="center">Рис.4. Окно преобразования файла.
+</p><pre>case 1: 
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ Object template = Type.Missing;
+ Object newTemplate = false;
+ Object documentType = Word.WdNewDocumentType.wdNewBlankDocument;
+ Object visible = true;  
+ wordapp.Documents.Add( 
+ ref template, ref newTemplate, ref documentType, ref visible);
+ template = @"C:\a1.doc";
+ worddocument=
+ wordapp.Documents.Add(  
+ ref template, ref newTemplate, ref documentType, ref visible);
+
+ worddocuments=wordapp.Documents;
+ Object name="Документ2";
+ //Для Visual Studio 2003
+ //worddocument=(Word.Document)worddocuments.Item(ref name);
+ worddocument = (Word.Document)worddocuments.get_Item(ref name);
+ worddocument.Activate();
+ //Подготавливаем параметры для сохранения документа
+ Object fileName = @"C:\a2.doc";
+ Object fileFormat = Word.WdSaveFormat.wdFormatDocument;
+ Object lockComments = false;
+ Object password = "";
+ Object addToRecentFiles = false;
+ Object writePassword = "";
+ Object readOnlyRecommended = false;
+ Object embedTrueTypeFonts = false;
+ Object saveNativePictureFormat = false;
+ Object saveFormsData = false;
+ Object saveAsAOCELetter = Type.Missing;
+ Object encoding = Type.Missing;
+ Object insertLineBreaks = Type.Missing;
+ Object allowSubstitutions = Type.Missing;
+ Object lineEnding = Type.Missing;
+ Object addBiDiMarks = Type.Missing;
+ #if OFFICEXP
+   worddocument.SaveAs2000(ref fileName,
+ #else
+  worddocument.SaveAs(ref fileName,
+ #endif
+ ref fileFormat, ref lockComments, 
+ ref password, ref addToRecentFiles, ref writePassword, 
+ ref readOnlyRecommended, ref embedTrueTypeFonts, 
+ ref saveNativePictureFormat, ref saveFormsData, 
+ ref saveAsAOCELetter, ref encoding, ref insertLineBreaks, 
+ ref allowSubstitutions, ref lineEnding, ref addBiDiMarks);
+break;
+</pre>
+<p>Того же эффекта можно было добиться задав значения всех 
+параметров (кроме имени файла) как Type.Missing.
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="4"></a></p><h2>Параграф 4. Открытие существующего документа</h2>
+<p>Для открытия существующего документа основными методом
+является метод Open (Open2000, Open2002).
+</p><p>Рассмотрим параметры метода Open. Методы Open2000, Open2002 
+имеют те же параметры, что и метод Open, но параметров у данных методов 
+меньше. Этими методами рекомендуется пользоваться только 
+при разработке приложений под конкретную версию  Office (например, 
+при использовании на компьютере Office 2000 или OfficeXP рекомендуется 
+использовать метод Open2000).
+</p><p>Синтаксис метода:
+</p><pre>Open(
+ref FileName,           //Имя открываемого файла включая полный путь
+ref ConfirmConversions, //При true в случае открытия документа не формата Word 
+                        //будет выводится диалоговое окно конвертирования файла. 
+ref  ReadOnly,          //При true документ открывается только для чтения
+ref  AddToRecentFiles,  //При true имя открываемого файла добавляется
+                        //в список недавно открытых файлов в меню Файл.  
+ref  PasswordDocument,  //Пароль открываемого документа если он есть
+ref  PasswordTemplate,  //Пароль шаблона документа если он есть
+ref  Revert,            //При true возможно повторное открытие экземпляра 
+                        //того же документа с потерей изменений в открытом ранее.
+                        //При false новый экземпляр не открывается.
+ref  WritePasswordDocument,//Пароль для сохранения документа 
+ref  WritePasswordTemplate,//Пароль для сохранения шаблона 
+ref  Format,            //Одна из следующих Word.WdOpenFormat констант
+                        //wdOpenFormatAllWord, wdOpenFormatAuto, 
+                        //wdOpenFormatDocument,  wdOpenFormatEncodedText,
+                        //wdOpenFormatRTF, wdOpenFormatTemplate, 
+                        //wdOpenFormatText, wdOpenFormatUnicodeText
+                        // или wdOpenFormatWebPages. 
+                        //По умолчанию wdOpenFormatAuto.
+ref  Encoding,          //Кодовая страница, или набор символов, 
+                        //(кодировка) для просмотра документа,
+                        //Значение по умолчанию - системная 
+                        //кодовая страница. Задается как
+                        //Microsoft.Office.Core.MsoEncoding.msoEncodingUSASCII;
+ref  Visible,           //При true документ открывается как видимый. 
+ref  OpenAndRepair,     //При true делается попытка восстановить поврежденный
+                        //документ.
+ref  DocumentDirection, //Направление текста - одна из Word.WdDocumentDirection
+                        // констант: WdLeftToRight, WdRightToLeft.
+ref  NoEncodingDialog,  //При true подавляется показ диалогового окна
+                        //Encoding, которое отображается если кодировка 
+                        //не распознана.
+ref  xmlTransform       //Определяет тип XML данных при XML преобразованиях 
+) 
+</pre>
+<p>В методе все параметры кроме имени файла могут иметь значение Type.Missing,
+то есть иметь значения по умолчанию, соответствующее открытию простого документа Word.
+</p><p>Пример открытия существующего документа:
+</p><pre>case 1:
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ Object filename = @"C:\a1.doc";
+ Object confirmConversions = true;
+ Object readOnly = false;
+ Object addToRecentFiles = true;
+ Object passwordDocument = Type.Missing;
+ Object passwordTemplate = Type.Missing;
+ Object revert = false;
+ Object writePasswordDocument = Type.Missing;
+ Object writePasswordTemplate = Type.Missing;
+ Object format = Type.Missing;
+ Object encoding = Type.Missing;;
+ Object oVisible = Type.Missing;
+ Object openConflictDocument = Type.Missing;
+ Object openAndRepair  = Type.Missing;
+ Object documentDirection = Type.Missing;
+ Object noEncodingDialog = false;
+ Object xmlTransform = Type.Missing;
+ //#if OFFICEXP
+ //  worddocument=wordapp.Documents.Open2000(ref filename, .....
+ //#else
+   worddocument=wordapp.Documents. Open(ref filename,     
+ //#endif 
+  ref confirmConversions, ref readOnly, ref addToRecentFiles, 
+  ref passwordDocument, ref passwordTemplate, ref revert, 
+  ref writePasswordDocument, ref writePasswordTemplate, 
+  ref format, ref encoding, ref oVisible,  
+  ref openAndRepair , ref documentDirection, ref noEncodingDialog,ref xmlTransform);
+break;
+</pre>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="5"></a></p><h2>Параграф 5. Вывод текстовой информации - объект и свойство Range</h2>
+<p>Создадим или откроем документ Word, например как в предыдущем примере.
+Объект worddocument на данном этапе соответствует объекту открытого документа и
+необходим нам для того, чтобы еще ниже опуститься по иерархии объектов Word.
+Следующим в иерархии объектов рассмотрим Word.Paragraph - параграф.
+Текстовая информация помещается и хранится в параграфах документа Word
+(объект Paragraph это один абзац текста).
+</p><p>Для манипуляции с параграфами определим глобально соответствующие объекты:
+</p><pre>private Word.Paragraphs wordparagraphs;
+private Word.Paragraph  wordparagraph;
+</pre>
+<p>Любой документ Word всегда имеет хотя бы один параграф, даже если он пуст,
+то всегда присутствует курсор ввода. Убедиться в этом можно с помощью
+следующего фрагмента кода (как всегда для простоты мы выводим текстовую 
+информацию в заголовок формы), который добавим к коду предыдущего
+примера:
+</p><pre>wordparagraphs=worddocument.Paragraphs;
+Text=Convert.ToString(wordparagraphs.Count);
+</pre>
+<p>Вывод текста выполняется не просто в параграф, а в диапазон параграфа -
+объект Range. Объект Range - это непрерывная область документа,  
+включающая позицию начального и конечного символов. Для пустого параграфа
+или если начальная и конечная позиции диапазона совпадают - Range  
+представляет курсор ввода. 
+</p><p>В документе можно определить диапазон, вызовом метода Range 
+с передачей ему начального и конечного значений позиций символов (при
+определении позиции номера символов  считаются от 0 и включают все 
+символы, в том числе и не печатные). Выделенный диапазон можно "подсветить",
+используя метод Select().
+</p><pre>Object begin = 0;
+Object end   = 5;
+Word.Range wordrange = worddocument.Range(ref begin, ref end);
+wordrange.Select();
+</pre>
+<p>Есть возможность выделить весь текст всего документа следующим образом:
+</p><pre>Object begin = Type.Missing;
+bject end   = Type.Missing;
+Word.Range wordrange = worddocument.Range(ref begin, ref end);
+wordrange.Select();
+</pre>
+<p>Объект Range  позволяет выполнить вывод текста в выделенный участок
+и изменить параметры текста (шрифт, цвет, подчеркивание....).
+</p><pre>wordrange.Font.Size=12;
+wordrange.Font.Color=Word.WdColor.wdColorRed;
+wordrange.Text="Текст который мы выводим в выделенный участок "; 
+</pre>
+<p>Помимо этого имеется возможность программно создать свой стиль
+и применить его либо ко всему документу, либо к объекту Range.
+Все возможности форматирования текста можно посмотреть в меню Word
+"Формат" пункт "Стили и форматирование". Изменять можно
+шрифт документа, параметры абзаца, параметры табуляции, границы, 
+язык, рамки, нумерацию, сочетание клавиш. Они все доступны и программно 
+за исключением возможности сохранять в шаблоне Word свой созданный стиль.
+</p><p>Принцип работы со стилями демонстрирует следующий фрагмент кода:
+</p><pre>//Определяем для чего создается стиль: wdStyleTypeTable, 
+//wdStyleTypeList, wdStyleTypeParagraph, wdStyleTypeCharacter
+object patternstyle=Word.WdStyleType.wdStyleTypeParagraph;
+//Создаем стиль
+Word.Style wordstyle=worddocument.Styles.Add("myStyle",ref patternstyle);
+//Устанавливаем параметры шрифта
+wordstyle.Font.Size=30;
+wordstyle.Font.Italic=1;
+wordstyle.Font.Bold=1;
+......
+//Устанавливаем параметры параграфа
+wordstyle.ParagraphFormat.LeftIndent
+ =worddocument.Content.Application.CentimetersToPoints((float)2);
+wordstyle.ParagraphFormat.RightIndent
+ =worddocument.Content.Application.CentimetersToPoints((float)2);
+......
+//И.т.д. пока не будут выставлены все необходимые параметры
+//Устанавливаем стиль для документа
+object begin = Type.Missing;
+Object end   = Type.Missing;
+Word.Range wordrange =worddocument.Range(ref begin, ref end);
+object oWordStyle=wordstyle;
+wordrange.set_Style(ref oWordStyle); 
+</pre>
+<p>Шрифт и другие параметры форматирования текста можно
+задать как параметры по умолчанию для всего документа аналогично 
+заданию стиля:
+</p><pre>worddocument.Content.Font.Size=25;
+worddocument.Content.Font.Bold=1;
+worddocument.Content.Font.Underline=Word.WdUnderline.wdUnderlineSingle;
+worddocument.Content.ParagraphFormat.Alignment=
+Word.WdParagraphAlignment.wdAlignParagraphCenter;
+worddocument.Content.ParagraphFormat.LeftIndent=
+ worddocument.Content.Application.CentimetersToPoints((float)2);
+worddocument.Content.ParagraphFormat.RightIndent=
+ worddocument.Content.Application.CentimetersToPoints((float)1);
+.....
+</pre> 
+<p>Свойства Content объекта Document определяет основную область 
+документа (document's main story), т. е. его содержимое без 
+колонтитулов и других вспомогательных элементов.
+</p><p>Кроме объекта Range документа каждый параграф также имеет свойство Range,
+которое позволяет выводить текст и устанавливать его характеристики 
+для параграфа.
+</p><p>Следующий пример демонстрирует возможности вывода текста используя
+свойство Range параграфа и объект Range документа (для демонстрации 
+лучше код примера добавлять начиная с вывода 1го абзаца и т.д.):
+</p><pre>case 1:
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ //Открываем существующий документ
+ Object filename = @"C:\a1.doc";
+ Object confirmConversions = true;
+ Object readOnly = false;
+ Object addToRecentFiles = true;
+ Object passwordDocument = Type.Missing;
+ Object passwordTemplate = Type.Missing;
+ Object revert = false;
+ Object writePasswordDocument = Type.Missing;
+ Object writePasswordTemplate = Type.Missing;
+ Object format = Type.Missing;
+ Object encoding = Type.Missing;;
+ Object oVisible = Type.Missing;
+ Object openConflictDocument = Type.Missing;
+ Object openAndRepair  = Type.Missing;
+ Object documentDirection = Type.Missing;
+ Object noEncodingDialog = false; 
+ Object xmlTransform = Type.Missing;
+  worddocument=wordapp.Documents. Open(ref filename,     
+  ref confirmConversions, ref readOnly, ref addToRecentFiles, 
+  ref passwordDocument, ref passwordTemplate, ref revert, 
+  ref writePasswordDocument, ref writePasswordTemplate, 
+  ref format, ref encoding, ref oVisible,  
+  ref openAndRepair , ref documentDirection, ref noEncodingDialog,
+	ref xmlTransform);
+  //Получаем ссылки на параграфы документа
+  wordparagraphs=worddocument.Paragraphs;
+  //Будем работать с первым параграфом
+  wordparagraph=(Word.Paragraph)wordparagraphs[1];
+  //Выводим текст в первый параграф
+  wordparagraph.Range.Text="Текст который мы выводим в 1 абзац"; 
+  //Меняем характеристики текста и параграфа
+  wordparagraph.Range.Font.Color=Word.WdColor.wdColorBlue;
+  wordparagraph.Range.Font.Size=20;
+  wordparagraph.Range.Font.Name="Arial";
+  wordparagraph.Range.Font.Italic=1;
+  wordparagraph.Range.Font.Bold=0;
+  wordparagraph.Range.Font.Underline=Word.WdUnderline.wdUnderlineSingle;
+  wordparagraph.Range.Font.UnderlineColor=Word.WdColor.wdColorDarkRed;
+  //wordparagraph.Range.Font.StrikeThrough=1; можно перечеркнуть
+  //Выравнивание
+  wordparagraph.Alignment=Word.WdParagraphAlignment.wdAlignParagraphCenter;
+  //Добавляем в документ несколько параграфов
+  object oMissing = System.Reflection.Missing.Value;
+  worddocument.Paragraphs.Add(ref oMissing);
+  worddocument.Paragraphs.Add(ref oMissing);
+  worddocument.Paragraphs.Add(ref oMissing);
+  worddocument.Paragraphs.Add(ref oMissing);
+  worddocument.Paragraphs.Add(ref oMissing);
+  wordparagraph.Range.Text=
+    "Текст который мы выводим в последний добавленный абзац"; 
+  wordparagraph=(Word.Paragraph)wordparagraphs[3];
+  wordparagraph.Range.Text=
+       "Текст который мы выводим в третий абзац";
+  //Использование объекта Range для всего документа
+  Object begin = 42;
+  Object end   = 49;
+  Word.Range wordrange = worddocument.Range(ref begin, ref end);
+  wordrange.Select();
+  //На Рис.5. Слева выведенный  текст на данном этапе
+  //Меняем характеристики текста выделенного фрагмента
+  wordrange.Font.Size=12;
+  wordrange.Font.Color=Word.WdColor.wdColorRed;
+  wordrange.Text="Текст который мы выводим в выделенный участок "; 
+  //На Рис.5. Справа выведенный текст на данном этапе
+break;
+</pre>
+<p align="center"><img src="./Работа с Word в С#_files/wordexcel0304.gif" alt="wordexce0304.gif"> 
+</p><p align="center">Рис.5.  Вывод текстовой информации.
+</p><p>Обратим внимание, что при использовании объекта Range вставляемый 
+в выделенную область текст заменяет выделенный фрагмент и переносится 
+в него полностью - не зависимо от величины диапазона.
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="6"></a></p><h2>Параграф 6. Вывод текстовой информации - объект Selection</h2>
+<p>Объект Selection представляет собой текущую выделенную область 
+документа. Все действия, связанные с внесением в документ каких либо частных изменений
+в Word выполняются применительно к выделенным фрагментам. Программно
+это выполняется через объект Selection. Аналогично, как и при обычной
+работе с Word, при программном выводе необходимо вначале выделить 
+фрагмент и, далее, выполнить требуемые действия над данным фрагментом 
+(изменить шрифт, форматирование, напечатать и т.д.). 
+</p><p>Объект Selection всегда присутствует в документе. Если ничего не 
+выделено, он представляет курсор ввода (insertion point). 
+</p><p>Для демонстрации использования объекта Selection сохраним в файле
+C:\a1.doc результаты выполнения кода предыдущего примера (Рис.4.).
+</p><p>Объект Selection может представлять блок, строку или столбец таблицы,
+курсор ввода, рисунок, фрейм, выделенный текст, или некоторую комбинацию
+объектов, которые можно определить через свойство  Type объекта Selection (wdSelectionBlock,
+wdSelectionRow, wdSelectionColumn, wdSelectionIP, wdSelectionShape, wdSelectionInlineShape, 
+wdSelectionNormal). Посколько свойства и методы у различных типов объектов
+Selection различны, то при применении того или иного метода или 
+использования свойства рекомендуется выполнить проверку типа объекта
+Selection, например:
+</p><pre>if(wordapp.Selection.Type == Word.WdSelectionType.wdSelectionNormal)
+{
+ //Работаем с текстом
+}
+</pre>
+<p>При выводе и форматировании текста прежде всего требуется не
+определить, что в данный момент представляет объект Selection, а 
+задать его (например, выделить строку, слово, часть слова и т.п.). 
+Для задания выделения требуется выполнять действия по перемещению 
+курсора, для чего используются методы, выполняющие, как и
+в обычном Word, те или иные действия по перемещению курсора:
+</p><ul wfd-id="105">   
+<li wfd-id="113"><p>Методы, применение которых аналогично нажатию клавиши Home и End на клавиатуре:
+</p><ul wfd-id="114">
+<li wfd-id="116"><p>HomeKey([Unit], [Extend]);
+</p></li><li wfd-id="115"><p>EndKey([Unit], [Extend]);
+</p></li></ul>
+</li><li wfd-id="107"><p>Методы, имитирующие действие клавиш со стрелками:
+</p><ul wfd-id="108">
+<li wfd-id="112"><p>MoveLeft([Unit], [Count], [Extend]);
+</p></li><li wfd-id="111"><p>MoveRight([Unit], [Count], [Extend]); 
+</p></li><li wfd-id="110"><p>MoveUp([Unit], [Count], [Extend]);
+</p></li><li wfd-id="109"><p>MoveDown([Unit], [Count], [Extend]).
+</p></li></ul>
+</li><li wfd-id="106"><p>Метод Move([Unit], [Count]);
+</p></li></ul>
+<p>Рассмотрим эти методы.
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="61"></a></p><h3>6.1. Методы HomeKey и EndKey</h3>
+<pre>HomeKey([Unit], [Extend]);
+EndKey([Unit], [Extend]);
+</pre>
+<p>Аргумент Unit может принимать одно из значений Word.WdUnitsWord:
+</p><ul wfd-id="100">
+<li wfd-id="104"><p>WdLine - переход в начало (конец) строки. Значение по умолчанию. 
+</p></li><li wfd-id="103"><p>WdStory - переход в начало (конец) документа. 
+</p></li><li wfd-id="102"><p>WdColumn - переход в начало (конец) столбца таблицы.
+</p></li><li wfd-id="101"><p>WdRow - переход в начало (конец) строки таблицы. 
+</p></li></ul>
+<p>Аргумент Extend указывается одно из значений  Word.WdMovementType. 
+</p><ul wfd-id="97">
+<li wfd-id="99"><p>WdMove - только переместить курсор. При использовании с wdLine перемещает курсор ввода 
+в начало или конец строки, а при использовании с wdStory - в начало 
+или конец документа.  
+</p></li><li wfd-id="98"><p>WdExtend -  выделяет фрагмент от курсора ввода до
+некоторой конечной позиции. Например, если курсор ввода находится 
+в начале документа, то EndKey при значении параметра Unit 
+равным wdStory и значении Extend равным wdExtend выделит весь текст.
+В общем случае значение Extend равное wdExtend соответствует
+нажатию клавиш Ctrl+Home иCtrl+End для 
+параметра Unit  WdLine Ctrl+Shift+Home и Ctrl+Shift+End для 
+параметра Unit wdStory. 
+</p></li></ul>
+<p>Пример использования методов HomeKey и EndKey для 
+выделения всего текста. 
+</p><pre>case 1:
+ wordapp = new Word.Application(); 
+ wordapp.Visible=true;
+ Object filename = @"C:\a1.doc";
+ Object confirmConversions = true;
+ Object readOnly = false;
+ Object addToRecentFiles = true;
+ Object passwordDocument = Type.Missing;
+ Object passwordTemplate = Type.Missing;
+ Object revert = false;
+ Object writePasswordDocument = Type.Missing;
+ Object writePasswordTemplate = Type.Missing;
+ Object format = Type.Missing;
+ Object encoding = Type.Missing;;
+ Object oVisible = Type.Missing;
+ Object openConflictDocument = Type.Missing;
+ Object openAndRepair  = Type.Missing;
+ Object documentDirection = Type.Missing;
+ Object noEncodingDialog = false; 
+ Object xmlTransform = Type.Missing;
+ worddocument=wordapp.Documents. Open(ref filename,     
+  ref confirmConversions, ref readOnly, ref addToRecentFiles, 
+  ref passwordDocument, ref passwordTemplate, ref revert, 
+  ref writePasswordDocument, ref writePasswordTemplate, 
+  ref format, ref encoding, ref oVisible,  
+  ref openAndRepair , ref documentDirection, ref noEncodingDialog,
+  ref xmlTransform);
+  //Непосредственно  работа с объектом Selection
+ object unit; 
+ object count; 
+ object extend; 
+ //Курсор ввода устанавливается в начало документа
+ unit = Word.WdUnits.wdStory; 
+ extend = Word.WdMovementType.wdMove; 
+ wordapp.Selection.HomeKey(ref unit, ref extend); 
+ //Выделяется текст до конца документа 
+ unit = Word.WdUnits.wdStory; 
+ extend = Word.WdMovementType.wdExtend; 
+ wordapp.Selection.EndKey(ref unit, ref extend); 
+break;
+</pre>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="62"></a></p><h3>6.2. Методы MoveLeft и MoveRight</h3>
+<p>Методы позволяют перемещать курсор на указанное число и выделять 
+в тексте указанное число символов, слов, ячеек или предложений.
+</p><pre>MoveLeft([Unit], [Count], [Extend]). 
+MoveRight([Unit], [Count], [Extend]). 
+</pre>
+<p>Аргумент Unit может принимать одно из значений Word.WdUnitsWord:
+</p><ul wfd-id="92">
+<li wfd-id="96"><p>wdCharacter - инкремент в единицах символов. 
+</p></li><li wfd-id="95"><p>wdWord - инкремент в единицах слов. 
+</p></li><li wfd-id="94"><p>wdCell - инкремент в единицах ячеек таблицы.
+</p></li><li wfd-id="93"><p>wdSentence - инкремент в единицах предложений. 
+</p></li></ul>
+<p>Аргумент Extend указывается одно из значений  Word.WdMovementType. 
+</p><ul wfd-id="89">
+<li wfd-id="91"><p>WdMove - только переместить курсор. При использовании с wdLine перемещает курсор ввода 
+в начало или конец строки, а при использовании с wdStory - в начало 
+или конец документа.  
+</p></li><li wfd-id="90"><p>WdExtend -  выделяет фрагмент от курсора ввода до
+конечной позиции, определяемой параметром Count и единицей Word.WdUnitsWord.
+</p></li></ul>
+<p>Пример использования методов MoveLeft и  MoveRight 
+(фрагмент кода вставлен в предыдущей пример после
+комментария "Непосредственно  работа с объектом Selection").
+Результат выполнения кода показан на Рис.6.
+</p><pre>//Непосредственно  работа с объектом Selection
+ object unit; 
+ object count; 
+ object extend; 
+ //Курсор ввода устанавливается в начало документа
+ unit = Word.WdUnits.wdStory; 
+ extend = Word.WdMovementType.wdMove; 
+ wordapp.Selection.HomeKey(ref unit, ref extend); 
+ //Перемещаем курсор ввода влево на 6 символов
+ unit = Word.WdUnits.wdCharacter;
+ extend = Word.WdMovementType.wdMove;
+ count = 13;
+ wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+ unit = Word.WdUnits.wdWord;
+ count = 1;
+ extend = Word.WdMovementType.wdExtend;
+ wordapp.Selection.MoveLeft(ref unit, ref count, 
+ref extend);
+</pre>
+<p align="center"><img src="./Работа с Word в С#_files/wordexcel0305.gif" alt="wordexce0305.gif"> 
+</p><p align="center">Рис.6.  Пример использования методов MoveLeft и  MoveRight 
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="63"></a></p><h3>6.3. Методы MoveUp и MoveDown</h3>
+<p>Методы позволяют перемещать курсор на указанное число и выделять 
+в тексте указанное число строк или абзацев.
+</p><p>Аргумент Unit может принимать одно из значений Word.WdUnitsWord:
+</p><ul wfd-id="84">
+<li wfd-id="88"><p>wdLine - инкремент в единицах строк.
+</p></li><li wfd-id="87"><p>wdParagraph - инкремент в абзацах. 
+</p></li><li wfd-id="86"><p>wdWindow - инкремент в единицах окна. 
+</p></li><li wfd-id="85"><p>wdScreen - инкремент в единицах экрана. 
+</p></li></ul>
+<p>Остальные параметры аналогичны методам MoveLeft и MoveRight. 
+</p><p>Пример выделения всего текста
+</p><pre>//Непосредственно  работа с объектом Selection
+object unit; 
+object count; 
+object extend; 
+//Курсор ввода устанавливается в начало документа
+unit = Word.WdUnits.wdStory; 
+extend = Word.WdMovementType.wdMove; 
+wordapp.Selection.HomeKey(ref unit, ref extend); 
+//Выделяется текст до конца документа 
+unit = Word.WdUnits.wdWindow;
+extend = Word.WdMovementType.wdExtend;
+count = 1;
+wordapp.Selection.MoveDown(ref unit, ref count, 
+ref extend);
+</pre>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="64"></a></p><h3>6.4. Метод Move</h3>
+<p>Метод Move сворачивает выделение к последнему выделенному 
+символу и перемещает курсор ввода на заданное параметром Count 
+число  символов, слов, строк, абзацев.
+</p><pre>Метод Move([Unit], [Count]); 
+</pre>
+<p>Аргумент Unit может принимать одно из значений Word.WdUnitsWord:
+</p><ul wfd-id="79">
+<li wfd-id="83"><p>wdCharacter - инкремент в единицах символов. 
+</p></li><li wfd-id="82"><p>wdWord - инкремент в единицах слов. 
+</p></li><li wfd-id="81"><p>wdLine - инкремент в единицах строк.
+</p></li><li wfd-id="80"><p>wdParagraph  - инкремент в абзацах. 
+</p></li></ul>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="65"></a></p><h3>6.5. Вывод текста</h3>
+<p>Для вывода текста с использованием объекта Selection
+используется его свойство Text или метод объекта TypeText. 
+Метод, в зависимости от того, установлен в Word режим "вставка" или
+"замена" вставляет или пишет новый текст поверх имеющегося. 
+</p><p>Примеры вывода текста приводятся ниже. В данных примерах
+сначала создаются и заполняются одинаковым шрифтом четыре абзаца, а 
+затем в режиме вставки вставляется текст с использованием метода
+TypeText и свойства Text. Пример наглядно демонстрирует (Рис.7.)
+одинаковый характер действия при применении метода и свойства 
+когда объект Selection представляет выделенный участок текста 
+(строки 1 и 2) и различие при применении  если он является курсором 
+ввода (строки 3 и 4).
+</p><pre>//Непосредственно  работа с объектом Selection
+//Устанавливаем шрифт по умолчанию
+worddocument.Content.Font.Size=25;
+worddocument.Content.Font.Bold=1;
+worddocument.Content.Font.Underline=Word.WdUnderline.wdUnderlineSingle;
+worddocument.Content.ParagraphFormat.Alignment=
+Word.WdParagraphAlignment.wdAlignParagraphCenter;
+worddocument.Content.ParagraphFormat.LeftIndent=
+ worddocument.Content.Application.CentimetersToPoints((float)2);
+worddocument.Content.ParagraphFormat.RightIndent=
+ worddocument.Content.Application.CentimetersToPoints((float)1);
+object unit; 
+object count; 
+object extend; 
+//Курсор ввода устанавливается в начало документа
+unit = Word.WdUnits.wdStory; 
+extend = Word.WdMovementType.wdMove; 
+wordapp.Selection.HomeKey(ref unit, ref extend);
+//Добавляем параграфы и выводим в них текст
+wordapp.Selection.TypeParagraph();
+wordapp.Selection.TypeText("Текст  1 абзаца");
+wordapp.Selection.TypeParagraph();
+wordapp.Selection.TypeText("Текст  2 абзаца");
+wordapp.Selection.TypeParagraph();
+wordapp.Selection.TypeText("Текст  3 абзаца");
+wordapp.Selection.TypeParagraph();
+wordapp.Selection.TypeText("Текст  4 абзаца");
+wordapp.Selection.TypeParagraph();
+//Курсор ввода устанавливается в начало документа
+wordapp.Selection.HomeKey(ref unit, ref extend); 
+//Перемещаем курсор ввода вправо на 6 символов
+unit = Word.WdUnits.wdCharacter;
+extend = Word.WdMovementType.wdMove;
+count = 6;
+wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+//Выделяем второе слово абзаца
+unit = Word.WdUnits.wdWord;
+count = 1;
+extend = Word.WdMovementType.wdExtend;
+wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+wordapp.Selection.Font.Size=15;
+wordapp.Selection.Font.Color=Word.WdColor.wdColorRed;
+//Задаем режим вставки
+wordapp.Options.Overtype = false;
+wordapp.Selection.Font.Italic=0;
+wordapp.Selection.Font.Bold=1;
+wordapp.Selection.Font.Underline=Word.WdUnderline.wdUnderlineNone;
+wordapp.Selection.TypeText(" Новый текст 1 ");
+//Переносим курсор ввода ко второму абзацу
+unit = Word.WdUnits.wdParagraph; 
+count = 1;
+wordapp.Selection.Move(ref unit,ref count);
+//Повторяем все, что было сделано для выделения второго слова абзаца
+unit = Word.WdUnits.wdCharacter;
+extend = Word.WdMovementType.wdMove;
+count = 6;
+wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+//Выделяем второе слово 2 абзаца
+unit = Word.WdUnits.wdWord;
+count = 1;
+extend = Word.WdMovementType.wdExtend;
+wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+//Задаем те же характеристики форматирования
+wordapp.Selection.Font.Size=15;
+wordapp.Selection.Font.Color=Word.WdColor.wdColorRed;
+wordapp.Options.Overtype = false;
+wordapp.Selection.Font.Italic=0;
+wordapp.Selection.Font.Bold=1;
+wordapp.Selection.Font.Underline=Word.WdUnderline.wdUnderlineNone;
+//Используем свойство Text объекта Selection
+wordapp.Selection.Text=" Новый текст 2 ";
+//Переносим курсор ввода к третьему абзацу
+unit = Word.WdUnits.wdParagraph; 
+count = 1;
+wordapp.Selection.Move(ref unit,ref count);
+//Только сдвигаем курсор ввода - бег выделения текста
+unit = Word.WdUnits.wdCharacter;
+extend = Word.WdMovementType.wdMove;
+count = 6;
+wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+//Задаем теже характеристики форматирования
+wordapp.Selection.Font.Size=15;
+wordapp.Selection.Font.Color=Word.WdColor.wdColorRed;
+wordapp.Options.Overtype = false;
+wordapp.Selection.Font.Italic=0;
+wordapp.Selection.Font.Bold=1;
+wordapp.Selection.Font.Underline=Word.WdUnderline.wdUnderlineNone;
+//Используем свойство Text объекта Selection
+wordapp.Selection.TypeText(" Новый текст 3" );
+//Переносим курсор ввода к четвертому абзацу
+unit = Word.WdUnits.wdParagraph; 
+count = 1;
+wordapp.Selection.Move(ref unit,ref count);
+//Только сдвигаем курсор ввода - бег выделения текста
+unit = Word.WdUnits.wdCharacter;
+extend = Word.WdMovementType.wdMove;
+count = 6;
+wordapp.Selection.MoveRight(ref unit, ref count, 
+ref extend);
+//Задаем теже характеристики форматирования
+wordapp.Selection.Font.Size=15;
+wordapp.Selection.Font.Color=Word.WdColor.wdColorRed;
+wordapp.Options.Overtype = false;
+wordapp.Selection.Font.Italic=0;
+wordapp.Selection.Font.Bold=1;
+wordapp.Selection.Font.Underline=Word.WdUnderline.wdUnderlineNone;
+//Используем свойство Text объекта Selection
+wordapp.Selection.Text=" Новый текст 4";
+</pre>
+<p align="center"><img src="./Работа с Word в С#_files/wordexcel0306.gif" alt="wordexce0306.gif"> 
+</p><p align="center">Рис.7. Пример вывода текста 
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="7"></a></p><h2>Параграф 7. Работа с таблицами</h2>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="71"></a></p><h3>7.1. Создание таблиц</h3>
+<p>Информация об объектах Table хранится в виде ссылок на 
+таблицы документа  в свойстве Tables. Набор ссылок Tables  
+доступен из объектов Document, Selection и Range и даже 
+из объекта Word.Table. Это значит, что и создавать таблицы 
+можно с использованием любого из этих объектов (в любом - 
+применительно к таблицам).  Для создания 
+таблиц используется метод Add:
+</p><pre>Add(
+Word.Range Range, //Объект Range - место формирования таблицы
+int NumRows,      //Число строк
+int NumColumns,   //Число столбцов
+ref object DefaultTableBehavior,//Определяет, изменяет ли Word 
+                                //автоматически размеры ячеек в 
+                                //таблицах, чтобы они  соответствовали 
+                                //содержанию  ячеек. Может быть 
+                                //одна из Word.WdDefaultTableBehavior 
+                                //констант: wdWord8TableBehavior (нет) 
+                                //или wdWord9TableBehavior (да). 
+                                //По умолчанию - wdWord8TableBehavior. 
+ref object AutoFitBehavior      //Автоподбор ширины столбцов
+                                //одна из следующих Word.WdAutoFitBehavior
+                                //констант: wdAutoFitContent - по 
+                                //содержимому, wdAutoFitFixed -
+                                //фиксированная или wdAutoFitWindow
+                                //по ширине окна. Если DefaultTableBehavior
+                                //установлен в wdWord8TableBehavior, 
+                                //этот параметр игнорируется.
+)
+</pre>
+<p>Пример создания таблицы:
+</p><pre>//Таблицу вставляем в начало документа
+Object start = 0;
+Object end = 0;
+Word.Range wordrange = worddocument.Range(ref start, ref end);
+Object defaultTableBehavior = 
+   Word.WdDefaultTableBehavior.wdWord9TableBehavior;
+Object autoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitWindow;
+//Добавляем таблицу и получаем объект wordtable 
+Word.Table wordtable = worddocument.Tables.Add(wordrange, 5, 5, 
+                  ref defaultTableBehavior, ref autoFitBehavior);
+</pre>
+<p>После того как таблица добавлена в документ, объект, 
+соответствующий добавленной таблице можно получить
+по ее номеру  в порядке добавления:
+</p><pre>Word.Table wordtable = worddocument.Tables[1];
+</pre>
+<p>После того как мы добавили таблицу и получили объект Word.Table
+мы можем изменить стиль таблицы, например:
+</p><pre>Object style = "Классическая таблица 1";
+wordtable.set_Style(ref style);
+//Далее можно добавлять выделение первых
+//и последних строк и столбцов
+wordtable.ApplyStyleFirstColumn=true;
+wordtable.ApplyStyleHeadingRows=true;
+wordtable.ApplyStyleLastRow=false;
+wordtable.ApplyStyleLastColumn=false;
+</pre>
+<p>Пример создания двух таблиц (Рис.8.). В примере не только
+показано как можно создать таблицу, но и как разместить ее в пределах документа
+Word. Пример, как и ранее, выполняется при открытии чистого документа C:\a.doc,
+и, поэтому, здесь опускается часть кода, приводимая выше по открытию
+документа:
+</p><pre>case 1:
+
+.......... 
+
+ //Вставляем в документ 4 параграфа
+ object oMissing = System.Reflection.Missing.Value;
+ worddocument.Paragraphs.Add(ref oMissing);
+ worddocument.Paragraphs.Add(ref oMissing);
+ worddocument.Paragraphs.Add(ref oMissing);
+ worddocument.Paragraphs.Add(ref oMissing);
+ //Переходим к первому добавленному параграфу
+ wordparagraph=worddocument.Paragraphs[2];
+ Word.Range wordrange=wordparagraph.Range;
+ //Добавляем таблицу в начало второго параграфа
+ Object defaultTableBehavior = 
+  Word.WdDefaultTableBehavior.wdWord9TableBehavior;
+ Object autoFitBehavior = 
+  Word.WdAutoFitBehavior.wdAutoFitWindow;
+ Word.Table wordtable1 = worddocument.Tables.Add(wordrange, 5, 5, 
+   ref defaultTableBehavior,ref autoFitBehavior);
+ //Сдвигаемся вниз в конец документа
+ object unit; 
+ object extend; 
+ unit = Word.WdUnits.wdStory; 
+ extend = Word.WdMovementType.wdMove; 
+ wordapp.Selection.EndKey(ref unit, ref extend); 
+ //Вставляем таблицу по месту курсора
+ Word.Table wordtable2 = worddocument.Tables.Add(
+   wordapp.Selection.Range, 4, 4, ref defaultTableBehavior,
+ ref autoFitBehavior);
+ //Меняем стили созданных таблиц
+ Object style = "Классическая таблица 1";
+ wordtable1.set_Style(ref style);
+ style = "Сетка таблицы 3";
+ Object applystyle = true;
+ wordtable2.set_Style(ref style);
+ wordtable2.ApplyStyleFirstColumn=true;
+ wordtable2.ApplyStyleHeadingRows=true;
+ wordtable2.ApplyStyleLastRow=false;
+ wordtable2.ApplyStyleLastColumn=false;
+break;
+</pre>
+<p align="center"><img src="./Работа с Word в С#_files/wordexcel0307.gif" alt="wordexce0307.gif"> 
+</p><p align="center">Рис.8. Пример создания таблиц 
+</p><p>Обратим внимание на то, что курсор остался в первой ячейки последней
+добавленной таблицы. Это может понадобиться для начала вывода
+информации.
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="72"></a></p><h3>7.2. Вывод информации в ячейки таблиц</h3>
+<p>Таблица или Объект Word.Tableт состоит из ячеек  - объектов Cell,
+ссылки на которые хранятся в наборе Cells данной таблицы. Ячейки 
+таблицы считаются упорядоченными по координатам X и Y, нумерация с 1.
+Следующие строки кода ссылаются на ячейку, расположенную в первой строке и 
+во втором столбце:
+</p><pre>Word.Range wordcellrange = worddocument.Tables[1].Cell(1, 2).Range;
+wordcellrange=wordtable2.Cell(2,3).Range;
+</pre>
+<p>Для вывода текста в ячейку достаточно свойству Text объекта Word.Range
+присвоить значение типа string.
+</p><pre>wordcellrange.Text="Строка для вывода";
+</pre>
+<p>Добавим к приведенному выше коду примера следующие строки и продемонстрируем вывод
+текста в ячейки (Рис.9.):
+</p><pre>Word.Range wordcellrange = worddocument.Tables[1].Cell(1, 2).Range;
+wordcellrange.Text="Ячейка 1 2";
+wordcellrange=wordtable2.Cell(2, 3).Range;
+wordcellrange.Text="Ячейка 2 3";
+for(int m=0; m &lt; wordtable2.Rows.Count; m++)   
+ for(int n=0; n &lt; wordtable2.Columns.Count; n++)
+ {
+  wordcellrange = wordtable2.Cell(m+1, n+1).Range;
+  wordcellrange.Text = "Ячейка"+Convert.ToString(m+1)+" "
+                           +Convert.ToString(n+1);
+} 
+</pre>
+<p align="center"><img src="./Работа с Word в С#_files/wordexcel0308.gif" alt="wordexce0308.gif"> 
+</p><p align="center">Рис.9.  Вывод текста в ячейки таблиц 
+</p><p>В таблице и отдельно в ячейках можно изменять как параметры 
+шрифта, так и любые другие параметры, которые можно изменить непосредственно
+из Word. Эти изменения доступны из свойства Range, которое имеется как 
+у всей таблицы, так и у каждой ее ячейки. Например, вставив в предыдущем примере 
+перед последней строчкой кода следующую строку, мы, тем самым, выполним вывод 
+информации шрифтом, размер которого возрастает при возрастании номера строки:
+</p><pre>wordcellrange.Font.Size=(m+1)*5;
+</pre>
+<p>Задать цвет шрифта можно следующими способами:
+</p><pre>wordcellrange.Font.ColorIndex=Word.WdColorIndex.wdBlue;
+wordcellrange.Font.Color=Word.WdColor.wdColorDarkRed;
+</pre>
+<p>Аналогично можно задать и обводку ячеек:
+</p><pre>wordcellrange.Borders[Word.WdBorderType.wdBorderBottom].LineStyle =
+  Word.WdLineStyle.wdLineStyleTriple;
+wordcellrange.Borders[Word.WdBorderType.wdBorderLeft].Color =
+  Word.WdColor.wdColorDarkYellow;
+wordcellrange.Borders[WdBorderType.wdBorderRight].ColorIndex =
+  Word.WdColorIndex.wdBlue;
+wordcellrange.Borders[Word.WdBorderType.wdBorderRight].LineWidth =
+  Word.WdLineWidth.wdLineWidth025pt;
+</pre>
+<p>Не составляет труда и выполнить заливку:
+</p><pre>wordcellrange.Shading.ForegroundPatternColor=
+                    Word.WdColor.wdColorDarkYellow;
+wordcellrange.Shading.BackgroundPatternColorIndex=
+ Word.WdColorIndex.wdGreen;
+</pre>
+<p>И последнее, что может понадобиться - выравнивание, которое
+выполняется аналогично выравниванию текста для параграфа текста:
+</p><pre>wordcellrange.ParagraphFormat.Alignment=
+  Word.WdParagraphAlignment.wdAlignParagraphCenter;
+</pre>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="73"></a></p><h3>7.3. Объединение ячеек таблиц</h3>
+<p>Параграф добавлен по просьбе назвавшего себя pasportbez1:
+</p><pre>Дата: 30.10.08 12:45 
+От кого: dm dm &lt;pasportbez1@???????&gt;     В адресную книгу:  В черный список: 
+ 
+Кому: wladm &lt;wladm@narod.ru&gt; 
+ 
+Тема: Хелп ! 
+ 
+Привет!, прошу прощение за беспокойство, я к тебе с просьбой - не мог бы 
+ты описать один момент на своем сайте в c# - когда открываешь ворд и 
+вставляешь туда таблицу - как можно объеденить ячейки ?
+
+Заранее пасибо !
+</pre>
+<p>В примере использованы Reference:
+</p><pre>Microsoft.Office.Tools.Word со вкладки .Net
+Microsoft Word 11.0 Object Library со вкладки COM
+</pre>
+<p>Текст программы практически полностью без того, что создает студия:
+</p><pre>using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.Collections;
+//Добавляем
+using Word = Microsoft.Office.Interop.Word;
+
+
+
+private Word.Application wordapp;
+
+private void button1_Click(object sender, EventArgs e)
+{
+ try
+ {
+  //Создаем объект Word - равносильно запуску Word
+   wordapp = new Word.Application();
+   //Делаем его видимым
+   wordapp.Visible = true;
+   Object template = Type.Missing;
+   Object newTemplate = false;
+   Object documentType = Word.WdNewDocumentType.wdNewBlankDocument;
+   Object visible = true;
+   //Создаем документ 1
+   Word.Document worddocument = wordapp.Documents.Add(
+  ref template, ref newTemplate, ref documentType, ref visible);
+   //Таблицу вставляем в начало документа
+   Object start = 0;
+   Object end = 0;
+   Word.Range wordrange = worddocument.Range(ref start, ref end);
+   Object defaultTableBehavior =
+      Word.WdDefaultTableBehavior.wdWord9TableBehavior;
+   Object autoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitWindow;
+   //Добавляем таблицу и получаем объект wordtable 
+   Word.Table wordtable = worddocument.Tables.Add(wordrange, 5, 5,
+                     ref defaultTableBehavior, ref autoFitBehavior);
+
+   //Можно так (метод доминирует в ИНЕТЕ), но не рекомендую - не сможите 
+   //объединить вертикально  две ячейки
+
+   //object begCell = wordtable.Cell(1, 1).Range.Start;
+   //object endCell =  wordtable.Cell(1, 2).Range.End;
+   //Word.Range wordcellrange = worddocument.Range(ref begCell, ref endCell);
+   //wordcellrange.Cells.Merge();
+
+   //Рекомендую так, объединяет как угодно 
+   //В столбец (вертикально) две ячейки
+   object begCell = wordtable.Cell(1, 1).Range.Start;
+   object endCell =  wordtable.Cell(2, 1).Range.End;
+   Word.Range wordcellrange = worddocument.Range(ref begCell, ref endCell);
+   wordcellrange.Select();
+   wordapp.Selection.Cells.Merge();
+
+   //В строку (горизонтально) две ячейки
+   begCell = wordtable.Cell(3, 1).Range.Start;
+   endCell = wordtable.Cell(3, 2).Range.End;
+   wordcellrange = worddocument.Range(ref begCell, ref endCell);
+   wordcellrange.Select();
+   wordapp.Selection.Cells.Merge();
+
+   //Квадратом
+   begCell = wordtable.Cell(3, 3).Range.Start;
+   endCell = wordtable.Cell(4, 5).Range.End;
+   wordcellrange = worddocument.Range(ref begCell, ref endCell);
+   wordcellrange.Select();
+   wordapp.Selection.Cells.Merge();
+  }
+  catch (Exception ex)
+  {
+   Text = ex.Message;
+  }
+}
+</pre>
+<p>Результат:
+</p><p align="center"><img src="./Работа с Word в С#_files/wordexcel0309.gif" alt="wordexce0309.gif"> 
+</p><p align="center">Рис.10. Объединение ячеек
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="8"></a></p><h2>Параграф 8. Защита документа</h2>
+<p><i><font color="darkred"><b>Материал прислан Андреем Ковалевым</b></font> и отредактирован автором</i>.
+</p><p>Для защиты документа необходимо установить пароль. В качестве пароля 
+используется любая переменная тира Object.
+</p><p>Рассмотрим код:
+</p><pre>Object missing = Type.Missing;
+Object NoReset = true;
+Object pass = "andrey";
+worddocument.Protect(Word.WdProtectionType.wdAllowOnlyReading, ref NoReset, ref
+ pass, ref missing, ref missing);
+</pre>
+<p>Соответственно функция в Microsoft.Office.Interop.Word.dll, определена как:
+</p><pre>void Protect(WdProtectionType Type, 
+            ref object NoReset, 
+            ref object Password, 
+            ref object UseIRM, 
+            ref object EnforceStyleLock);
+</pre>
+<p>Соответственно параметры:
+</p><ul wfd-id="67">
+<li wfd-id="72"><p>WdProtectionType:
+</p><ul wfd-id="73">
+<li wfd-id="78"><p>wdNoProtection - не применять защиту к документу;
+</p></li><li wfd-id="77"><p>wdAllowOnlyRevisions - только запись исправлений;
+</p></li><li wfd-id="76"><p>wdAllowOnlyComments - позволяет только добавлять коментарии к документу;
+</p></li><li wfd-id="75"><p>wdAllowOnlyFormFields - позволяет добавлять содержание через поля формы;
+</p></li><li wfd-id="74"><p>wdAllowOnlyReading - только чтение документа. 
+</p></li></ul>
+</li><li wfd-id="71"><p>noReset - значение false, чтобы сбросить поля формы к значениям по умолчанию. 
+Значение true, чтобы сохранить текущие значения полей формы, если документ защищен. 
+Если Type не является wdAllowOnlyFormFields, аргумент NoReset игнорируется.
+</p></li><li wfd-id="70"><p>password - пароль.
+</p></li><li wfd-id="69"><p>useIRM - определяет, следует ли использовать механизм управления правами на доступ 
+к данным (IRM) для защиты документа от изменений.
+</p></li><li wfd-id="68"><p>enforceStyleLock - определяет, были ли в защищенном документе принудительно реализованы 
+ограничения форматирования.
+</p></li></ul>
+<p>Приведенный выше код, соответственно, разрешает только чтение документа и позволяет 
+сохранить текущие значения полей формы.
+</p><p>Для снятия защиты используем:
+</p><pre>Object pass = ="andrey";
+worddocument.Unprotect(ref pass); 
+
+</pre>
+
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="9"></a></p><h2>Параграф 9. Диалоговые окна</h2>
+
+<p><i><b><font color="darkred">Материал прислан Павлом Матрениным</font></b> и отредактирован автором</i>.
+</p><p>Многие действия в Word сопровождаются вызовом диалоговых окон (создание, открытие, сохранение и печать документа, изменение параметров шрифта, текста и т.д.).</p>
+<p>Допустим, необходимо предоставить пользователю возможность отправить документ на печать прямо из вашего приложения. Можно использовать 
+функцю Document.PrintOut, но у нее "устрашающее" количество параметров, 
+как и у большинства функций связи C# с COM объектами. Мы это видели в функциях, использованных выше, 
+<a href="http://wladm.narod.ru/C_Sharp/comword.html#3">
+см., например, функцию</a>  SaveAs и другие.
+</p><p>Решением этой проблемы может быть использование стандартных диалоговых окон Word, привычных пользователю и позволяющих сократить разработчику программный код.</p>
+<p>Перейдем к примеру вызова диалогового окна печати документа:
+</p><pre>Object time = 10000;
+wordapp.Dialogs[Word.WdWordDialog.wdDialogFilePrint].Show(ref time);
+</pre>
+<p>Dialogs - это коллекция диалоговых окон Word (всего 296 элементов класса Microsoft.Office.Interop.Word.Dialog).
+Для того, что бы посмотреть все доступные диалоговые окна, кликните правой кнопкой мышки на 
+WdWordDialog и выберите пункт меню "Go To Defination".
+</p><p>Элементы доступны по своим именам и имеют понятные названия, например:</p>
+<pre><ul wfd-id="60">
+<li wfd-id="66">wdDialogFileNew - Новый документ;
+</li><li wfd-id="65">wdDialogFileOpen - Открыть документ;
+</li><li wfd-id="64">wdDialogFilePageSetup - Параметры страницы;
+</li><li wfd-id="63">wdDialogFilePrint - Печать;
+</li><li wfd-id="62">wdDialogFileSaveAs - Сохранить документ;
+</li><li wfd-id="61">wdDialogFormatFont - Параметры шрифта.
+</li></ul>
+</pre> 
+
+<p>Определение функции Dialog.Show в Microsoft.Office.Interop.Word.dll:</p>
+<pre>int Show(ref object TimeOut); 
+</pre>
+<p>Параметр: "TimeOut" - время в миллисекундах, через которое окно будет закрыто автоматически.
+Практика показывет, что некоторые виды окон игнорируют это время и сами не закрываются. Это относится к сохранению, открытию, созданию нового документа...
+Окна для указания параметров "печати, параметров страницы, шрифта...." закрываются по истечении указанного времени. 
+
+</p><p>Значение, которое возвращает функция Show, зависит от вида окна и от того, как оно было закрыто. 
+Если вышло время, или пользователь нажал "OK", или "Закрыть", то "-1", если "Отмена", то "0", если "По умолчанию", то "1".
+А вот если окно закрыто крестиком, то может быть "-1" или "-2", зависит от самого окна. Других значений в своих опытах я не встречал (П.Матренин).
+</p><p>Обратите внимане на то, что попытка вызвать диалоговое окно, которое не может быть 
+вызвано (например, сохранение, если пока не создано ни одного документа) приводит к возникновению исключительной ситуации.
+</p><p>Заметим также, что при Object time = 0 диалоговое окно появляется на не установленное время, иначе, программа будет 
+ожидать действий пользователя с диалоговым окном.
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="10"></a></p><h2>Параграф 10. Основы анализа документов Microsoft Word</h2>
+<p><i><b><font color="darkred">Материал прислан Сергеем Бабичевым</font></b>, переведен на C# и отредактирован автором</i>.
+</p><p>Очень часто людям приходится заниматься так называемой “обезьяньей работой”, нудным и совершенно нетворческим делом.  
+Например, форматировать документы по некоторому образцу или проверять  ссылки в разных документах друг на друга, 
+искать соответствие товаров в разных накладных и ведомостях…. 
+При этом очень легко ошибиться, что-то пропустить  и на  все это уходит много времени и сил. 
+</p><p>Что бы автоматизировать труд и избавиться от лишней работы необходимо знать основы анализа и преобразования формы документов. 
+В данном параграфе приводятся лишь некоторые возможности, предоставляемые OLE сервером Word, которые могут быть использованы при анализе 
+и преобразования документов.
+</p><p>За основу примеров взяты наработки автора сайта из этого раздела. Имена переменных соответствуют именам, используемым 
+в данной главе. 
+</p><p>После написания кода запуска OLE сервера Word и открытия документа можно приступить к его анализу.
+</p><p>Если нужно просмотреть весь документ по параграфам, то можно сделать это таким циклом:
+</p><pre>string s = string.Empty;
+try
+{
+ for (int i = 1; i &lt; worddocument.Paragraphs.Count; i++)
+ {
+  s= worddocument.Paragraphs[i].Range.Text;
+  vTestText(s);   // Функция, которая будет обрабатывать текст абзаца
+ }
+}
+catch (Exception ex)
+{
+    Text = ex.Message;
+}
+</pre>
+<p>В функции vTestText мы можем просто выполнить анализ текста, например, на поиск некоторых слов (наименований товара...).
+
+</p><p>Если мы поместим абзац в переменную wordrange, объявленную как
+</p><pre>private Word.Range wordrange = null;
+</pre>
+<p>, то мы можем работать не только с текстом параграфа документа, но и определить, что представляет собой параграф и видоизменять его.
+</p><pre>try
+{
+ for (int i = 1; i &lt; worddocument.Paragraphs.Count; i++)
+ {
+  wordrange = worddocument.Paragraphs[i].Range;
+  vTestRange(wordrange);
+ }
+}
+catch (Exception ex)
+{
+ Text = ex.Message;
+}
+</pre>
+<p>Функция  vTestRange определим как:
+</p><pre>private void vTestRange(Word.Range wordrg)
+{
+}
+</pre>
+<p>Что можно сделать в данной функции.
+</p><ol>
+<li wfd-id="59"><p>Выделить нужный абзац для дальнейших его преобразований или анализа:&nbsp;
+</p><pre>wordrg.Select();
+</pre>
+</li><li wfd-id="58"><p>Выбрать текст абзаца в некоторую строковую переменную: 
+</p><pre>s=wordrg.Text;
+</pre>
+</li><li wfd-id="57"><p>Определить номер страницы, на которой расположен абзац:
+</p><pre>object vobjN = wordrg.get_Information(Word.WdInformation.wdActiveEndPageNumber);
+Text = vobjN.ToString();
+</pre>
+<p>Другая константа - wdActiveEndAdjustedPageNumber, позволяет определить номер листа документа, когда нумерация 
+в нем начинается не с первого номера, то есть используется своя нумерацию страниц документа.
+<br>
+<br>
+</p></li><li wfd-id="53"><p>Проверить на вхождение абзаца в таблицу:<br> 
+</p><ul wfd-id="54"> 
+<li wfd-id="56"><p>так
+</p><pre>if (wordrg.Tables.Count &gt; 0)
+{
+ Text = wordrg.Text + " находится в таблице";
+}
+</pre>
+</li><li wfd-id="55"><p>или так
+</p><pre>object vobjTable = wordrg.get_Information(Word.WdInformation.wdWithInTable);           
+Text=vobjTable.ToString();
+if (Text != "False")
+{
+ Text = wordrg.Text + " находится в таблице";
+}
+</pre>
+</li></ul>
+</li><li wfd-id="52"><p>Если абзац в таблице, то можно узнать номер строки и столбца таблицы:
+</p><pre>vobjTable = wordrg.get_Information(Word.WdInformation.wdStartOfRangeRowNumber);
+Text ="Строка: "+ vobjTable.ToString();
+vobjTable = wordrg.get_Information(Word.WdInformation.wdStartOfRangeColumnNumber);
+Text +=" Столбец: "+ vobjTable.ToString();
+</pre>
+<p>Также этот код позволяет определить число строк и столбцов в таблице (методом перебора по максимальному числу номера строки и столбца).
+<br><br>
+</p></li><li wfd-id="48"><p>Узнать или изменить форматирование абзаца:
+</p><ul wfd-id="49">
+<li wfd-id="51"><p>узнать жирный (наклонный, подчеркнутый...) или нет шрифт: 
+</p><pre>s=wordrg.FormattedText.Bold.ToString()
+</pre>
+<p>"-1"&nbsp;-&nbsp;жирный,&nbsp;"0"&nbsp;-&nbsp;нет;
+</p></li><li wfd-id="50"><p>установит жирный или другой тип шрифта;
+</p><pre>wordrg.FormattedText.Bold = -1;
+</pre>
+</li></ul>
+</li><li wfd-id="44"><p>Узнать или изменить параметры шрифта:
+</p><ul wfd-id="45">
+<li wfd-id="47"><p>узнать:
+</p><pre> Word.Font mf = wordrg.FormattedText.Font;
+ string s = mf.Name+"  "+mf.Size.ToString();
+ Text = s;
+</pre>
+</li><li wfd-id="46"><p>изменить:
+</p><pre>wordrg.Font.Size = 24;
+wordrg.Font.Bold = 1;
+wordrg.Font.Color = Word.WdColor.wdColorGray30; 
+</pre>
+</li></ul>
+</li><li wfd-id="43"><p>Узнать число символов в параграфе (может быть использовано для последующего поиска символов или поиска и замены, форматирования...):
+</p><pre>Word.Characters wch = wordrg.FormattedText.Characters;
+int n= wch.Count;
+wch[10].Font.Size =25;//Изменить шрифт отдельного символа параграфа
+if (n &gt; 10) n = 10;
+//Изменить шрифт 10 первых символов параграфа
+for (int i = 0; i &lt; n; i++)
+{
+ wch[i+1].Font.Size = 25;
+}
+</pre>
+
+</li><li wfd-id="39"><p>Использовать объект Case, который предназначен для преобразования текста параграфов, но может быть использован и для 
+анализа. Объект имеет множество свойств (даже для изменения текстов написанного иероглифами). Для нас могут быть интересны значения: 
+wdLowerCase; wdUpperCase; wdNextCase; wdToggleCase; wdTitleWord; wdTitleSentence.
+Эти свойства позволяют соответственно перевести текст параграфа в нижний, верхний регистры, менять регистр, преобразовать первую букву каждого слова или  
+предложения в верхний регистр. 
+</p><p>Соответственно:
+</p><ul wfd-id="40">
+<li wfd-id="42"><p>для преобразования может быть использован код: F:\My_Site\C_Sharp\comword.html
+</p><pre>wordrg.FormattedText.Case = Word.WdCharacterCase.wdUpperCase;
+</pre>
+</li><li wfd-id="41"><p>для анализа может быть использован код:
+</p><pre>if (wordrg.FormattedText.Case == Word.WdCharacterCase.wdUpperCase)
+{
+ //действие
+}
+//если слова, написаны в смешанном регистре, то
+//FormattedText.Case имеет значение wdToggleCase
+</pre>
+</li></ul>
+</li><li wfd-id="38"><p>Использовать объект PageSetup для анализа и форматирования документа:
+</p><pre>Word.PageSetup wps = wordrg.FormattedText.PageSetup;
+if (wps.LeftMargin &lt; 100)
+{
+ wps.LeftMargin = 100;
+}
+</pre>
+<p>Другие интересные свойства PageSetup, которые могут быть использованы для анализа и форматирования VerticalAlignment, 
+RightMargin, TopMargin, LinesPage(строк на странице).
+</p><pre></pre>
+</li><li wfd-id="15"><p>Использовать объект Fields для анализа документа и поиска в документе:
+</p><p>Объявим объект Fields как: 
+</p><pre>Word.Fields wordfields; 
+wordfields = wordrg.Fields;
+</pre>
+<ul wfd-id="36">
+<li wfd-id="37"><p>Если абзац содержит поля, например гиперссылки или принадлежит оглавлению, то его свойство Count больше 0.
+</p><pre>if (wordfields.Count &gt; 1)
+{
+}
+</pre>
+</li></ul>
+<ul wfd-id="16">
+<li wfd-id="31"><p>Определение принадлежности к оглавлению:
+</p><p>В общем плане, структура оглавления примерно такая: 
+</p><ul wfd-id="32">
+<li wfd-id="35"><p>Первый и последний абзац его содержат в свойстве Fields ссылки на все остальные абзацы оглавления. 
+</p></li><li wfd-id="34"><p>В первом поле содержится текст «TOC»
+</p></li><li wfd-id="33"><p>Остальные поля выглядят примерно так:  HYPERLINK \\l \"_Toc295237884\ или так: PAGEREF _Toc295237884 \\h 
+(цифры скорее всего означают смещение в байтах). 
+</p></li></ul>
+<p>Встречаются документы, в которых абзац, не принадлежащий оглавлению
+содержит в себе поле с текстом "_Toc" (загадка). Поэтому проверять на вхождение абзаца в оглавление лучше 
+по слову "PAGEREF". Кроме того, пустой абзац после оглавления, содержащий всего лишь символ перехода на новую строку (\r), 
+также может содержать "PAGEREF". И, для того чтобы отличить текст оглавления от его завершения, может понадобиться 
+проверка текста абзаца на наличие только "\r".
+</p><pre>Word.Fields wordfields;
+wordfields = wordrg.Fields;
+string s = string.Empty;            
+if (wordfields.Count &gt; 1)
+{
+ for (int a = 0; a &lt; wordfields.Count; a++)
+ {
+  s = wordfields[a + 1].Code.Text;
+  if (s.ToUpper().Contains("PAGEREF") &amp;&amp; wordrg.Text.Trim().Length &gt; 0)
+  {
+    Text = " Абзац, содержащий " + wordrg.Text+" принадлежит к оглавлению";
+  }  
+ }
+}
+</pre>
+</li><li wfd-id="30"><p>Определение наличия гиперссылки в абзаце.
+</p><p>Здесь надо обратить внимание на то, что пункты оглавления, как и абзацы, просто содержащие гиперссылку,
+имеют поле "HYPERLINK". Поэтому, если мы хотим найти гиперссылку в тексте, то нам придется 
+проверить параграф на то, что он не относится к оглавлению.
+</p><pre>Word.Fields wordfields;
+wordfields = wordrg.Fields;
+string s = string.Empty;
+bool f = false;
+if (wordfields.Count &gt; 0)
+{
+ for (int a = 0; a &lt; wordfields.Count; a++)
+ {
+  s = wordfields[a + 1].Code.Text;
+  if (s.ToUpper().Contains("PAGEREF") &amp;&amp; wordrg.Text.Trim().Length &gt; 0)
+  {
+   f = true; ;
+  }
+ }
+ for (int a = 0; a &lt; wordfields.Count; a++)
+ {
+  s = wordfields[a + 1].Code.Text;
+  if (s.ToUpper().Contains("HYPERLINK") &amp;&amp; !f &amp;&amp; wordrg.Text.Trim().Length &gt; 0)
+  {
+   Text = " Абзац, содержащий " + wordrg.Text + " содержит гиперссылку";
+  }
+ }
+}
+</pre>
+</li><li wfd-id="17"><p>Определение принадлежности абзаца к списку.
+</p><pre>if ((int)wordrg.ListFormat.ListType &gt; 0 &amp;&amp; (int)wordrg.ListFormat.ListType &lt;= 6)
+{
+ Text = "Абзац принадлежит к списку типа " + wordrg.ListFormat.ListType.ToString();
+ Text = "";
+}
+//Свойство Text для абзаца из списка будет иметь одно из значений, перечисленных ниже:
+//Абзац принадлежит к списку типа  wdListSimpleNumbering
+</pre>
+<p>Возможные значения:
+</p><ul wfd-id="22">
+<li wfd-id="29"><p>wdListNoNumbering = 0,
+</p></li><li wfd-id="28"><p>wdListListNumOnly = 1,
+</p></li><li wfd-id="27"><p>wdListBullet = 2,
+</p></li><li wfd-id="26"><p>wdListSimpleNumbering = 3,
+</p></li><li wfd-id="25"><p>wdListOutlineNumbering = 4,
+</p></li><li wfd-id="24"><p>wdListMixedNumbering = 5,
+</p></li><li wfd-id="23"><p>wdListPictureBullet = 6.
+</p></li></ul>
+<p>Для определения принадлежности абзаца к списку можно использовать свойство ListString. 
+Правда это потребует знания кодов типов маркеров и нумерации списка, так как не все признаки линии в списках 
+(некоторые черточки, например) приводятся к читаемым строковым символам, и кроме того, пользователь может назначить свои 
+маркеры и нумерацию. Поэтому этот способ не всегда оправдан, разве что, для поиска в документе конкретных типов маркеров или конкретной нумерации.
+</p><pre>if ((int)wordrg.ListFormat.ListType &gt; 0 &amp;&amp; (int)wordrg.ListFormat.ListType &lt;= 6)
+{
+ string s = wordrg.FormattedText.ListFormat.ListString.Trim();
+ if (!string.IsNullOrEmpty(s))
+ {
+  s=s.Trim();
+  if (s.Contains(".")) s = ".";
+  char vch = Convert.ToChar(s);
+  UInt16 vui16 = Convert.ToUInt16(vch);
+  if (vui16 == 0xF02D)
+  {
+    Text = wordrg.Text + " - Абзац принадлежит к списку типа " + wordrg.ListFormat.ListType.ToString();
+  }
+ }
+}
+//Текст в заголовке формы
+//"текст абзаца" - Абзац принадлежит к списку типа wdListOutlineNumbering
+</pre>
+<p>Некоторые возможные значения кодов маркеров и нумераций:
+</p><ul wfd-id="18">
+<li wfd-id="21"><p>wdListBullet = 0xF0B7,0xF0A7, 0x6А, 0xF076, F0D8,F0FC...;
+</p></li><li wfd-id="20"><p>wdListSimpleNumbering = 0x2E, 0x29...
+</p></li><li wfd-id="19"><p>wdListPictureBullet = 0xF0B7...
+</p></li></ul>
+
+
+
+</li></ul>
+</li></ol>
+<p>В заключение параграфа надо сказать, что формат документа Word не очень непростой и содержит огромное количество полей и свойств. 
+Назначение многих из них непонятны, я думаю, даже программистам Microsoft (Сергеей Бабичев).
+</p><p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="20"></a></p><h2>Параграф 11. Некоторые другие возможности по работе с Word</h2>
+<p>Из приложения, управляя сервером Word, можно делать практически все, что 
+и из автономно запущенного Word. Однако, во всех этих, потрясающих 
+объемом доступных действий и возможностей, обычно  нет 
+необходимости. Здесь приведены лишь несколько возможностей,
+которые помимо приведенного выше материала, когда либо потребовались 
+автору в его практической работе.
+</p><p>Из приложения можно:
+</p><ul wfd-id="5">
+<li wfd-id="14"><p>Сменить ориентацию листа и установить поля.
+</p><pre>Object start=Type.Missing;
+Object end=Type.Missing;
+Word.Range wordrange=worddocument.Range(ref start,ref end);
+wordrange.PageSetup.Orientation=Word.WdOrientation.wdOrientLandscape;
+wordrange.PageSetup.LeftMargin=wordapp.CentimetersToPoints((float)2.5);
+</pre>
+<p>Аналогично установить все другие параметры, доступные из меню 
+<i>Файл / Параметры страницы</i>, а именно: Orientation, TopMargin, BottomMargin, 
+LeftMargin, RightMargin, Gutter, HeaderDistance, FooterDistance, 
+PageWidth, PageHeight, FirstPageTray, OtherPagesTray, SectionStart, 
+OddAndEvenPagesHeaderFooter, DifferentFirstPageHeaderFooter,
+VerticalAlignment, SuppressEndnotes, MirrorMargins, TwoPagesOnOne,
+BookFoldPrinting, BookFoldRevPrinting, BookFoldPrintingSheets,
+GutterPos.
+</p></li><li wfd-id="13"><p>Скопировать любой документ или его выделенный диапазон 
+(объект Ramge) в буфер обмена (например диаграмму Excel) или вставить в документ что-то 
+из буфера обмена:
+</p><pre>wordrange.Paste();
+wordrange.Copy();
+</pre>
+</li><li wfd-id="12"><p>Изменить масштаб документа:
+</p><pre>wordapp.ActiveWindow.ActivePane.View.Zoom.Percentage=75;
+</pre>
+</li><li wfd-id="11"><p>Изменить размер отображения окна:
+</p><pre>//Значение Word.WdWindowState констант: 
+//wdWindowStateMaximize, wdWindowStateNormal, wdWindowStateMinimize
+wordapp.WindowState=Word.WdWindowState.wdWindowStateMaximize;
+</pre>
+</li><li wfd-id="10"><p>Отменить любое количество выполненных из приложения действий:
+</p><pre>object back = 2;
+worddocument.Undo(ref back);
+</pre>
+</li><li wfd-id="9"><p>Управлять параметрами окна Word, и прочитать установочные данные:
+</p><pre>//Отобразить - показать статус Бар 
+//(аналогично, для панелей инструментов): 
+//bool bln = (wordapp.DisplayStatusBar); 
+wordapp.DisplayStatusBar = !bln; 
+//Узнать директория Word:
+MessageBox.Show(wordapp.Path);
+//Имя пользователя
+MessageBox.Show(wordapp.UserName); 
+</pre>
+</li><li wfd-id="8"><p>Поиск в документе:
+</p><p>Документ открыт и есть объект документа:
+</p><pre>//Посмотреть весь документ
+Object start = 0;
+Object end = worddocument.Characters.Count;
+Word.Range wordrange = worddocument.Range(ref start, ref end);
+wordrange.TextRetrievalMode.IncludeHiddenText = false;
+wordrange.TextRetrievalMode.IncludeFieldCodes = false;
+MessageBox.Show(wordrange.Text);
+//Посмотреть фразу
+string sText = "Кабы я была царица";
+int beginphrase = 0;
+beginphrase = wordrange.Text.IndexOf(sText);
+start = beginphrase;
+end = beginphrase + sText.Length;
+wordrange =  worddocument.Range(ref start, ref end);
+MessageBox.Show(wordrange.Text);
+textBox1.Text = wordrange.Text + " Найденный текст начинается с позиции: " 
++ Convert.ToString(beginphrase);
+</pre>
+</li><li wfd-id="7"><p>Вставка картинок в приложение (решение прислала Оксанчик):
+</p><pre>wordapp.Selection.InlineShapes.AddPicture(@"C:\3.jpg", ref oMissing, ref oMissing, ref oMissing); 
+</pre>
+</li><li wfd-id="6"><p>Вставка разрава - на другой лист
+</p><pre>//Сдвигаемся вниз в конец документа
+object unit;
+object extend;
+unit = Word.WdUnits.wdStory;
+extend = Word.WdMovementType.wdMove;
+wordapp.Selection.EndKey(ref unit, ref extend);
+object oType;
+oType = Word.WdBreakType.wdSectionBreakNextPage;
+//И на новый лист
+wordapp.Selection.InsertBreak(ref oType);
+</pre>
+<p>Нумерация листов в Word
+</p><pre>public void vInsertNumberPages(int viWhere, bool bPageFirst)
+{
+ object alignment = Word.WdPageNumberAlignment.wdAlignPageNumberCenter; 
+ object bFirstPage = bPageFirst;
+ object bF = true;            
+ // создаём коллонтитулы            
+ worddocument.ActiveWindow.ActivePane.View.SeekView = Word.WdSeekView.wdSeekCurrentPageHeader; 
+ switch (viWhere)
+ {                
+  case 1:
+      alignment = Word.WdPageNumberAlignment.wdAlignPageNumberRight;      
+      break;
+  case 2:
+      alignment = Word.WdPageNumberAlignment.wdAlignPageNumberLeft;      
+      break;
+ }
+ wordapp.Selection.HeaderFooter.PageNumbers.Add(ref   alignment, ref   bFirstPage);
+}
+</pre>
+
+
+</li></ul>
+<p><br><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало</a>
+<a name="z"></a></p><h2>Заключение. О богатстве возможностей</h2>
+<p><i>Еще раз повторим, сказанное в Главе 2, богатства возможностей 
+по управлению запущенным приложением потрясающе</i>. Практически, все, что можно сделать 
+в автономно запущенном приложении доступно и из приложения на C#. Каждый может
+достаточно легко выполнить то или иное действия из приложения, если
+создаст макрос для этого действия, а, затем, "переведет" 
+код VBA в коды C#. 
+</p><p>И, в тоже время, по мнению автора, для начального этапа 
+практической работы по формированию документов из приложения, изложенного 
+материала вполне достаточно. Но, несмотря на это, раздел будет пополняться по мере возникновения 
+какой либо проблемы в практической работе и ее разрешении. Если у Вас есть 
+интересные находки - присылайте - с указанием авторства они будут включены в данный материал. 
+<br> 
+<a name="l"></a></p><h2>Литература</h2>
+<ul wfd-id="2">
+<li wfd-id="4"><p>1.<a href="http://www.gotdotnet.ru/LearnDotNet/NETFramework/22156.aspx"> Объектная модель Word с точки зрения разработчика под .NET  
+</a>&nbsp;&nbsp;выложена на сайте&nbsp;&nbsp;<a href="http://www.gotdotnet.ru/">GotDotNet.RU</a>
+</p></li><li wfd-id="3"><p>2. <a href="http://msdn.microsoft.com/library/">MSDN Library</a>
+&nbsp;сайт фирмы&nbsp;<a href="http://msdn.microsoft.com%3C/a">&nbsp;Microsoft&nbsp;</a>
+</p></li></ul>
+<br> 
+<p align="right"><i><font size="+1">Молчанов Владислав 31.01.2005г.</font></i><font size="+1">
+</font></p><p align="right"><font size="+1"><i>Адаптировано к VS 2005/2008 17.10.2007г.</i>
+</font></p><p align="right"><font size="+1">Перепечатка статьи без разрешения автора не допускается.
+</font></p><h2><font size="+1">Еcли Вы пришли с поискового сервера - посетите мою главную страничку</font></h2><font size="+1">
+<p>На главной странице Вы найдете <b>программы комплекса Veles</b> - программы для автолюбителей, 
+<b>программы из раздела графика</b> - программы для работы с фото, сделанными цифровым фотоаппаратом,
+<b>программу Bricks</b> - игрушку для детей и взрослых, программу записную книжку,
+<b>программу TellMe</b> - говорящий Русско-Английский разговорник - программу для тех, кто собирается 
+погостить за бугром или повысить свои знания в английском, <b>теоретический материал 
+по программированию в среде Borland C++ Builder, C# (Windows приложения и ASP.Net Web сайты)</b>.
+</p><p align="center"><img src="./Работа с Word в С#_files/logo.gif" alt="logo.gif"> 
+</p><p><a href="http://wladm.narod.ru/C_Sharp/comword.html#top">В начало страницы</a>
+</p><p><a href="http://wladm.narod.ru/C_Sharp/componentbegin.html">К началу раздела</a>
+</p><p><a href="http://wladm.narod.ru/C_Sharp/index.html">К началу книги</a>
+</p><p><a href="http://wladm.narod.ru/">На главную страницу</a>
+</p></font></li></td></tr></tbody></table>
+</p><hr>
+<!-- copyright (t1) --><div align="center" wfd-id="0">Сайт управляется системой <a href="http://www.ucoz.ru/" title="Создать сайт бесплатно">uCoz</a><br></div><!-- /copyright -->
+<hr>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter20926867 = new Ya.Metrika({id:20926867,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/20926867" style="position:absolute; left:20px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<hr>
+
+
+</body></html>
