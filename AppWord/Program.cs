@@ -56,7 +56,7 @@ namespace AppWord
                 case 1: IsInstallWord(); break;
                 case 2: StartAppWord(); break;
                 case 3: StartAppWordTemplate(); break;
-                case 0: break;
+                case 0: wordapp.Activate(); break; // после выхода из программы принудительно активируем Word чтобы он оставался видимым
                 default: break;
             }
         }
@@ -90,7 +90,7 @@ namespace AppWord
         /// </summary>
         private static void StartAppWordTemplate()
         {
-            #region MyRegion Запуск Word с созданием документа из шаблона по умолчанию
+            #region MyRegion Запуск Word с созданием документа из заданного шаблона
             Console.WriteLine("Запускаем Word!");
             try
             {
@@ -125,7 +125,7 @@ namespace AppWord
         /// </summary>
         private static void StartAppWord()
         {
-            #region MyRegion Запуск Word с открытием файла или созданием по заданному шаблону
+            #region MyRegion Запуск Word с созданием документа по стандартному шаблону
             Console.WriteLine("Запускаем Word!");
             try
             {
@@ -150,30 +150,74 @@ namespace AppWord
                 AppWordAddParagraph(10, ref oMissing);
                 // получаем указатель на список параграфов
                 wordparagraphs = worddocument.Paragraphs;
-                // определяем количество паргарфов в текущем документе и записываем его в переменную Text
-                string Text = Convert.ToString(wordparagraphs.Count);
-                // получаем указатель на параграф
-                wordparagraph = (Word.Paragraph)wordparagraphs[5];
-                // записываем в параграф значение текста
-                wordparagraph.Range.Text = Text;
-                // меняем параметры текста и параграфа
-                // устанавливаем значение цвета параграфа
-                wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlue;
-                // устанавливаем значение размера шрифта
-                wordparagraph.Range.Font.Size = 20;
-                // устанавливаем значение шрифта
+
+                // здесь будем создавать раздел в документе содержащий таблицу таксационных характеристик
+                // добавляем заголовок таблицы
+                // получаем указатель на 1 параграф
+                wordparagraph = (Word.Paragraph)wordparagraphs[1];
+                wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
+                wordparagraph.Range.Font.Size = 14;
                 wordparagraph.Range.Font.Name = "Arial";
-                // устанавливаем значение написания шрифта
-                // наклон шрифта
                 wordparagraph.Range.Font.Italic = 1;
-                // толщина шрифта
                 wordparagraph.Range.Font.Bold = 1;
-                // можно подчеркнуть
-                wordparagraph.Range.Font.Underline = Word.WdUnderline.wdUnderlineSingle;
-                // цвет линии подчеркивания
-                wordparagraph.Range.Font.UnderlineColor = Word.WdColor.wdColorDarkRed;
-                // можно перечеркнуть
-                wordparagraph.Range.Font.StrikeThrough=1; 
+                // записываем в параграф значение текста
+                wordparagraph.Range.Text = "Ведомость таксационных характеристик зеленых насаждений";
+                // Добавляем таблицу С указанием параграфа и положения таблицы в строке параграфа
+                #region Вставка таблицы в заданный параграф и положению с строке
+                Word.Table wordtable = AppWordAddTable(7, 10, 2);
+                #endregion
+                // Добавляем заголовок таблицы
+                Word.Range wordcellrange = worddocument.Tables[1].Cell(1, 1).Range;
+                wordcellrange.Text = "№ п/п";
+                wordcellrange = worddocument.Tables[1].Cell(1, 2).Range;
+                wordcellrange.Text = "Наиманование";
+                wordcellrange = worddocument.Tables[1].Cell(1, 3).Range;
+                wordcellrange.Text = "Количество";
+                wordcellrange = worddocument.Tables[1].Cell(1, 4).Range;
+                wordcellrange.Text = "Диаметр";
+                wordcellrange = worddocument.Tables[1].Cell(1, 5).Range;
+                wordcellrange.Text = "Высота";
+                wordcellrange = worddocument.Tables[1].Cell(1, 6).Range;
+                wordcellrange.Text = "Характеристика";
+                wordcellrange = worddocument.Tables[1].Cell(1, 7).Range;
+                wordcellrange.Text = "Примечание";
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //// определяем количество паргарфов в текущем документе и записываем его в переменную text
+                //string text = Convert.ToString(wordparagraphs.Count);
+                //// получаем указатель на параграф
+                //wordparagraph = (Word.Paragraph)wordparagraphs[5];
+                //// записываем в параграф значение текста
+                //wordparagraph.Range.Text = text;
+                //// меняем параметры текста и параграфа
+                //// устанавливаем значение цвета параграфа
+                //wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlue;
+                //// устанавливаем значение размера шрифта
+                //wordparagraph.Range.Font.Size = 20;
+                //// устанавливаем значение шрифта
+                //wordparagraph.Range.Font.Name = "Arial";
+                //// устанавливаем значение написания шрифта
+                //// наклон шрифта
+                //wordparagraph.Range.Font.Italic = 1;
+                //// толщина шрифта
+                //wordparagraph.Range.Font.Bold = 1;
+                //// можно подчеркнуть
+                //wordparagraph.Range.Font.Underline = Word.WdUnderline.wdUnderlineSingle;
+                //// цвет линии подчеркивания
+                //wordparagraph.Range.Font.UnderlineColor = Word.WdColor.wdColorDarkRed;
+                //// можно перечеркнуть
+                //wordparagraph.Range.Font.StrikeThrough=1; 
 
                 // Добавляем разрыв страницу
                 // Объявляем переменные для метода Move
@@ -194,24 +238,15 @@ namespace AppWord
                 wordapp.Selection.InsertBreak(ref oType);
 
                 // Добавляем заголовок
-                wordparagraph = (Word.Paragraph)wordparagraphs[1];
-                wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
-                wordparagraph.Range.Font.Size = 14;
-                wordparagraph.Range.Font.Name = "Arial";
-                wordparagraph.Range.Font.Italic = 1;
-                wordparagraph.Range.Font.Bold = 1;
-                wordparagraph.Range.Text = "Ведомость таксационных характеристик зеленых насаждений";
-
-                // Добавляем таблицу
+                //wordparagraph = (Word.Paragraph)wordparagraphs[1];
+                //wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
+                //wordparagraph.Range.Font.Size = 14;
+                //wordparagraph.Range.Font.Name = "Arial";
+                //wordparagraph.Range.Font.Italic = 1;
+                //wordparagraph.Range.Font.Bold = 1;
+                //wordparagraph.Range.Text = "Ведомость таксационных характеристик зеленых насаждений";
 
                 
-                #region Вставка таблицы в заданный параграф и положению с строке
-                Word.Table wordtable = AppWordAddTable(10,5, 1);
-                #endregion
-
-                // С указанием параграфа и положения таблицы в строке параграфа
-
-
 
                 // переводим курсор в начало документа
                 unit = Word.WdUnits.wdStory;
@@ -223,9 +258,7 @@ namespace AppWord
                 unit = Word.WdUnits.wdParagraph;
                 count = 2;
                 wordapp.Selection.Move(ref unit, ref count);
-                
 
-              
             }
             catch (Exception ex)
             {
@@ -237,9 +270,13 @@ namespace AppWord
             Console.ReadKey();
         }
 
-
-        // Метод для создания заданного количества параграфов в документе
-        // в метод передаются значение количества создаваемых параграфов и их свойства
+        /// <summary>
+        /// Метод для создания заданного количества параграфов в документе
+        /// в метод передаются значение количества создаваемых параграфов и их свойства
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="val"></param>
+        
         private static void AppWordAddParagraph(int n, ref object val)
         {
             for (var i=1; i<n; i++)
@@ -268,7 +305,7 @@ namespace AppWord
             Object defaultTableBehavior = Word.WdDefaultTableBehavior.wdWord9TableBehavior;
             Object autoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitWindow;
             //Добавляем таблицу и получаем объект wordtable 
-            return worddocument.Tables.Add(wordrange, columns, rows, ref defaultTableBehavior, ref autoFitBehavior);
+            return worddocument.Tables.Add(wordrange, rows, columns, ref defaultTableBehavior, ref autoFitBehavior);
         }
     }
 
