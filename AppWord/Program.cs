@@ -41,6 +41,14 @@ namespace AppWord
         Object falseObj = false;
         /// cодержит объект переменную указывающую на ложность значения
 
+        /// Глобальные переменные для работы метода Move и перемещение курсора
+        /// пока как показала практика как глобальная переменная не работает
+        /// object unit;
+        /// содержит информацию о 
+        /// object extend;
+        /// содержит информацию о 
+
+
 
         static void Main(string[] args)
         {
@@ -181,17 +189,32 @@ namespace AppWord
                 wordcellrange.Text = "Характеристика";
                 wordcellrange = worddocument.Tables[1].Cell(1, 7).Range;
                 wordcellrange.Text = "Примечание";
-
-
-
-
-
-
-
-
-
-
-
+                // Следующий этап универсальной команды в которую передаются данные по заголовку таблицы и ее наполнению
+                // Добавим еще одну таблицу в конец листа
+                // установка положения курсора в конец текста
+                object unit = Word.WdUnits.wdStory;
+                object extend = Word.WdMovementType.wdMove;
+                wordapp.Selection.EndKey(ref unit, ref extend);
+               
+                // заполнение шапки будем делать в цикле, в цикл передается список с содежимым
+                List<string> shList = new List<string>()
+                {
+                    "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
+                    "Возраст, лет", "Декоративные качества", "Примечание"
+                };
+                // получаем колличество элементов в списке
+                var listCount = shList.Count();
+                AppWordAddTable(listCount, 10, wordparagraphs.Count);
+                // запускаем цикл заполнения шапки таблицы
+                for (var i = 0; i < listCount; i++)
+                {
+                    wordcellrange = worddocument.Tables[2].Cell(1, i+1).Range;
+                    wordcellrange.Font.Size = 12;
+                    wordcellrange.Font.Bold = 1;
+                    wordcellrange.Font.Italic = 1;
+                    wordcellrange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                    wordcellrange.Text = shList[i];
+                }
 
 
                 //// определяем количество паргарфов в текущем документе и записываем его в переменную text
@@ -220,12 +243,11 @@ namespace AppWord
                 //wordparagraph.Range.Font.StrikeThrough=1; 
 
                 // Добавляем разрыв страницу
-                // Объявляем переменные для метода Move
-                object unit;
-                object extend;
+
+
                 object count;
                 
-                unit = Word.WdUnits.wdStory;
+                
                 // установка положения курсора
                 extend = Word.WdMovementType.wdMove;
                 wordapp.Selection.EndKey(ref unit, ref extend);
