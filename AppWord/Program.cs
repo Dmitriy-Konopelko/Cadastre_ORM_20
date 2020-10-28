@@ -195,26 +195,44 @@ namespace AppWord
                 object unit = Word.WdUnits.wdStory;
                 object extend = Word.WdMovementType.wdMove;
                 wordapp.Selection.EndKey(ref unit, ref extend);
-               
-                // заполнение шапки будем делать в цикле, в цикл передается список с содежимым
+                // Данные для заполнения шапок таблиц
+                // Ведомость существующих зеленых насаждений
                 List<string> shList = new List<string>()
                 {
                     "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
                     "Возраст, лет", "Декоративные качества", "Примечание"
                 };
-                // получаем колличество элементов в списке
-                var listCount = shList.Count();
-                AppWordAddTable(listCount, 10, wordparagraphs.Count);
-                // запускаем цикл заполнения шапки таблицы
-                for (var i = 0; i < listCount; i++)
+
+                // Ведомость пересаживаемых зеленых насаждений
+                List<string> prList = new List<string>()
                 {
-                    wordcellrange = worddocument.Tables[2].Cell(1, i+1).Range;
-                    wordcellrange.Font.Size = 12;
-                    wordcellrange.Font.Bold = 1;
-                    wordcellrange.Font.Italic = 1;
-                    wordcellrange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                    wordcellrange.Text = shList[i];
+                    "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
+                    "Декоративные качества", "Размер кома, м"
+                };
+
+                // Ведомости вырубаемых зеленых насаждений
+                List<string> vrList = new List<string>()
+                {
+                    "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
+                    "Декоративные качества", "Компенсационные посадки"
+                };
+
+                // заполнение шапки будем делать в цикле, в цикл передается список с содежимым
+                // получаем колличество элементов в списке
+                //var listCount = shList;
+                //var listCount = prList;
+                var listCount = vrList;
+                Word.Table wTableAllPlant = AppWordAddTable(listCount.Count, 10, wordparagraphs.Count);
+                // запускаем цикл заполнения шапки таблицы
+                for (var i = 0; i < listCount.Count; i++)
+                {
+                    wTableAllPlant.Cell(1, i + 1).Range.Font.Size = 12;
+                    wTableAllPlant.Cell(1, i + 1).Range.Font.Bold = 1;
+                    wTableAllPlant.Cell(1, i + 1).Range.Font.Italic = 1;
+                    wTableAllPlant.Cell(1, i + 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                    wTableAllPlant.Cell(1, i+1).Range.Text = listCount[i];
                 }
+               
 
 
                 //// определяем количество паргарфов в текущем документе и записываем его в переменную text
