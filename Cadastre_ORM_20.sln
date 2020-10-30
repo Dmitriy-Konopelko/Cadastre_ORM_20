@@ -27,6 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWord", "AppWord\AppWord.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "!_TextPart", "!_TextPart", "{35A7388D-F61A-499F-8A8C-9CAA89BF9ABF}"
 	ProjectSection(SolutionItems) = preProject
+		!_TextPart\Ведомости пример.docx = !_TextPart\Ведомости пример.docx
 		!_TextPart\Дипломный проект - Конопелько Д.Н..doc = !_TextPart\Дипломный проект - Конопелько Д.Н..doc
 		!_TextPart\Описание Баланс.pdf = !_TextPart\Описание Баланс.pdf
 	EndProjectSection
