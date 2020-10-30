@@ -39,6 +39,7 @@ namespace AppWord
         Object trueObj = true;
         /// cодержит объект переменную указывающую на истинность значения
         Object falseObj = false;
+
         /// cодержит объект переменную указывающую на ложность значения
 
         /// Глобальные переменные для работы метода Move и перемещение курсора
@@ -46,7 +47,10 @@ namespace AppWord
         /// object unit;
         /// содержит информацию о 
         /// object extend;
-        /// содержит информацию о 
+        /// содержит информацию о
+        
+        /// данная переменная содержит информацию о выбранном диапазоне ячеек
+        private static Word.Range wordcellrange;
 
 
 
@@ -175,7 +179,7 @@ namespace AppWord
                 Word.Table wordtable = AppWordAddTable(7, 10, 2);
                 #endregion
                 // Добавляем заголовок таблицы
-                Word.Range wordcellrange = worddocument.Tables[1].Cell(1, 1).Range;
+                wordcellrange = worddocument.Tables[1].Cell(1, 1).Range;
                 wordcellrange.Text = "№ п/п";
                 wordcellrange = worddocument.Tables[1].Cell(1, 2).Range;
                 wordcellrange.Text = "Наиманование";
@@ -222,7 +226,9 @@ namespace AppWord
                 //var listCount = shList;
                 //var listCount = prList;
                 var listCount = vrList;
-                Word.Table wTableAllPlant = AppWordAddTable(listCount.Count, 10, wordparagraphs.Count);
+                var wTableAllPlant = AppWordAddTable(listCount.Count, 10, wordtable.Range.Paragraphs.Count+2);
+                // запускаем настройки таблицы
+                wTableAllPlant.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                 // запускаем цикл заполнения шапки таблицы
                 for (var i = 0; i < listCount.Count; i++)
                 {
@@ -230,9 +236,87 @@ namespace AppWord
                     wTableAllPlant.Cell(1, i + 1).Range.Font.Bold = 1;
                     wTableAllPlant.Cell(1, i + 1).Range.Font.Italic = 1;
                     wTableAllPlant.Cell(1, i + 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                    wTableAllPlant.Cell(1, i+1).Range.Text = listCount[i];
+                    wTableAllPlant.Cell(1, i + 1).Range.Text = listCount[i];
                 }
-               
+
+                // создаем таблицу баланса
+                var wTableBalans = AppWordAddTable(8, 7, wordparagraphs.Count);
+                // объединяем и заполняем ячейки шапки таблицы
+                // объединяем ячейки для поля Проектные предложения
+                object begCell = wTableBalans.Cell(1, 1).Range.Start;
+                object endCell = wTableBalans.Cell(3, 1).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(1, 1).Range.Text = "Проектные предложения";
+                // объединяем ячейки для поля Деревья
+                begCell = wTableBalans.Cell(1, 2).Range.Start;
+                endCell = wTableBalans.Cell(1, 5).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(1, 2).Range.Text = "Деревья";
+
+                // объединяем ячейки для поля Всего
+                begCell = wTableBalans.Cell(2, 2).Range.Start;
+                endCell = wTableBalans.Cell(3, 2).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(2, 2).Range.Text = "Всего";
+
+                // объединяем ячейки для поля В том числе
+                begCell = wTableBalans.Cell(2, 3).Range.Start;
+                endCell = wTableBalans.Cell(2, 5).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(2, 3).Range.Text = "в том числе";
+
+                // объединяем ячейки для поля Кустарники
+                begCell = wTableBalans.Cell(1, 3).Range.Start;
+                endCell = wTableBalans.Cell(1, 5).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(1, 3).Range.Text = "Кустарники";
+
+                // объединяем ячейки для поля Всего
+                begCell = wTableBalans.Cell(2, 4).Range.Start;
+                endCell = wTableBalans.Cell(3, 6).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(2, 4).Range.Text = "Всего";
+
+                // объединяем ячейки для поля В том числе
+                begCell = wTableBalans.Cell(2, 5).Range.Start;
+                endCell = wTableBalans.Cell(2, 6).Range.End;
+                wordcellrange = worddocument.Range(ref begCell, ref endCell);
+                wordcellrange.Select();
+                wordapp.Selection.Cells.Merge();
+                wTableBalans.Cell(2, 5).Range.Text = "в том числе";
+
+                // заполняем ячейку поля Сохраняемые
+                wTableBalans.Cell(4, 1).Range.Text = "Сохраняемые";
+                // заполняем ячейку поля Пересаживаемые
+                wTableBalans.Cell(5, 1).Range.Text = "Пересживаемые";
+                // заполняем ячейку поля Вырубаемые
+                wTableBalans.Cell(6, 1).Range.Text = "Сохраняемые";
+                // заполняем ячейку поля Итого
+                wTableBalans.Cell(7, 1).Range.Text = "Итого";
+                // заполняем ячейку поля Декративно-лиственные
+                wTableBalans.Cell(3, 3).Range.Text = "Декративно-лиственные";
+                // заполняем ячейку поля Плодовые
+                wTableBalans.Cell(3, 4).Range.Text = "Плодовые";
+                // заполняем ячейку поля Хвойные
+                wTableBalans.Cell(3, 5).Range.Text = "Хвойные";
+                // заполняем ячейку поля В группах
+                wTableBalans.Cell(3, 7).Range.Text = "в группах";
+                // заполняем ячейку поля В живой изгороди
+                wTableBalans.Cell(3, 8).Range.Text = "в живой изгороди";
+                //заполняем ячейки таблицы
+
 
 
                 //// определяем количество паргарфов в текущем документе и записываем его в переменную text
@@ -344,8 +428,9 @@ namespace AppWord
             // создаем вспомогательные объекты для создания таблицы
             Object defaultTableBehavior = Word.WdDefaultTableBehavior.wdWord9TableBehavior;
             Object autoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitWindow;
-            //Добавляем таблицу и получаем объект wordtable 
-            return worddocument.Tables.Add(wordrange, rows, columns, ref defaultTableBehavior, ref autoFitBehavior);
+            //Добавляем таблицу и получаем объект wordtable
+            var table = worddocument.Tables.Add(wordrange, rows, columns, ref defaultTableBehavior, ref autoFitBehavior);
+            return table;
         }
     }
 
