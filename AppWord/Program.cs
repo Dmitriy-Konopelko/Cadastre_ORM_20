@@ -110,8 +110,8 @@ namespace AppWord
                     case 1: IsInstallWord(); break;
                     case 2: StartApplicationWord(pathTemplate); break;
                     case 3: WordDocAddTablePlantProperties(shList); break;
-                    case 4: WordDocAddTablePlantDelete(); break;
-                    case 5: WordDocAddTablePlantTransplantation(); break;
+                    case 4: WordDocAddTablePlantDelete(vrList); break;
+                    case 5: WordDocAddTablePlantTransplantation(prList); break;
                     case 6: WordDocAddTablePlantBalans(); break;
                     case 0: b = 0; break; // после выхода из программы принудительно активируем Word чтобы он оставался видимым
                     default: break;
@@ -122,8 +122,6 @@ namespace AppWord
             //    return;
             //wordapp.Activate();
         }
-
-
 
         /// <summary>
         /// Метод проверки наличия Word на компьютере в метод не передается никаких аргументов
@@ -257,270 +255,155 @@ namespace AppWord
         }
 
         /// <summary>
-        /// 
+        /// метод добавления в ранее созданный документ таблицы удаляемых зеленых насаждений
+        /// в метод передается шапка таблицы и список зеленых насаждений с характеристиками
         /// </summary>
         /// <returns>Ничего</returns>
 
-        private static void WordDocAddTablePlantDelete()
+        private static void WordDocAddTablePlantDelete(List<string> vrList)
         {
-            throw new NotImplementedException();
+            // добавляем заголовок таблицы
+            // получаем указатель на 1 параграф
+            wordparagraph = worddocument.Paragraphs[1];
+            wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
+            wordparagraph.Range.Font.Size = 14;
+            wordparagraph.Range.Font.Name = "Arial";
+            wordparagraph.Range.Font.Italic = 1;
+            wordparagraph.Range.Font.Bold = 1;
+            // записываем в параграф значение текста
+            wordparagraph.Range.Text = "Ведомость удаляемых зеленых насаждений";
+            // создаем таблицу исходя из переданных параметров
+            var wTableAllPlant = AppWordAddTable(vrList.Count, 10, 2, vrList);
         }
 
         /// <summary>
-        /// 
+        /// метод добавления в ранее созданный документ таблицы пересаживаемых зеленых насаждений
+        /// в метод передается шапка таблицы и список зеленых насаждений с характеристиками
         /// </summary>
         /// <returns>Ничего</returns>
 
-        private static void WordDocAddTablePlantTransplantation()
+        private static void WordDocAddTablePlantTransplantation(List<string> prList)
         {
-            throw new NotImplementedException();
+            // добавляем заголовок таблицы
+            // получаем указатель на 1 параграф
+            wordparagraph = worddocument.Paragraphs[1];
+            wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
+            wordparagraph.Range.Font.Size = 14;
+            wordparagraph.Range.Font.Name = "Arial";
+            wordparagraph.Range.Font.Italic = 1;
+            wordparagraph.Range.Font.Bold = 1;
+            // записываем в параграф значение текста
+            wordparagraph.Range.Text = "Ведомость пересаживаемых зеленых насаждений";
+            // создаем таблицу исходя из переданных параметров
+            var wTableAllPlant = AppWordAddTable(prList.Count, 10, 2, prList);
         }
 
         /// <summary>
-        /// 
+        /// метод добавления в ранее созданный документ таблицы баланса зеленых насаждений
+        /// в метод передается список с данными о балансе зеленых насаждений
         /// </summary>
         /// <returns>Ничего</returns>
 
         private static void WordDocAddTablePlantBalans()
         {
-            throw new NotImplementedException();
+            // добавляем заголовок таблицы
+            // получаем указатель на 1 параграф
+            wordparagraph = worddocument.Paragraphs[1];
+            wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
+            wordparagraph.Range.Font.Size = 14;
+            wordparagraph.Range.Font.Name = "Arial";
+            wordparagraph.Range.Font.Italic = 1;
+            wordparagraph.Range.Font.Bold = 1;
+            // записываем в параграф значение текста
+            wordparagraph.Range.Text = "Ведомость баланса зеленых насаждений";
+            // получаем ссылку на параграф надо проверять необходимость этого действия
+            wordparagraph = worddocument.Paragraphs[2];
+            // задаем положение таблицы в тексте
+            int start = 2;
+            int end = 2;
+            // Получаем объект Range
+            wordparagraph.Range.SetRange(start, end);
+            Word.Range wordrange = wordparagraph.Range;
+            // создаем вспомогательные объекты для создания таблицы
+            object defaultTableBehavior = Word.WdDefaultTableBehavior.wdWord9TableBehavior;
+            object autoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitWindow;
+            // создаем таблицу баланса
+            var wTableBalans = worddocument.Tables.Add(wordrange, 7, 8, ref defaultTableBehavior, ref autoFitBehavior);
+            // объединяем и заполняем ячейки шапки таблицы
+            // объединяем ячейки для поля Проектные предложения
+            object begCell = wTableBalans.Cell(1, 1).Range.Start;
+            object endCell = wTableBalans.Cell(3, 1).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(1, 1).Range.Text = "Проектные предложения";
+            // объединяем ячейки для поля Деревья
+            begCell = wTableBalans.Cell(1, 2).Range.Start;
+            endCell = wTableBalans.Cell(1, 5).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(1, 2).Range.Text = "Деревья";
+
+            // объединяем ячейки для поля Всего
+            begCell = wTableBalans.Cell(2, 2).Range.Start;
+            endCell = wTableBalans.Cell(3, 2).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(2, 2).Range.Text = "Всего";
+
+            // объединяем ячейки для поля В том числе
+            begCell = wTableBalans.Cell(2, 3).Range.Start;
+            endCell = wTableBalans.Cell(2, 5).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(2, 3).Range.Text = "в том числе";
+
+            // объединяем ячейки для поля Кустарники
+            begCell = wTableBalans.Cell(1, 3).Range.Start;
+            endCell = wTableBalans.Cell(1, 5).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(1, 3).Range.Text = "Кустарники";
+
+            // объединяем ячейки для поля Всего
+            begCell = wTableBalans.Cell(2, 4).Range.Start;
+            endCell = wTableBalans.Cell(3, 6).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(2, 4).Range.Text = "Всего";
+
+            // объединяем ячейки для поля В том числе
+            begCell = wTableBalans.Cell(2, 5).Range.Start;
+            endCell = wTableBalans.Cell(2, 6).Range.End;
+            wordcellrange = worddocument.Range(ref begCell, ref endCell);
+            wordcellrange.Select();
+            wordapp.Selection.Cells.Merge();
+            wTableBalans.Cell(2, 5).Range.Text = "в том числе";
+
+            // заполняем ячейку поля Сохраняемые
+            wTableBalans.Cell(4, 1).Range.Text = "Сохраняемые";
+            // заполняем ячейку поля Пересаживаемые
+            wTableBalans.Cell(5, 1).Range.Text = "Пересживаемые";
+            // заполняем ячейку поля Вырубаемые
+            wTableBalans.Cell(6, 1).Range.Text = "Сохраняемые";
+            // заполняем ячейку поля Итого
+            wTableBalans.Cell(7, 1).Range.Text = "Итого";
+            // заполняем ячейку поля Декративно-лиственные
+            wTableBalans.Cell(3, 3).Range.Text = "Декративно-лиственные";
+            // заполняем ячейку поля Плодовые
+            wTableBalans.Cell(3, 4).Range.Text = "Плодовые";
+            // заполняем ячейку поля Хвойные
+            wTableBalans.Cell(3, 5).Range.Text = "Хвойные";
+            // заполняем ячейку поля В группах
+            wTableBalans.Cell(3, 7).Range.Text = "в группах";
+            // заполняем ячейку поля В живой изгороди
+            wTableBalans.Cell(3, 8).Range.Text = "в живой изгороди";
+            //заполняем ячейки таблицы
         }
-
-        // старые версии команд
-
-        /// <summary>
-        /// Метод запуска Word с использованием стандартного шаблона Normal.dot
-        /// метод не получает никаких аргументов но возвращает указатель на объект
-        /// приложения Word для дальнейшей работы
-        /// </summary>
-        private static void StartAppWord()
-        {
-            #region MyRegion Запуск Word с созданием документа по стандартному шаблону
-            Console.WriteLine("Запускаем Word!");
-            try
-            {
-                //Создаем объект Word - равносильно запуску Word
-                wordapp = new Word.Application();
-                //Делаем его видимым
-                wordapp.Visible = true;
-                // Создаем документы
-                var template = Type.Missing;
-                object newTemplate = false;
-                object documentType = Word.WdNewDocumentType.wdNewBlankDocument;
-                object visible = true;
-                //Создаем документ
-                wordapp.Documents.Add(ref template, ref newTemplate, ref documentType, ref visible);
-                worddocuments = wordapp.Documents;
-                // получаем указатель на активный документ
-                worddocument = wordapp.ActiveDocument;
-
-                // создаем несколько параграфов Используйте этот экземпляр Missing класса для представления отсутствующих значений, 
-                // например при вызове методов, имеющих значения параметров по умолчанию.
-                object oMissing = System.Reflection.Missing.Value;
-                AppWordAddParagraph(10, ref oMissing);
-                // получаем указатель на список параграфов
-                wordparagraphs = worddocument.Paragraphs;
-
-                // здесь будем создавать раздел в документе содержащий таблицу таксационных характеристик
-                // добавляем заголовок таблицы
-                // получаем указатель на 1 параграф
-                wordparagraph = (Word.Paragraph)wordparagraphs[1];
-                wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlack;
-                wordparagraph.Range.Font.Size = 14;
-                wordparagraph.Range.Font.Name = "Arial";
-                wordparagraph.Range.Font.Italic = 1;
-                wordparagraph.Range.Font.Bold = 1;
-                // записываем в параграф значение текста
-                wordparagraph.Range.Text = "Ведомость таксационных характеристик зеленых насаждений";
-                // Добавляем таблицу С указанием параграфа и положения таблицы в строке параграфа
-                #region Вставка таблицы в заданный параграф и положению с строке
-                Word.Table wordtable = AppWordAddTable(7, 10, 2, shList);
-                #endregion
-                // Добавляем заголовок таблицы
-                wordcellrange = worddocument.Tables[1].Cell(1, 1).Range;
-                wordcellrange.Text = "№ п/п";
-                wordcellrange = worddocument.Tables[1].Cell(1, 2).Range;
-                wordcellrange.Text = "Наиманование";
-                wordcellrange = worddocument.Tables[1].Cell(1, 3).Range;
-                wordcellrange.Text = "Количество";
-                wordcellrange = worddocument.Tables[1].Cell(1, 4).Range;
-                wordcellrange.Text = "Диаметр";
-                wordcellrange = worddocument.Tables[1].Cell(1, 5).Range;
-                wordcellrange.Text = "Высота";
-                wordcellrange = worddocument.Tables[1].Cell(1, 6).Range;
-                wordcellrange.Text = "Характеристика";
-                wordcellrange = worddocument.Tables[1].Cell(1, 7).Range;
-                wordcellrange.Text = "Примечание";
-                // Следующий этап универсальной команды в которую передаются данные по заголовку таблицы и ее наполнению
-                // Добавим еще одну таблицу в конец листа
-                // установка положения курсора в конец текста
-                object unit = Word.WdUnits.wdStory;
-                object extend = Word.WdMovementType.wdMove;
-                wordapp.Selection.EndKey(ref unit, ref extend);
-                
-
-                // заполнение шапки будем делать в цикле, в цикл передается список с содежимым
-                // получаем колличество элементов в списке
-                var listCount = shList;
-                //var listCount = prList;
-                //var listCount = vrList;
-                var wTableAllPlant = AppWordAddTable(listCount.Count, 10, 2, shList);
-                // запускаем настройки таблицы
-                wTableAllPlant.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                // запускаем цикл заполнения шапки таблицы
-                for (var i = 0; i < listCount.Count; i++)
-                {
-                    wTableAllPlant.Cell(1, i + 1).Range.Font.Size = 12;
-                    wTableAllPlant.Cell(1, i + 1).Range.Font.Bold = 1;
-                    wTableAllPlant.Cell(1, i + 1).Range.Font.Italic = 1;
-                    wTableAllPlant.Cell(1, i + 1).Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                    wTableAllPlant.Cell(1, i + 1).Range.Text = listCount[i];
-                }
-
-                // создаем таблицу баланса
-                var wTableBalans = AppWordAddTable(8, 7, 2, shList);
-                // объединяем и заполняем ячейки шапки таблицы
-                // объединяем ячейки для поля Проектные предложения
-                object begCell = wTableBalans.Cell(1, 1).Range.Start;
-                object endCell = wTableBalans.Cell(3, 1).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(1, 1).Range.Text = "Проектные предложения";
-                // объединяем ячейки для поля Деревья
-                begCell = wTableBalans.Cell(1, 2).Range.Start;
-                endCell = wTableBalans.Cell(1, 5).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(1, 2).Range.Text = "Деревья";
-
-                // объединяем ячейки для поля Всего
-                begCell = wTableBalans.Cell(2, 2).Range.Start;
-                endCell = wTableBalans.Cell(3, 2).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(2, 2).Range.Text = "Всего";
-
-                // объединяем ячейки для поля В том числе
-                begCell = wTableBalans.Cell(2, 3).Range.Start;
-                endCell = wTableBalans.Cell(2, 5).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(2, 3).Range.Text = "в том числе";
-
-                // объединяем ячейки для поля Кустарники
-                begCell = wTableBalans.Cell(1, 3).Range.Start;
-                endCell = wTableBalans.Cell(1, 5).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(1, 3).Range.Text = "Кустарники";
-
-                // объединяем ячейки для поля Всего
-                begCell = wTableBalans.Cell(2, 4).Range.Start;
-                endCell = wTableBalans.Cell(3, 6).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(2, 4).Range.Text = "Всего";
-
-                // объединяем ячейки для поля В том числе
-                begCell = wTableBalans.Cell(2, 5).Range.Start;
-                endCell = wTableBalans.Cell(2, 6).Range.End;
-                wordcellrange = worddocument.Range(ref begCell, ref endCell);
-                wordcellrange.Select();
-                wordapp.Selection.Cells.Merge();
-                wTableBalans.Cell(2, 5).Range.Text = "в том числе";
-
-                // заполняем ячейку поля Сохраняемые
-                wTableBalans.Cell(4, 1).Range.Text = "Сохраняемые";
-                // заполняем ячейку поля Пересаживаемые
-                wTableBalans.Cell(5, 1).Range.Text = "Пересживаемые";
-                // заполняем ячейку поля Вырубаемые
-                wTableBalans.Cell(6, 1).Range.Text = "Сохраняемые";
-                // заполняем ячейку поля Итого
-                wTableBalans.Cell(7, 1).Range.Text = "Итого";
-                // заполняем ячейку поля Декративно-лиственные
-                wTableBalans.Cell(3, 3).Range.Text = "Декративно-лиственные";
-                // заполняем ячейку поля Плодовые
-                wTableBalans.Cell(3, 4).Range.Text = "Плодовые";
-                // заполняем ячейку поля Хвойные
-                wTableBalans.Cell(3, 5).Range.Text = "Хвойные";
-                // заполняем ячейку поля В группах
-                wTableBalans.Cell(3, 7).Range.Text = "в группах";
-                // заполняем ячейку поля В живой изгороди
-                wTableBalans.Cell(3, 8).Range.Text = "в живой изгороди";
-                //заполняем ячейки таблицы
-
-
-
-                //// определяем количество паргарфов в текущем документе и записываем его в переменную text
-                //string text = Convert.ToString(wordparagraphs.Count);
-                //// получаем указатель на параграф
-                //wordparagraph = (Word.Paragraph)wordparagraphs[5];
-                //// записываем в параграф значение текста
-                //wordparagraph.Range.Text = text;
-                //// меняем параметры текста и параграфа
-                //// устанавливаем значение цвета параграфа
-                //wordparagraph.Range.Font.Color = Word.WdColor.wdColorBlue;
-                //// устанавливаем значение размера шрифта
-                //wordparagraph.Range.Font.Size = 20;
-                //// устанавливаем значение шрифта
-                //wordparagraph.Range.Font.Name = "Arial";
-                //// устанавливаем значение написания шрифта
-                //// наклон шрифта
-                //wordparagraph.Range.Font.Italic = 1;
-                //// толщина шрифта
-                //wordparagraph.Range.Font.Bold = 1;
-                //// можно подчеркнуть
-                //wordparagraph.Range.Font.Underline = Word.WdUnderline.wdUnderlineSingle;
-                //// цвет линии подчеркивания
-                //wordparagraph.Range.Font.UnderlineColor = Word.WdColor.wdColorDarkRed;
-                //// можно перечеркнуть
-                //wordparagraph.Range.Font.StrikeThrough=1; 
-
-                // Добавляем разрыв страницу
-
-
-                object count;
-                
-                
-                // установка положения курсора
-                extend = Word.WdMovementType.wdMove;
-                wordapp.Selection.EndKey(ref unit, ref extend);
-                object oType;
-                // вставка разрыва раздела
-                //oType = Word.WdBreakType.wdSectionBreakNextPage;
-                // вставка разрыва страницы
-                oType = Word.WdBreakType.wdPageBreak;
-                //И на новый лист
-                wordapp.Selection.InsertBreak(ref oType);
-
-                // переводим курсор в начало документа
-                unit = Word.WdUnits.wdStory;
-                extend = Word.WdMovementType.wdMove;
-                wordapp.Selection.HomeKey(ref unit, ref extend);
-
-                // Методы перемещение курсора
-                // переводим курсор на третий параграф
-                unit = Word.WdUnits.wdParagraph;
-                count = 2;
-                wordapp.Selection.Move(ref unit, ref count);
-
-            }
-            catch (Exception ex)
-            {
-                string text = ex.Message;
-                Console.WriteLine(text);
-            } 
-            #endregion
-
-            Console.ReadKey();
-        }
-        
     }
-
 }
