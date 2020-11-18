@@ -59,26 +59,29 @@ namespace AppWord
         // создаем необходимые переменные для тестирования программы
         // Данные для заполнения шапок таблиц
         // Ведомость существующих зеленых насаждений
-        static List<string> shList = new List<string>()
+        private static readonly List<string> shList = new List<string>()
         {
             "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
             "Возраст, лет", "Декоративные качества", "Примечание"
         };
 
         // Ведомость пересаживаемых зеленых насаждений
-        static List<string> prList = new List<string>()
+        private static readonly List<string> prList = new List<string>()
         {
             "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
             "Декоративные качества", "Размер кома, м"
         };
 
         // Ведомости вырубаемых зеленых насаждений
-        static List<string> vrList = new List<string>()
+        private static readonly List<string> vrList = new List<string>()
         {
             "Номер по плану", "Наименование породы", "Кол-во, шт.", "Высота, м", "Диаметр ствола, см",
             "Декоративные качества", "Компенсационные посадки"
         };
 
+        // переменные содержащие данные для таблиц
+        // Ведомость существующих зеленых насаждений
+        private static readonly List<string> ormList = new List<string>();
 
 
         static void Main(string[] args)
