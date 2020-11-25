@@ -18,7 +18,7 @@ namespace ClassLibrary
         public string Characteristic { get; set; }
         public string Cause { get; set; }
         public string Proposal { get; set; }
-        public bool Natural_Monument { get; set; }
+        public bool NaturalMonument { get; set; }
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public DateTime EditDate { get; set; } = DateTime.Now;
 
