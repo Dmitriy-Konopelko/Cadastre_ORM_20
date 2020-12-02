@@ -11,16 +11,16 @@ namespace CadastreORMConsole_Tests
     {
         static void Main(string[] args)
         {
-            LogerService.ReadWriteAsync("Журнал работы программы");
-            LogerService.ReadWriteAsync("Double 1");
+            LogerService.WriteLogAsync("Журнал работы программы");
+            LogerService.WriteLogAsync("Double 1");
 
             Console.WriteLine("Некоторая работа");
 
-            LogerService.ReadWriteAsync("Double 2");
+            LogerService.WriteLogAsync("Double 2");
 
             Console.WriteLine("Еще некоторая работа");
 
-            LogerService.ReadWriteAsync("Double 3");
+            LogerService.WriteLogAsync("Double 3");
 
             Console.Read();
         }

@@ -6,22 +6,26 @@ namespace AppLogging
 {
     public class LogerService
     {
-        private static string CurrentDay = DateTime.Now.ToShortDateString();
+        private static readonly string CurrentDay = DateTime.Now.ToShortDateString();
         // переменная содержащая информацию о текущей дате
-        private static string CurrentCatalog = AppDomain.CurrentDomain.BaseDirectory.ToString();
+        private static readonly string CurrentCatalog = AppDomain.CurrentDomain.BaseDirectory.ToString();
         // переменная содержащая информацию о текущем каталоге
-        private static string LoggCatalog = CurrentCatalog + "\\Журнал\\";
+        private static readonly string LoggCatalog = CurrentCatalog + "\\Журнал\\";
         // переменная содержащая информацию о каталоге в который будет вестись журнал
 
         /// <summary>
-        /// Асинхронный метод записи информации в файл. В метод передается строка для записи
-        /// Возвращаемого значения нет
+        /// <para>Асинхронный метод записи информации в файл журнала.</para>
+        /// <para>Путь и имя журнала формируется автоматически в зависимости от места запуска приложения</para>
+        /// <para>В метод передается строка для записи</para> 
         /// </summary>
         /// <param name="str"></param>
-        public static async void ReadWriteAsync(string str)
+        /// /// <remarks>str - переменная типа String содержащая информацию для записи в журнал</remarks>
+        /// <returns>Возвращаемого значения нет</returns>
+
+        public static async void WriteLogAsync(string str)
         {
             // создаем каталог для журналирования
-            DirectoryInfo dirInfo = new DirectoryInfo(LoggCatalog);
+            var dirInfo = new DirectoryInfo(LoggCatalog);
             // проверяем наличие каталога журналирования
             if (!dirInfo.Exists)
             {
@@ -29,11 +33,11 @@ namespace AppLogging
                 dirInfo.Create();
             }
             // создаем строку содержащую путь и имя файла журналирования, для каждого нового дня это будет отдельный файл
-            string FileName = LoggCatalog + "Журнал работы программы - " + CurrentDay + ".txt";
+            var fileName = LoggCatalog + "Журнал работы программы - " + CurrentDay + ".txt";
             // записываем информацию в файл
-            using (StreamWriter writer = new StreamWriter(FileName, true, Encoding.Unicode))
+            using (var writer = new StreamWriter(fileName, true, Encoding.Unicode))
             {
-                await writer.WriteLineAsync(DateTime.Now.ToShortTimeString() + " : " + str);  // асинхронная запись в файл
+                await writer.WriteLineAsync(DateTime.Now.ToLongTimeString() + " : " + str);  // асинхронная запись в файл
             }
         }
     }
