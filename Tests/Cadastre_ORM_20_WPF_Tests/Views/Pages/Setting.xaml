@@ -21,16 +21,30 @@
             <TabItem Header="Виды" Style="{StaticResource TabItemHorizontal}">
                 <Frame Name="Species" Source="/views/Pages/Setting_Species.xaml" />
             </TabItem>
-            <TabItem Header="Породы" Style="{StaticResource TabItemHorizontal}" />
+            <TabItem Header="Породы" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="Kind" Source="/views/Pages/Setting_Kind.xaml" />
+            </TabItem>
             <TabItem Header="Характеристика" Style="{StaticResource TabItemHorizontal}">
                 <Frame Name="Characteristic" Source="/views/Pages/Setting_Characteristic.xaml" />
             </TabItem>
-            <TabItem Header="Предложения" Style="{StaticResource TabItemHorizontal}" />
-            <TabItem Header="Причины" Style="{StaticResource TabItemHorizontal}" />
-            <TabItem Header="Скорость роста" Style="{StaticResource TabItemHorizontal}" />
-            <TabItem Header="Размер кома" Style="{StaticResource TabItemHorizontal}" />
-            <TabItem Header="Компенсация" Style="{StaticResource TabItemHorizontal}" />
-            <TabItem Header="Пользователи" Style="{StaticResource TabItemHorizontal}" />
+            <TabItem Header="Предложения" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="Proposal" Source="/views/Pages/Setting_Proposal.xaml" />
+            </TabItem>
+            <TabItem Header="Причины" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="Cause" Source="/views/Pages/Setting_Сause.xaml" />
+            </TabItem>
+            <TabItem Header="Скорость роста" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="GrowthRate" Source="/views/Pages/Setting_GrowthRate.xaml" />
+            </TabItem>
+            <TabItem Header="Размер кома" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="ComSize" Source="/views/Pages/Setting_ComSize.xaml" />
+            </TabItem>
+            <TabItem Header="Компенсация" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="CompensatoryLandings" Source="/views/Pages/Setting_CompensatoryLandings.xaml" />
+            </TabItem>
+            <TabItem Header="Пользователи" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="User" Source="/views/Pages/Setting_User.xaml" />
+            </TabItem>
         </TabControl>
     </Grid>
 </Page>

@@ -74,17 +74,35 @@
     <Compile Include="Views\Pages\Setting_Characteristic.xaml.cs">
       <DependentUpon>Setting_Characteristic.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Setting_CompensatoryLandings.xaml.cs">
+      <DependentUpon>Setting_CompensatoryLandings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_ComSize.xaml.cs">
+      <DependentUpon>Setting_ComSize.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Setting_General.xaml.cs">
       <DependentUpon>Setting_General.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Setting_GrowthRate.xaml.cs">
+      <DependentUpon>Setting_GrowthRate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Setting_Kind.xaml.cs">
       <DependentUpon>Setting_Kind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Proposal.xaml.cs">
+      <DependentUpon>Setting_Proposal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\Setting_Site.xaml.cs">
       <DependentUpon>Setting_Site.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\Setting_Species.xaml.cs">
       <DependentUpon>Setting_Species.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_User.xaml.cs">
+      <DependentUpon>Setting_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Сause.xaml.cs">
+      <DependentUpon>Setting_Сause.xaml</DependentUpon>
     </Compile>
     <Page Include="TestWindow.xaml">
       <SubType>Designer</SubType>
@@ -126,11 +144,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Setting_CompensatoryLandings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_ComSize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\Setting_General.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Setting_GrowthRate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\Setting_Kind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_Proposal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +173,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\Setting_Species.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_Сause.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

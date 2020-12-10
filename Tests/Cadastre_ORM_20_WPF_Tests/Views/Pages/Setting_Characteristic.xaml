@@ -15,10 +15,16 @@
             <ColumnDefinition MinWidth="500" />
             <ColumnDefinition MinWidth="200" />
         </Grid.ColumnDefinitions>
-        <GroupBox Grid.Column="0" Header="Характеристики" Style="{StaticResource BaseGroupBox}">
+        <GroupBox
+            Grid.Column="0"
+            Header="Характеристики"
+            Style="{StaticResource BaseGroupBox}">
             <ListBox />
         </GroupBox>
-        <GroupBox Grid.Column="1" Header="Команды" Style="{StaticResource BaseGroupBox}">
+        <GroupBox
+            Grid.Column="1"
+            Header="Команды"
+            Style="{StaticResource BaseGroupBox}">
             <StackPanel>
                 <Button Content="Добавить" Style="{StaticResource BaseButton}" />
                 <Button Content="Редактировать" Style="{StaticResource BaseButton}" />
