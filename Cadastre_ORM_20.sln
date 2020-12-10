@@ -16,7 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastreORMConsole_Tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{83C7B198-7140-4055-8C51-271A191A7DD1}"
 	ProjectSection(SolutionItems) = preProject
-		Help.html = Help.html
+		00_Help.html = 00_Help.html
+		01_InstallAndStart.html = 01_InstallAndStart.html
+		02_Setting.html = 02_Setting.html
+		03_UserGuide.html = 03_UserGuide.html
 		Style.css = Style.css
 	EndProjectSection
 EndProject
@@ -46,7 +49,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemes", "Schemes", "{A4E3
 		!_TextPart\Schemes\Приложение Б Диаграмма 2 Схема ресурсов системы.vsdx = !_TextPart\Schemes\Приложение Б Диаграмма 2 Схема ресурсов системы.vsdx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLogging", "AppLogging\AppLogging.csproj", "{E813D217-0A8B-49B5-9EA8-78E56F65B449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppLogging", "AppLogging\AppLogging.csproj", "{E813D217-0A8B-49B5-9EA8-78E56F65B449}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{D9FF5B74-3E88-4D47-8D84-D39E902A417C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_UserGuideContent", "03_UserGuideContent", "{2868028A-182D-4530-A0E1-82003E20D4EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +97,8 @@ Global
 		{1914572C-B936-4C14-BBC7-B718363618BF} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 		{8B2A1DE4-8B47-49B0-9594-5CF1C3943697} = {8F753DCE-861F-427A-8F43-DC535FDAA4BB}
 		{A4E3FA63-9DC4-4DA9-B140-3FA3EDB63EBF} = {35A7388D-F61A-499F-8A8C-9CAA89BF9ABF}
+		{D9FF5B74-3E88-4D47-8D84-D39E902A417C} = {83C7B198-7140-4055-8C51-271A191A7DD1}
+		{2868028A-182D-4530-A0E1-82003E20D4EF} = {83C7B198-7140-4055-8C51-271A191A7DD1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A14D6FFC-A856-4A60-B934-E40957E411D8}

@@ -11,7 +11,7 @@ namespace CadastreORMConsole_Tests
     {
         static void Main(string[] args)
         {
-            LogerService.WriteLogAsync("Журнал работы программы");
+            LogerService.WriteLogAsync("Начало работы программы");
             LogerService.WriteLogAsync("Double 1");
 
             Console.WriteLine("Некоторая работа");
@@ -23,6 +23,7 @@ namespace CadastreORMConsole_Tests
             LogerService.WriteLogAsync("Double 3");
 
             Console.Read();
+            LogerService.WriteLogAsync("Окончание работы программы");
         }
     }
 }

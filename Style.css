@@ -1,3 +1,74 @@
-﻿body
+﻿html {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+
+    background-image: linear-gradient(white, rgb(205 253 230));
+    background-size: cover; 
+}
+
+body
 {
+    /*width: 1000px;
+    height: 100vh;*/
+    margin: 10px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+/*Main*/
+/*.main-body {
+    width: 1000px;
+    height: 100px;
+}*/
+
+/*Content*/
+
+.content-list {
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: 1.25em;
+}
+
+.content-list-item a {
+    margin: 5px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s linear;
+}
+
+/*Данный псевдокласс должен быть 
+определен после псевдокласса :link 
+и до псевдоклассов :hover и :active*/
+.content-list-item a:visited {
+    color: dimgray;
+}
+
+.content-list-item a:hover {
+    color: red;
+}
+
+.content-list-item a:active {
+    color: black;
+}
+
+
+/*Footer*/
+.footer-body {
+    margin: 20px;
+    padding: 0 0 0 10px;
+   /* position: absolute;
+    bottom: 0;*/
 }

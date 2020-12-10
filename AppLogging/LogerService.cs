@@ -10,7 +10,7 @@ namespace AppLogging
         // переменная содержащая информацию о текущей дате
         private static readonly string CurrentCatalog = AppDomain.CurrentDomain.BaseDirectory.ToString();
         // переменная содержащая информацию о текущем каталоге
-        private static readonly string LoggCatalog = CurrentCatalog + "\\Журнал\\";
+        private static readonly string LoggCatalog = CurrentCatalog + "\\Log\\";
         // переменная содержащая информацию о каталоге в который будет вестись журнал
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace AppLogging
                 dirInfo.Create();
             }
             // создаем строку содержащую путь и имя файла журналирования, для каждого нового дня это будет отдельный файл
-            var fileName = LoggCatalog + "Журнал работы программы - " + CurrentDay + ".txt";
+            var fileName = LoggCatalog + "Log work in programm - " + CurrentDay + ".txt";
             // записываем информацию в файл
             using (var writer = new StreamWriter(fileName, true, Encoding.Unicode))
             {
