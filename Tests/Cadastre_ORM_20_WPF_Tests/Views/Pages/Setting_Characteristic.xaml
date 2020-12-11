@@ -13,7 +13,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="500" />
-            <ColumnDefinition MinWidth="200" />
+            <ColumnDefinition MaxWidth="200" />
         </Grid.ColumnDefinitions>
         <GroupBox
             Grid.Column="0"

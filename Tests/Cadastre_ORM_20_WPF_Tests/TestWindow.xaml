@@ -33,7 +33,7 @@
                 FontSize="{StaticResource BigFontSize}"
                 Header="Полевые работы"
                 Style="{StaticResource TabItemVertical}">
-                <Frame Name="FieldWork" Source="/Views/Pages/FieldWork.xaml" />
+                <Frame Name="FieldWork" Source="/Views/Pages/Property_ORM.xaml" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
