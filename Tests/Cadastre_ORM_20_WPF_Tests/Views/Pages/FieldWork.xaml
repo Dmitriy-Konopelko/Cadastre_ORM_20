@@ -28,14 +28,16 @@
             Style="{StaticResource BaseGroupBox}">
             <StackPanel>
                 <Label Content="Выбор участка обследования" />
-                <ComboBox />
+                <ComboBox Style="{StaticResource ComboBoxBase}" />
                 <Label Content="Выбор таксационного журнала" />
-                <ComboBox />
+                <ComboBox Style="{StaticResource ComboBoxBase}" />
                 <Button Content="Добавить" Style="{StaticResource BaseButton}" />
                 <Button Content="Редактировать" Style="{StaticResource BaseButton}" />
                 <Button Content="Удалить" Style="{StaticResource BaseButton}" />
                 <Button Content="Сохранить в файл" Style="{StaticResource BaseButton}" />
                 <Button Content="Загрузить из файла" Style="{StaticResource BaseButton}" />
+                <Button Content="Экспорт в Word" Style="{StaticResource BaseButton}" />
+                <Button Content="Экспорт в XML" Style="{StaticResource BaseButton}" />
             </StackPanel>
         </GroupBox>
     </Grid>

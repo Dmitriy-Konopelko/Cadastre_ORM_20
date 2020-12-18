@@ -4,8 +4,11 @@
     xmlns:fa="http://schemas.fontawesome.com/icons/"
     xmlns:local="clr-namespace:Cadastre_ORM_20_WPF_Tests.Views.Style.ControlElement">
     <Style x:Key="BaseButton" TargetType="Button">
-        <Setter Property="FontFamily" Value="{StaticResource BaseFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource NormalFontSize}" />
-        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="FontFamily" Value="{DynamicResource BaseFontFamily}" />
+        <Setter Property="FontSize" Value="{DynamicResource MenuFontSize}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="25" />
+        <Setter Property="Margin" Value="2" />
     </Style>
 </ResourceDictionary>

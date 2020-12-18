@@ -65,6 +65,9 @@
     <Compile Include="Views\Pages\CameralWork.xaml.cs">
       <DependentUpon>CameralWork.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\CameralWork_TablesCreate.xaml.cs">
+      <DependentUpon>CameralWork_TablesCreate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\FieldWork.xaml.cs">
       <DependentUpon>FieldWork.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\CameralWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\CameralWork_TablesCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

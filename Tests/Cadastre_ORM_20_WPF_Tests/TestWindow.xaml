@@ -13,9 +13,9 @@
             Margin="0,0,30,0"
             HorizontalAlignment="Right"
             DockPanel.Dock="Top">
-            <MenuItem Header="Help" Style="{StaticResource BaseMenu}">
-                <MenuItem Header="Help" Style="{StaticResource BaseMenu}" />
-                <MenuItem Header="About" Style="{StaticResource BaseMenu}" />
+            <MenuItem Header="Помощь" Style="{StaticResource BaseMenu}">
+                <MenuItem Header="Помощь" Style="{StaticResource BaseMenu}" />
+                <MenuItem Header="О программе" Style="{StaticResource BaseMenu}" />
             </MenuItem>
         </Menu>
         <StatusBar Height="30" DockPanel.Dock="Bottom" />
@@ -33,13 +33,13 @@
                 FontSize="{StaticResource BigFontSize}"
                 Header="Полевые работы"
                 Style="{StaticResource TabItemVertical}">
-                <Frame Name="FieldWork" Source="/Views/Pages/Property_ORM.xaml" />
+                <Frame Name="FieldWork" Source="/Views/Pages/FieldWork.xaml" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
                 Header="Камеральные работы"
                 Style="{StaticResource TabItemVertical}">
-                <Frame Name="CameralWork" Source="/Views/Pages/CameralWork.xaml" />
+                <Frame Name="CameralWork" Source="/Views/Pages/CameralWork_TablesCreate.xaml" />
             </TabItem>
         </TabControl>
     </DockPanel>
