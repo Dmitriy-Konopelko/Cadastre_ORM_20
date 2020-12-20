@@ -22,7 +22,7 @@ namespace Cadastre_ORM_20_WPF_Tests.Views.Pages
     {
         public Setting_Site()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

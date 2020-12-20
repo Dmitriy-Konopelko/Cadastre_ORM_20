@@ -10,24 +10,28 @@ using System.Threading.Tasks;
 
 namespace Cadastre_ORM_20_WPF_Tests.ViewModels
 {
-    internal class MainVindowViewModel : ViewModel
+    internal class MainWindowViewModel : ViewModel
     {
         // создаем коллекции объектов
-        public ObservableCollection<User> Users { get; }
-        public ObservableCollection<Site> Sites { get; }
-        public ObservableCollection<RegisterMagazine> RegisterMagazines { get; }
+        public ObservableCollection<User> Users { get; set; }
+        public ObservableCollection<Site> Sites { get; set; }
+        public ObservableCollection<RegisterMagazine> RegisterMagazines { get; set; }
 
-        public MainVindowViewModel()
+        public MainWindowViewModel()
         {
-            var Users = Enumerable.Range(1, 5).Select(i => new User
+            #region Инициализация заполнения справочников
+
+            var users = Enumerable.Range(1, 5).Select(i => new User
             {
                 Id = i,
                 Name = $"User {i}",
                 Password = $"12 {i}",
                 Role = 1
             });
+            // создаем коллекцию на базе списка
+            Users = new ObservableCollection<User>(users);
 
-            var RegisterMagazines = Enumerable.Range(1, 3).Select(i => new RegisterMagazine
+            var registerMagazines = Enumerable.Range(1, 3).Select(i => new RegisterMagazine
             {
                 Id = i,
                 Number = $"RegisterMagazine_{i}",
@@ -36,8 +40,11 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
                 CreateUser = Users.ElementAt(i),
                 EditUser = Users.ElementAt(i)
             });
+            // создаем коллекцию на базе списка
+            RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines);
 
-            var Sites = Enumerable.Range(1, 4).Select(i => new Site
+
+            var sites = Enumerable.Range(1, 4).Select(i => new Site
             {
                 Id = i,
                 Number = $"10.{i}",
@@ -47,7 +54,17 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
                 CreateUser = Users.ElementAt(i),
                 EditUser = Users.ElementAt(i)
             });
+            // создаем коллекцию на базе списка
+            Sites = new ObservableCollection<Site>(sites);
+
+            #endregion
+
+            #region Вывод данных в форму
+
+
+
+            #endregion
         }
-        
+
     }
 }

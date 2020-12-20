@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cadastre_ORM_20_WPF_Tests.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Cadastre_ORM_20_WPF_Tests
         public TestWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }        
     }
 }

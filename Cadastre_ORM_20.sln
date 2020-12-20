@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8F753DCE-861F-427A-8F43-DC535FDAA4BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastre_ORM_20_WPF_Tests", "Tests\Cadastre_ORM_20_WPF_Tests\Cadastre_ORM_20_WPF_Tests.csproj", "{1914572C-B936-4C14-BBC7-B718363618BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE829458-ADF2-4603-8134-12F72D2E8FB3} = {EE829458-ADF2-4603-8134-12F72D2E8FB3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastreORMConsole_Tests", "Tests\CadastreORMConsole_Tests\CadastreORMConsole_Tests.csproj", "{8B2A1DE4-8B47-49B0-9594-5CF1C3943697}"
 	ProjectSection(ProjectDependencies) = postProject

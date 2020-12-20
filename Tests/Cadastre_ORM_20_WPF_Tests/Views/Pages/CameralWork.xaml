@@ -37,11 +37,7 @@
                 <Button Content="Пометить как сохраняемое" Style="{StaticResource BaseButton}" />
                 <Button Content="Пометить как пересаживаемое" Style="{StaticResource BaseButton}" />
                 <Button Content="Пометить как удаляемое" Style="{StaticResource BaseButton}" />
-                <Button Content="Создать таксационную ведомость" Style="{StaticResource BaseButton}" />
-                <Button Content="Создать ведомость вырубаемых ОРМ" Style="{StaticResource BaseButton}" />
-                <Button Content="Создать ведомость ведомость сохраняемых ОРМ" Style="{StaticResource BaseButton}" />
-                <Button Content="Создать ведомость пересаживаемых ОРМ" Style="{StaticResource BaseButton}" />
-                <Button Content="Создать ведомость баланса ОРМ" Style="{StaticResource BaseButton}" />
+                <Button Content="Создать ведомости" Style="{StaticResource BaseButton}" />
                 <Button Content="Расчитать компенсационные посадки" Style="{StaticResource BaseButton}" />
                 <Button Content="Расчитать компенсационные вылаты" Style="{StaticResource BaseButton}" />
                 <Button Content="Сохранить в файл" Style="{StaticResource BaseButton}" />
