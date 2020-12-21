@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,19 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
         public ObservableCollection<User> Users { get; set; }
         public ObservableCollection<Site> Sites { get; set; }
         public ObservableCollection<RegisterMagazine> RegisterMagazines { get; set; }
+
+        private Site _SelectedSite;
+        #region Выбор объектов
+
+        #region Site
+        public Site SelectedSite
+        {
+            get => _SelectedSite;
+            set => Set(ref _SelectedSite, value);
+        }
+        #endregion
+
+        #endregion
 
         public MainWindowViewModel()
         {
@@ -35,8 +49,8 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
             {
                 Id = i,
                 Number = $"RegisterMagazine_{i}",
-                CreateDate = DateTime.Now,
-                EditDate = DateTime.Now,
+                CreateDate = DateTime.UtcNow,
+                EditDate = DateTime.UtcNow,
                 CreateUser = Users.ElementAt(i),
                 EditUser = Users.ElementAt(i)
             });
@@ -49,22 +63,24 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
                 Id = i,
                 Number = $"10.{i}",
                 Name = $"Site_{i}",
-                CreateDate = DateTime.Now,
-                EditDate = DateTime.Now,
+                CreateDate = DateTime.UtcNow,
+                EditDate = DateTime.UtcNow,
                 CreateUser = Users.ElementAt(i),
-                EditUser = Users.ElementAt(i)
+                EditUser = Users.ElementAt(i),
+                RegisterMagazines = RegisterMagazines
             });
             // создаем коллекцию на базе списка
             Sites = new ObservableCollection<Site>(sites);
 
             #endregion
-
-            #region Вывод данных в форму
-
-
-
-            #endregion
         }
 
+        #region Вывод данных в форму
+
+
+
+        #endregion
     }
 }
+
+

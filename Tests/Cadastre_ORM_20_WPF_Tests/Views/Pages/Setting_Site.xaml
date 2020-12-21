@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Cadastre_ORM_20_WPF_Tests.Views.Pages"
-    xmlns:vm="clr-namespace:Cadastre_ORM_20_WPF_Tests.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Cadastre_ORM_20_WPF_Tests.ViewModels"
     Title="Setting_Site"
     d:DesignHeight="400"
     d:DesignWidth="750"
@@ -25,14 +25,30 @@
             Margin="5"
             Header="Участки"
             Style="{StaticResource BaseGroupBox}">
-            <ListBox />
+            <DataGrid
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Sites}"
+                SelectedItem="{Binding SelectedSite}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="50"
+                        Binding="{Binding Number}"
+                        Header="Номер" />
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding Name}"
+                        Header="Название" />
+                    <DataGridTextColumn Binding="{Binding CreateDate}" Header="Дата создания" />
+                    <DataGridTextColumn Binding="{Binding CreateUser.Name}" Header="Пользователь" />
+                </DataGrid.Columns>
+            </DataGrid>
         </GroupBox>
         <GroupBox
             Grid.Column="1"
             Margin="5"
-            Header="Журналы"
+            Header="{Binding SelectedSite.Name}"
             Style="{StaticResource BaseGroupBox}">
-            <ListBox />
+            <ListBox DisplayMemberPath="Number" ItemsSource="{Binding SelectedSite.RegisterMagazines}" />
         </GroupBox>
         <GroupBox
             Grid.Column="2"
@@ -48,8 +64,6 @@
                 <Button Content="Удалить журнал" Style="{StaticResource BaseButton}" />
                 <Button Content="Сохранить в базу" Style="{StaticResource BaseButton}" />
                 <Button Content="Обновить из базы" Style="{StaticResource BaseButton}" />
-                <Button Content="3" Style="{StaticResource BaseButton}" />
-                <Button Content="3" Style="{StaticResource BaseButton}" />
             </StackPanel>
         </GroupBox>
     </Grid>
