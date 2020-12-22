@@ -45,17 +45,19 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
             // создаем коллекцию на базе списка
             Users = new ObservableCollection<User>(users);
 
+            var registerNumber = 1;
+
             var registerMagazines = Enumerable.Range(1, 3).Select(i => new RegisterMagazine
             {
                 Id = i,
-                Number = $"RegisterMagazine_{i}",
+                Number = $"RegisterMagazine_{registerNumber ++}",
                 CreateDate = DateTime.UtcNow,
                 EditDate = DateTime.UtcNow,
                 CreateUser = Users.ElementAt(i),
                 EditUser = Users.ElementAt(i)
             });
             // создаем коллекцию на базе списка
-            RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines);
+            //RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines);
 
 
             var sites = Enumerable.Range(1, 4).Select(i => new Site
@@ -67,10 +69,12 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
                 EditDate = DateTime.UtcNow,
                 CreateUser = Users.ElementAt(i),
                 EditUser = Users.ElementAt(i),
-                RegisterMagazines = RegisterMagazines
+                RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines)
             });
             // создаем коллекцию на базе списка
             Sites = new ObservableCollection<Site>(sites);
+
+            
 
             #endregion
         }

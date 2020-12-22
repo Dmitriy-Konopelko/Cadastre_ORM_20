@@ -16,8 +16,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="300" />
-            <ColumnDefinition MinWidth="250" />
+            <ColumnDefinition MinWidth="350" />
+            <ColumnDefinition MinWidth="200" />
             <ColumnDefinition MaxWidth="200" />
         </Grid.ColumnDefinitions>
         <GroupBox
@@ -27,6 +27,7 @@
             Style="{StaticResource BaseGroupBox}">
             <DataGrid
                 AutoGenerateColumns="False"
+                CanUserAddRows="False"
                 ItemsSource="{Binding Sites}"
                 SelectedItem="{Binding SelectedSite}">
                 <DataGrid.Columns>
@@ -38,17 +39,15 @@
                         Width="Auto"
                         Binding="{Binding Name}"
                         Header="Название" />
-                    <DataGridTextColumn Binding="{Binding CreateDate}" Header="Дата создания" />
-                    <DataGridTextColumn Binding="{Binding CreateUser.Name}" Header="Пользователь" />
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
         <GroupBox
             Grid.Column="1"
             Margin="5"
-            Header="{Binding SelectedSite.Name}"
+            Header="{Binding SelectedSite.Number}"
             Style="{StaticResource BaseGroupBox}">
-            <ListBox DisplayMemberPath="Number" ItemsSource="{Binding SelectedSite.RegisterMagazines}" />
+            <ListBox DisplayMemberPath="Number" ItemsSource="{Binding SelectedSite.RegisterMagazines}"/>
         </GroupBox>
         <GroupBox
             Grid.Column="2"
