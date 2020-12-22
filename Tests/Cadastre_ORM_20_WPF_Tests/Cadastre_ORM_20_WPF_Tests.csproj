@@ -77,6 +77,9 @@
     <Compile Include="Views\Pages\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Setting_BaseValue.xaml.cs">
+      <DependentUpon>Setting_BaseValue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Setting_Characteristic.xaml.cs">
       <DependentUpon>Setting_Characteristic.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Setting_BaseValue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

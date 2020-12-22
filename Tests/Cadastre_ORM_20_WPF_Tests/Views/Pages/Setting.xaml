@@ -46,6 +46,9 @@
             <TabItem Header="Компенсация" Style="{StaticResource TabItemHorizontal}">
                 <Frame Name="CompensatoryLandings" Source="/views/Pages/Setting_CompensatoryLandings.xaml" />
             </TabItem>
+            <TabItem Header="Базовая величина" Style="{StaticResource TabItemHorizontal}">
+                <Frame Name="BaseValue" Source="/views/Pages/Setting_BaseValue.xaml" />
+            </TabItem>
             <TabItem Header="Пользователи" Style="{StaticResource TabItemHorizontal}">
                 <Frame Name="User" Source="/views/Pages/Setting_User.xaml" />
             </TabItem>

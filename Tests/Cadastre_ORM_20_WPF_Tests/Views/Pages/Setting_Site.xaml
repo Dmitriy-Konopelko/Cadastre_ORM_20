@@ -36,7 +36,7 @@
                         Binding="{Binding Number}"
                         Header="Номер" />
                     <DataGridTextColumn
-                        Width="Auto"
+                        Width="*"
                         Binding="{Binding Name}"
                         Header="Название" />
                 </DataGrid.Columns>
@@ -45,9 +45,9 @@
         <GroupBox
             Grid.Column="1"
             Margin="5"
-            Header="{Binding SelectedSite.Number}"
+            Header="{Binding SelectedSite.Number, FallbackValue='№ участка', TargetNullValue='Участок не выбран'}"
             Style="{StaticResource BaseGroupBox}">
-            <ListBox DisplayMemberPath="Number" ItemsSource="{Binding SelectedSite.RegisterMagazines}"/>
+            <ListBox DisplayMemberPath="Number" ItemsSource="{Binding SelectedSite.RegisterMagazines}" />
         </GroupBox>
         <GroupBox
             Grid.Column="2"
