@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="Cadastre_ORM_20.MainWindow"
+    x:Class="Cadastre_ORM_20.MainWindow_old"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cmd="clr-namespace:Cadastre_ORM_20.Infrastructure.Commands"

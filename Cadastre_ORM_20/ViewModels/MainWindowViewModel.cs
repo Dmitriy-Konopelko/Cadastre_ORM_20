@@ -12,26 +12,18 @@ namespace Cadastre_ORM_20.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        #region Заголовок окна
-        private string _Title = "Кадастр объектов растительного мира";
+        #region Переменные отвечающие за локализацию программы
         /// <summary>
         /// Заголовок окна
         /// </summary>
+        private string _title = "Кадастр объектов растительного мира";
+       
         public string Title
         {
-            get => _Title;
-            //set
-            //{
-            //    // 1 вариант присовения
-            //    if (Equals(_Title, value)) return;
-            //    _Title = value;
-            //    OnPropertyChanged();
-            //    // 2 вариант присовения
-            //    Set(ref _Title, value);
-            //}
-            // 3 вариант присвоения
-            set => Set(ref _Title, value);
+            get => _title;
+            set => Set(ref _title, value);
         }
+        
         #endregion
 
         #region Статус програмы

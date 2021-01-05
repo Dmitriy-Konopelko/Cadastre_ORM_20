@@ -58,7 +58,179 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\Windows\MainWindow.xaml">
+    <Page Include="Views\Pages\Autorization.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\CameralWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\CameralWork_TablesCreate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\FieldWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Property_ORM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_BaseValue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_Characteristic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_CompensatoryLandings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_ComSize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_General.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_GrowthRate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_Kind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_Proposal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_Site.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_Species.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_User.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\Setting_Сause.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\Color\ColorBrush.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\DockPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\Grid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\GroupBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\StackPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\StatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\TabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\Image.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\Slider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ControlElement\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\Fonts\Font.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,7 +243,61 @@
     <Compile Include="Infrastructure\Commands\LamdaCommand.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="View\Windows\MainWindow.xaml.cs">
+    <Compile Include="Views\Pages\Autorization.xaml.cs">
+      <DependentUpon>Autorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CameralWork.xaml.cs">
+      <DependentUpon>CameralWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CameralWork_TablesCreate.xaml.cs">
+      <DependentUpon>CameralWork_TablesCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\FieldWork.xaml.cs">
+      <DependentUpon>FieldWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Property_ORM.xaml.cs">
+      <DependentUpon>Property_ORM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_BaseValue.xaml.cs">
+      <DependentUpon>Setting_BaseValue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Characteristic.xaml.cs">
+      <DependentUpon>Setting_Characteristic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_CompensatoryLandings.xaml.cs">
+      <DependentUpon>Setting_CompensatoryLandings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_ComSize.xaml.cs">
+      <DependentUpon>Setting_ComSize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_General.xaml.cs">
+      <DependentUpon>Setting_General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_GrowthRate.xaml.cs">
+      <DependentUpon>Setting_GrowthRate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Kind.xaml.cs">
+      <DependentUpon>Setting_Kind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Proposal.xaml.cs">
+      <DependentUpon>Setting_Proposal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Site.xaml.cs">
+      <DependentUpon>Setting_Site.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Species.xaml.cs">
+      <DependentUpon>Setting_Species.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_User.xaml.cs">
+      <DependentUpon>Setting_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Setting_Сause.xaml.cs">
+      <DependentUpon>Setting_Сause.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -107,11 +333,15 @@
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="Service\" />
-    <Folder Include="View\Page\" />
-    <Folder Include="View\Style\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="NoteProject.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Image\Title.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Image\Title_Icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
