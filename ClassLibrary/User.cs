@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    internal class User
+    public class User
     {
         #region Описание класса
         /**/

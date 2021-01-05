@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    internal class RegisterMagazine
+    public class RegisterMagazine
     {
         #region Описание класса
         /*Это класс описывающий таксационный журнал содержащий данные по номеру жрнала к какому объекту он принадлежит

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastre_ORM_20", "Cadastre_ORM_20\Cadastre_ORM_20.csproj", "{DB268057-D698-4914-8369-4846DD17F9E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE829458-ADF2-4603-8134-12F72D2E8FB3} = {EE829458-ADF2-4603-8134-12F72D2E8FB3}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8F753DCE-861F-427A-8F43-DC535FDAA4BB}"
 EndProject

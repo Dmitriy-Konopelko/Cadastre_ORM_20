@@ -343,5 +343,19 @@
   <ItemGroup>
     <Resource Include="Views\Image\Title_Icon.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppLogging\AppLogging.csproj">
+      <Project>{e813d217-0a8b-49b5-9ea8-78e56f65b449}</Project>
+      <Name>AppLogging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppWord\AppWord.csproj">
+      <Project>{2e09a389-6bde-4adb-a45e-dcfeef80e559}</Project>
+      <Name>AppWord</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{ee829458-adf2-4603-8134-12f72d2e8fb3}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

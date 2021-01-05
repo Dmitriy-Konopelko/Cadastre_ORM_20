@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    internal abstract class Plant
+    public abstract class Plant
     {
         #region Описание класса
         /*По сути это абстрактный класс содержащий общие для всех объектов свойства поля и методы вопрос необходимости создания проводников свойств в данном классе*/

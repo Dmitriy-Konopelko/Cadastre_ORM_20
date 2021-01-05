@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    internal class Site
+    public class Site
     {
         #region Описание класса
         /*Класс описывает данные участка обследования, его номер и название, а также информацию 
