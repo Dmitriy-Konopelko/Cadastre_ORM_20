@@ -3,6 +3,41 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Cadastre_ORM_20"
-    StartupUri="View/Windows/MainWindow.xaml">
-    <Application.Resources />
+    StartupUri="Views/Windows/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  Кисти  -->
+                <ResourceDictionary Source="Views/Style/Color/ColorBrush.xaml" />
+                <!--  Элементы компановки  -->
+                <ResourceDictionary Source="Views/Style/ComponentElement/DataGrid.xaml" />
+
+                <ResourceDictionary Source="Views/Style/ComponentElement/DockPanel.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/Grid.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/GroupBox.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/Menu.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/StackPanel.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/StatusBar.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/TabControl.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/TabItem.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/Windows.xaml" />
+                <!--  Элементы управления  -->
+                <ResourceDictionary Source="Views/Style/ControlElement/Button.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/CheckBox.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/ComboBox.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/Image.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/Label.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/ListBox.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/ListView.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/PasswordBox.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/ProgressBar.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/RadioButton.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/Slider.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/TextBlock.xaml" />
+                <ResourceDictionary Source="Views/Style/ControlElement/TextBox.xaml" />
+                <!--  Шрифты  -->
+                <ResourceDictionary Source="Views/Style/Fonts/Font.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
