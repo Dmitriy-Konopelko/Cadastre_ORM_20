@@ -74,7 +74,7 @@ namespace Cadastre_ORM_20_WPF_Tests.ViewModels
             // создаем коллекцию на базе списка
             Sites = new ObservableCollection<Site>(sites);
 
-            
+            м
 
             #endregion
         }
