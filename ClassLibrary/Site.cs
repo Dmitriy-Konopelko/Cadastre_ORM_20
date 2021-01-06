@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
+    [Serializable]
     public class Site
     {
         #region Описание класса

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
+    [Serializable]
     public class User
     {
         #region Описание класса
