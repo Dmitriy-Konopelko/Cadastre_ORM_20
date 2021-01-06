@@ -37,25 +37,37 @@
         <StatusBar Height="30" DockPanel.Dock="Bottom" />
         <TabControl TabStripPlacement="Left">
             <TabItem Header="Авторизация" Style="{DynamicResource TabItemVertical}">
-                <Frame Name="Autorization" Source="../Pages/Autorization.xaml" />
+                <Frame
+                    Name="Autorization"
+                    NavigationUIVisibility="Hidden"
+                    Source="../Pages/Autorization.xaml" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
                 Header="Настройки"
                 Style="{StaticResource TabItemVertical}">
-                <Frame Name="Setting" Source="../Pages/Setting.xaml" />
+                <Frame
+                    Name="Setting"
+                    NavigationUIVisibility="Hidden"
+                    Source="../Pages/Setting.xaml" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
                 Header="Полевые работы"
                 Style="{StaticResource TabItemVertical}">
-                <Frame Name="FieldWork" Source="../Pages/FieldWork.xaml" />
+                <Frame
+                    Name="FieldWork"
+                    NavigationUIVisibility="Hidden"
+                    Source="../Pages/FieldWork.xaml" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
                 Header="Камеральные работы"
                 Style="{StaticResource TabItemVertical}">
-                <Frame Name="CameralWork" Source="../Pages/CameralWork_TablesCreate.xaml" />
+                <Frame
+                    Name="CameralWork"
+                    NavigationUIVisibility="Hidden"
+                    Source="../Pages/CameralWork_TablesCreate.xaml" />
             </TabItem>
         </TabControl>
     </DockPanel>
