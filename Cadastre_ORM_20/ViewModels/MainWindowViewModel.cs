@@ -43,13 +43,14 @@ namespace Cadastre_ORM_20.ViewModels
         #region Команды
 
         #region CloseApplicationCommand
+        // Старый вариант сохранено для примера работы с командами, по новому методу командывынесены в отдельные файли и привязаны через ресурсы
         // Создание параметров для команды закрытия приложения
-        public ICommand CloseApplicationCommand { get; }
-        private void OnCloseApplicationCommandExecuted(object p)
-        {
-            Application.Current.Shutdown();
-        }
-        private bool CanCloseApplicationCommandExecute(object p) => true;
+        //public ICommand CloseApplicationCommand { get; }
+        //private void OnCloseApplicationCommandExecuted(object p)
+        //{
+        //    Application.Current.Shutdown();
+        //}
+        //private bool CanCloseApplicationCommandExecute(object p) => true;
         #endregion
 
         #endregion
@@ -119,8 +120,9 @@ namespace Cadastre_ORM_20.ViewModels
 
             #region Команды
             // Создание команды закрытия приложения
-            CloseApplicationCommand =
-                new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            //CloseApplicationCommand =
+            //    new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            // Старый вариант сохранено для примера работы с командами, по новому методу командывынесены в отдельные файли и привязаны через ресурсы
 
             #endregion
         }

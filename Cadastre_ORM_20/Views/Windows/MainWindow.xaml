@@ -15,12 +15,9 @@
     <Window.InputBindings>
         <KeyBinding
             Key="Q"
-            Command="{Binding CloseApplicationCommand}"
+            Command="{StaticResource CloseApplicationCommand}"
             Modifiers="Ctrl" />
     </Window.InputBindings>
-    <Window.Resources>
-        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand" />
-    </Window.Resources>
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>

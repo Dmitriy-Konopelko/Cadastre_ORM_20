@@ -37,6 +37,8 @@
                 <ResourceDictionary Source="Views/Style/ControlElement/TextBox.xaml" />
                 <!--  Шрифты  -->
                 <ResourceDictionary Source="Views/Style/Fonts/Font.xaml" />
+                <!--  Команды  -->
+                <ResourceDictionary Source="Infrastructure/Commands/Commands.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
