@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using Cadastre_ORM_20.Infrastructure.Commands;
 using Cadastre_ORM_20.ViewModels.Base;
+using Cadastre_ORM_20.ViewModels.Pages;
 using ClassLibrary;
 
 namespace Cadastre_ORM_20.ViewModels
@@ -73,19 +75,21 @@ namespace Cadastre_ORM_20.ViewModels
 
         #endregion
 
+        AutorizationViewModel AVM = new AutorizationViewModel();
+        
         public MainWindowViewModel()
         {
             #region Инициализация заполнения справочников
-
-            var users = Enumerable.Range(1, 5).Select(i => new User
-            {
-                Id = i,
-                Name = $"User {i}",
-                Password = $"12 {i}",
-                Role = 1
-            });
-            // создаем коллекцию на базе списка
-            Users = new ObservableCollection<User>(users);
+            
+            //var users = Enumerable.Range(1, 5).Select(i => new User
+            //{
+            //    Id = i,
+            //    Name = $"User {i}",
+            //    Password = $"12 {i}",
+            //    Role = 1
+            //});
+            //// создаем коллекцию на базе списка
+            Users = new ObservableCollection<User>(AVM.Users);
 
             var registerNumber = 1;
 
@@ -95,8 +99,8 @@ namespace Cadastre_ORM_20.ViewModels
                 Number = $"RegisterMagazine_{registerNumber++}",
                 CreateDate = DateTime.UtcNow,
                 EditDate = DateTime.UtcNow,
-                CreateUser = Users.ElementAt(i),
-                EditUser = Users.ElementAt(i)
+                CreateUser = AVM.Users.ElementAt(i),
+                EditUser = AVM.Users.ElementAt(i)
             });
             // создаем коллекцию на базе списка
             //RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines);
@@ -109,8 +113,8 @@ namespace Cadastre_ORM_20.ViewModels
                 Name = $"Site_{i}",
                 CreateDate = DateTime.UtcNow,
                 EditDate = DateTime.UtcNow,
-                CreateUser = Users.ElementAt(i),
-                EditUser = Users.ElementAt(i),
+                CreateUser = AVM.Users.ElementAt(i),
+                EditUser = AVM.Users.ElementAt(i),
                 RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines)
             });
             // создаем коллекцию на базе списка
