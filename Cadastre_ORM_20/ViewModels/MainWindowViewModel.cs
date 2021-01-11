@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Cadastre_ORM_20.Data;
 using Cadastre_ORM_20.Infrastructure.Commands;
 using Cadastre_ORM_20.ViewModels.Base;
 using Cadastre_ORM_20.ViewModels.Pages;
@@ -27,21 +28,9 @@ namespace Cadastre_ORM_20.ViewModels
             get => _title;
             set => Set(ref _title, value);
         }
-        
         #endregion
 
-        #region Статус програмы
-        /// <summary>Статус программы</summary>
-        private string _Status = "Готов!";
-        /// <summary>Статус программы</summary>
-        /// 
-        public string Status
-        {
-            get => _Status;
-            set => Set(ref _Status, value);
-        }
-        #endregion
-
+       
         #region Команды
 
         #region CloseApplicationCommand
@@ -75,50 +64,14 @@ namespace Cadastre_ORM_20.ViewModels
 
         #endregion
 
-        AutorizationViewModel AVM = new AutorizationViewModel();
-        
+       
         public MainWindowViewModel()
         {
             #region Инициализация заполнения справочников
-            
-            //var users = Enumerable.Range(1, 5).Select(i => new User
-            //{
-            //    Id = i,
-            //    Name = $"User {i}",
-            //    Password = $"12 {i}",
-            //    Role = 1
-            //});
-            //// создаем коллекцию на базе списка
-            Users = new ObservableCollection<User>(AVM.Users);
-
-            var registerNumber = 1;
-
-            var registerMagazines = Enumerable.Range(1, 3).Select(i => new RegisterMagazine
-            {
-                Id = i,
-                Number = $"RegisterMagazine_{registerNumber++}",
-                CreateDate = DateTime.UtcNow,
-                EditDate = DateTime.UtcNow,
-                CreateUser = AVM.Users.ElementAt(i),
-                EditUser = AVM.Users.ElementAt(i)
-            });
-            // создаем коллекцию на базе списка
-            //RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines);
-
-
-            var sites = Enumerable.Range(1, 4).Select(i => new Site
-            {
-                Id = i,
-                Number = $"10.{i}",
-                Name = $"Site_{i}",
-                CreateDate = DateTime.UtcNow,
-                EditDate = DateTime.UtcNow,
-                CreateUser = AVM.Users.ElementAt(i),
-                EditUser = AVM.Users.ElementAt(i),
-                RegisterMagazines = new ObservableCollection<RegisterMagazine>(registerMagazines)
-            });
-            // создаем коллекцию на базе списка
-            Sites = new ObservableCollection<Site>(sites);
+            DataContext _dataContext = new DataContext();
+            // все справочники будем получать из соответствующих моделей
+            Users = new ObservableCollection<User>(_dataContext.Users);
+            Sites = new ObservableCollection<Site>(_dataContext.Sites);
 
             #endregion
 
