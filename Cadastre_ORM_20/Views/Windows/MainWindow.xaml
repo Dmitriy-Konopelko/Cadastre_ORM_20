@@ -39,8 +39,8 @@
             <TabItem Header="Авторизация" Style="{DynamicResource TabItemVertical}">
                 <Frame
                     Name="Autorization"
-                    NavigationUIVisibility="Hidden"
-                    Source="../Pages/Autorization.xaml" />
+                    Source="../Pages/Autorization.xaml"
+                    Style="{StaticResource BaseFrame}" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
@@ -48,8 +48,8 @@
                 Style="{StaticResource TabItemVertical}">
                 <Frame
                     Name="Setting"
-                    NavigationUIVisibility="Hidden"
-                    Source="../Pages/Setting.xaml" />
+                    Source="../Pages/Setting/Setting.xaml"
+                    Style="{StaticResource BaseFrame}" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
@@ -57,8 +57,8 @@
                 Style="{StaticResource TabItemVertical}">
                 <Frame
                     Name="FieldWork"
-                    NavigationUIVisibility="Hidden"
-                    Source="../Pages/FieldWork.xaml" />
+                    Source="../Pages/FieldWork.xaml"
+                    Style="{StaticResource BaseFrame}" />
             </TabItem>
             <TabItem
                 FontSize="{StaticResource BigFontSize}"
@@ -66,10 +66,9 @@
                 Style="{StaticResource TabItemVertical}">
                 <Frame
                     Name="CameralWork"
-                    NavigationUIVisibility="Hidden"
-                    Source="../Pages/CameralWork_TablesCreate.xaml" />
+                    Source="../Pages/CameralWork_TablesCreate.xaml"
+                    Style="{StaticResource BaseFrame}" />
             </TabItem>
         </TabControl>
     </DockPanel>
-
 </Window>

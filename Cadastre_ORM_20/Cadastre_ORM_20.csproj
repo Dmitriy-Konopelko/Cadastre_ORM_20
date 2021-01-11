@@ -95,55 +95,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting.xaml">
+    <Page Include="Views\Pages\Setting\Setting.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_BaseValue.xaml">
+    <Page Include="Views\Pages\Setting\Setting_BaseValue.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_Characteristic.xaml">
+    <Page Include="Views\Pages\Setting\Setting_Characteristic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_CompensatoryLandings.xaml">
+    <Page Include="Views\Pages\Setting\Setting_CompensatoryLandings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_ComSize.xaml">
+    <Page Include="Views\Pages\Setting\Setting_ComSize.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_General.xaml">
+    <Page Include="Views\Pages\Setting\Setting_General.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_GrowthRate.xaml">
+    <Page Include="Views\Pages\Setting\Setting_GrowthRate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_Kind.xaml">
+    <Page Include="Views\Pages\Setting\Setting_Kind.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_Proposal.xaml">
+    <Page Include="Views\Pages\Setting\Setting_Proposal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_Site.xaml">
+    <Page Include="Views\Pages\Setting\Setting_Site.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_Species.xaml">
+    <Page Include="Views\Pages\Setting\Setting_Species.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_User.xaml">
+    <Page Include="Views\Pages\Setting\Setting_User.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pages\Setting_Сause.xaml">
+    <Page Include="Views\Pages\Setting\Setting_Сause.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -158,6 +158,10 @@
     <Page Include="Views\Style\ComponentElement\DockPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Style\ComponentElement\Frame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Style\ComponentElement\Grid.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -275,43 +279,43 @@
     <Compile Include="Views\Pages\Property_ORM.xaml.cs">
       <DependentUpon>Property_ORM.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_BaseValue.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_BaseValue.xaml.cs">
       <DependentUpon>Setting_BaseValue.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_Characteristic.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_Characteristic.xaml.cs">
       <DependentUpon>Setting_Characteristic.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_CompensatoryLandings.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_CompensatoryLandings.xaml.cs">
       <DependentUpon>Setting_CompensatoryLandings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_ComSize.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_ComSize.xaml.cs">
       <DependentUpon>Setting_ComSize.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_General.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_General.xaml.cs">
       <DependentUpon>Setting_General.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_GrowthRate.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_GrowthRate.xaml.cs">
       <DependentUpon>Setting_GrowthRate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_Kind.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_Kind.xaml.cs">
       <DependentUpon>Setting_Kind.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_Proposal.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_Proposal.xaml.cs">
       <DependentUpon>Setting_Proposal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_Site.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_Site.xaml.cs">
       <DependentUpon>Setting_Site.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_Species.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_Species.xaml.cs">
       <DependentUpon>Setting_Species.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_User.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_User.xaml.cs">
       <DependentUpon>Setting_User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Setting_Сause.xaml.cs">
+    <Compile Include="Views\Pages\Setting\Setting_Сause.xaml.cs">
       <DependentUpon>Setting_Сause.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
@@ -375,11 +379,4 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Fody.6.3.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.3.0\build\Fody.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Fody.6.3.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.3.0\build\Fody.targets'))" />
-  </Target>
 </Project>

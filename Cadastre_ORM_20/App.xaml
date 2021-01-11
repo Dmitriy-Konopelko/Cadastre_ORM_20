@@ -11,7 +11,6 @@
                 <ResourceDictionary Source="Views/Style/Color/ColorBrush.xaml" />
                 <!--  Элементы компановки  -->
                 <ResourceDictionary Source="Views/Style/ComponentElement/DataGrid.xaml" />
-
                 <ResourceDictionary Source="Views/Style/ComponentElement/DockPanel.xaml" />
                 <ResourceDictionary Source="Views/Style/ComponentElement/Grid.xaml" />
                 <ResourceDictionary Source="Views/Style/ComponentElement/GroupBox.xaml" />
@@ -21,6 +20,7 @@
                 <ResourceDictionary Source="Views/Style/ComponentElement/TabControl.xaml" />
                 <ResourceDictionary Source="Views/Style/ComponentElement/TabItem.xaml" />
                 <ResourceDictionary Source="Views/Style/ComponentElement/Windows.xaml" />
+                <ResourceDictionary Source="Views/Style/ComponentElement/Frame.xaml" />
                 <!--  Элементы управления  -->
                 <ResourceDictionary Source="Views/Style/ControlElement/Button.xaml" />
                 <ResourceDictionary Source="Views/Style/ControlElement/CheckBox.xaml" />
