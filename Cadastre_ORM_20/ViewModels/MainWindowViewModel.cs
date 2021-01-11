@@ -43,13 +43,12 @@ namespace Cadastre_ORM_20.ViewModels
         #region Команды
 
         #region CloseApplicationCommand
+        // Создание параметров для команды закрытия приложения
         public ICommand CloseApplicationCommand { get; }
-
         private void OnCloseApplicationCommandExecuted(object p)
         {
             Application.Current.Shutdown();
         }
-
         private bool CanCloseApplicationCommandExecute(object p) => true;
         #endregion
 
@@ -116,7 +115,12 @@ namespace Cadastre_ORM_20.ViewModels
             // создаем коллекцию на базе списка
             Sites = new ObservableCollection<Site>(sites);
 
-            
+            #endregion
+
+            #region Команды
+            // Создание команды закрытия приложения
+            CloseApplicationCommand =
+                new LamdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
 
             #endregion
         }
@@ -126,5 +130,7 @@ namespace Cadastre_ORM_20.ViewModels
 
 
         #endregion
+
+
     }
 }
