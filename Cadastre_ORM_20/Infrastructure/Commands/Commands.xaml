@@ -4,4 +4,5 @@
     xmlns:local="clr-namespace:Cadastre_ORM_20.Infrastructure.Commands">
     <local:CloseApplicationCommand x:Key="CloseApplicationCommand" />
     <local:RegistrationUserCommand x:Key="RegistrationUserCommand" />
+    <local:AutorizationUserCommand x:Key="AutorizationUserCommand" />
 </ResourceDictionary>

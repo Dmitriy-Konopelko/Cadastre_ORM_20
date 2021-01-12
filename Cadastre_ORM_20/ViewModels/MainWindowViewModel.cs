@@ -11,6 +11,7 @@ using Cadastre_ORM_20.Data;
 using Cadastre_ORM_20.Infrastructure.Commands;
 using Cadastre_ORM_20.ViewModels.Base;
 using Cadastre_ORM_20.ViewModels.Pages;
+using Cadastre_ORM_20.Views.Windows;
 using ClassLibrary;
 
 namespace Cadastre_ORM_20.ViewModels
@@ -30,7 +31,16 @@ namespace Cadastre_ORM_20.ViewModels
         }
         #endregion
 
-       
+        #region Переменные для ViewModels
+
+        public AutorizationViewModel autorizationViewModel { get; set; }
+        // создаем коллекции объектов
+        public ObservableCollection<User> Users { get; set; }
+        public ObservableCollection<Site> Sites { get; set; }
+        public ObservableCollection<RegisterMagazine> RegisterMagazines { get; set; }
+
+        #endregion
+
         #region Команды
 
         #region CloseApplicationCommand
@@ -46,20 +56,49 @@ namespace Cadastre_ORM_20.ViewModels
 
         #endregion
 
-        // создаем коллекции объектов
-        public ObservableCollection<User> Users { get; set; }
-        public ObservableCollection<Site> Sites { get; set; }
-        public ObservableCollection<RegisterMagazine> RegisterMagazines { get; set; }
 
-        private Site _SelectedSite;
+        #region Блок свойств
+
+        private string _newUserName;
+        public string NewUserName
+        {
+            get => _newUserName;
+
+            set => Set(ref _newUserName, value);
+
+        }
+
+        private string _newPassword_1;
+        public string NewPassword_1
+        {
+            get => _newPassword_1;
+            set => Set(ref _newPassword_1, value);
+        }
+
+        private string _newPassword_2;
+        public string NewPassword_2
+        {
+            get => _newPassword_2;
+            set => Set(ref _newPassword_2, value);
+        } 
+        #endregion
+
         #region Выбор объектов
-
+        private Site _selectedSite;
+        private User _selectedUserItem;
         #region Site
         public Site SelectedSite
         {
-            get => _SelectedSite;
-            set => Set(ref _SelectedSite, value);
+            get => _selectedSite;
+            set => Set(ref _selectedSite, value);
         }
+
+        public User SelectedUserItem
+        {
+            get => _selectedUserItem;
+            set => Set(ref _selectedUserItem, value);
+        }
+
         #endregion
 
         #endregion
@@ -67,11 +106,19 @@ namespace Cadastre_ORM_20.ViewModels
        
         public MainWindowViewModel()
         {
-            #region Инициализация заполнения справочников
-            DataContext _dataContext = new DataContext();
+            #region Инициализация переменных и заполнения справочников
+            
+            var dataContext = new DataContext();
+
             // все справочники будем получать из соответствующих моделей
-            Users = new ObservableCollection<User>(_dataContext.Users);
-            Sites = new ObservableCollection<Site>(_dataContext.Sites);
+            Users = new ObservableCollection<User>(dataContext.Users);
+            Sites = new ObservableCollection<Site>(dataContext.Sites);
+
+            autorizationViewModel = new AutorizationViewModel(this);
+
+            NewUserName = "Vadim";
+            NewPassword_1 = "***";
+            NewPassword_2 = "****";
 
             #endregion
 

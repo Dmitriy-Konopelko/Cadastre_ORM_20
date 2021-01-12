@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace Cadastre_ORM_20.Data
 {
-    class DataContext
+    public class DataContext
     {
         public ObservableCollection<User> Users { get; set; }
         public ObservableCollection<Site> Sites { get; set; }
-        public ObservableCollection<RegisterMagazine> RegisterMagazines { get; set; }
 
         public DataContext()
         {

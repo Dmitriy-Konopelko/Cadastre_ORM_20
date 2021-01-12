@@ -264,6 +264,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Infrastructure\Commands\AutorizationUserCommand.cs" />
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\CloseApplicationCommand.cs" />
     <Compile Include="Infrastructure\Commands\LamdaCommand.cs" />
